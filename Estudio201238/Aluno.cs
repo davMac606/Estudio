@@ -28,7 +28,7 @@ namespace Estudio201238
             int soma, resto, cont = 0;a
             soma = 0;
         }*/
-        public string cPF { get => cPF; 
+        public string CPF { get => _cPF; 
             set 
             { 
                 _cPF = value; 
@@ -101,7 +101,7 @@ namespace Estudio201238
             } 
         }
 
-        public Aluno(string cPF, string nome, string rua, string numero, string bairro, string complemento, string cep, string cidade, string estado, string telefone, string email, bool ativo)
+        public Aluno(string cPF, string nome, string rua, string numero, string bairro, string complemento, string cep, string cidade, string estado, string telefone, string email)
         {
             DAO_Conexao.getConexao("143.106.241.3", "cl201238", "cl201238", "cl*14032006");
 
@@ -115,7 +115,7 @@ namespace Estudio201238
             try
             {
                 DAO_Conexao.con.Open();
-                MySqlCommand insere = new MySqlCommand("insert into Estudio_Aluno (CPFAluno, nomeAluno, ruaAluno, numeroAluno, bairroAluno, complementoAluno, CEPAluno, cidadeAluno, estadoAluno, telefoneAluno, emailAluno) values ('" + cPF + "','" + Nome + "'," + Rua + "','" + Numero + "','" + Bairro + "','" + Complemento + "','" + _cEP + "','" + Cidade + "','" + Estado + "','" + Telefone + "','" + Email + ")", DAO_Conexao.con);
+                MySqlCommand insere = new MySqlCommand("insert into Estudio_Aluno (CPFAluno, nomeAluno, ruaAluno, numeroAluno, bairroAluno, complementoAluno, CEPAluno, cidadeAluno, estadoAluno, telefoneAluno, emailAluno) values ('" + CPF + "','" + Nome + "'," + Rua + "','" + Numero + "','" + Bairro + "','" + Complemento + "','" +  CEP + "','" + Cidade + "','" + Estado + "','" + Telefone + "','" + Email + ")", DAO_Conexao.con);
                 insere.ExecuteNonQuery();
             } catch (Exception ex)
             {

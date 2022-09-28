@@ -152,6 +152,7 @@ namespace Estudio201238
             this.btnCadastroAluno.TabIndex = 18;
             this.btnCadastroAluno.Text = "Cadastrar";
             this.btnCadastroAluno.UseVisualStyleBackColor = true;
+            this.btnCadastroAluno.Click += new System.EventHandler(this.btnCadastroAluno_Click);
             // 
             // btnFoto
             // 

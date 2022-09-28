@@ -32,7 +32,7 @@ namespace Estudio201238
             Boolean retorno = false;
             try
             {
-                con = new MySqlConnection("USER ID=" + user + ";password=" + senha);
+                con = new MySqlConnection("User ID=" + user + ";password=" + senha);
                 retorno = true;
             } catch (Exception e)
             {
