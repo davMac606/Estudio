@@ -33,7 +33,7 @@ namespace Estudio201238
             try
             {
                 con.Open();
-                MySqlCommand login = new MySqlCommand("Select * from CSDAO where usuario = '" + user + '",'" + ");
+                MySqlCommand login = new MySqlCommand("Select * from CSDAO where usuario = '" + user + "' and senha = '" + senha + "'", con);
                 MySqlDataReader resultado = login.ExecuteReader();
                 if (resultado.Read())
                 {
