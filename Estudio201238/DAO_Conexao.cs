@@ -10,7 +10,7 @@ namespace Estudio201238
     class DAO_Conexao
     {
 
-        private static MySqlConnection con;
+        public static MySqlConnection con;
 
         public static Boolean getConexao(String local, String banco, String user, String senha)
         {
@@ -21,6 +21,20 @@ namespace Estudio201238
                 retorno = true;
             }
             catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            return retorno;
+        }
+
+        public static Boolean logar(string user, string senha)
+        {
+            Boolean retorno = false;
+            try
+            {
+                con = new MySqlConnection("USER ID=" + user + ";password=" + senha);
+                retorno = true;
+            } catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }
@@ -48,5 +62,6 @@ namespace Estudio201238
             }
             return cad;
         }
+
     }
 }

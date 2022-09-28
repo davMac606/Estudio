@@ -18,7 +18,7 @@ namespace Estudio201238
 
             if (DAO_Conexao.getConexao("143.106.241.3", "cl201238", "cl201238", "cl*14032006"))
             {
-
+                MessageBox.Show("Conectado ao banco de dados.", "Alerta do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 Console.WriteLine("Conectado.");
             }
             else
@@ -59,7 +59,17 @@ namespace Estudio201238
 
         private void btnLogar_Click(object sender, EventArgs e)
         {
-         
+            int tipo = DAO_Conexao.logar(txtLogin.Text.Trim(), txtSenha.Text.Trim());
+            if (tipo ==0)
+            {
+                MessageBox.Show("Usuário/Senha inválida.", "Alerta do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            } else if (tipo == 1)
+            {
+                MessageBox.Show("Usuário ADM");
+                grpBoxEstudio.Visible = false;
+                menuStrip1.Enabled = true;
+            }
+
         }
 
         private void button1_Click(object sender, EventArgs e)
