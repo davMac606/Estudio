@@ -27,18 +27,26 @@ namespace Estudio201238
             return retorno;
         }
 
-        public static Boolean logar(string user, string senha)
+        public static int logar(string user, string senha)
         {
-            Boolean retorno = false;
+            int tipo = 0;
             try
             {
-                con = new MySqlConnection("User ID=" + user + ";password=" + senha);
-                retorno = true;
+                con.Open();
+                MySqlCommand login = new MySqlCommand("Select * from CSDAO where usuario = '" + user + '",'" + ");
+                MySqlDataReader resultado = login.ExecuteReader();
+                if (resultado.Read())
+                {
+                    tipo = Convert.ToInt32(resultado["tipo"].ToString());
+                }
             } catch (Exception e)
             {
                 Console.WriteLine(e.Message);
+            } finally
+            {
+                con.Close();
             }
-            return retorno;
+            return tipo;
         }
 
         public static Boolean CadLogin(string usuario, string senha, int tipo)
