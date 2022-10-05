@@ -101,12 +101,20 @@ namespace Estudio201238
             } 
         }
 
-        public Aluno(string cPF, string nome, string rua, string numero, string bairro, string complemento, string cep, string cidade, string estado, string telefone, string email)
+        public Aluno(string cPF, string nome, string rua, string numero, string bairro, string complemento, string cEP, string cidade, string estado, string telefone, string email)
         {
-            DAO_Conexao.getConexao("143.106.241.3", "cl201238", "cl201238", "cl*14032006");
-
-            
-
+            CPF = cPF;
+            Nome = nome;
+            Rua = rua;
+            Numero = numero;
+            Bairro = bairro;
+            Complemento = complemento;
+            CEP = cEP;
+            Cidade = cidade;
+            Estado = estado;
+            Telefone = telefone;
+            Email = email;
+            Ativo = true;
         }
 
         public bool cadastrarAluno()
@@ -115,8 +123,11 @@ namespace Estudio201238
             try
             {
                 DAO_Conexao.con.Open();
-                MySqlCommand insere = new MySqlCommand("insert into Estudio_Aluno (CPFAluno, nomeAluno, ruaAluno, numeroAluno, bairroAluno, complementoAluno, CEPAluno, cidadeAluno, estadoAluno, telefoneAluno, emailAluno) values ('" + CPF + "','" + Nome + "'," + Rua + "','" + Numero + "','" + Bairro + "','" + Complemento + "','" +  CEP + "','" + Cidade + "','" + Estado + "','" + Telefone + "','" + Email + ")", DAO_Conexao.con);
+                MySqlCommand insere = new MySqlCommand("insert into Estudio_Aluno (CPFAluno, nomeAluno, ruaAluno, numeroAluno, bairroAluno, complementoAluno, CEPAluno, cidadeAluno, estadoAluno, telefoneAluno, emailAluno) values ('" + CPF + "','" + Nome + "','" + Rua + "','" + Numero + "','" + Bairro + "','" + Complemento + "','" +  CEP + "','" + Cidade + "','" + Estado + "','" + Telefone + "','" + Email + "')", DAO_Conexao.con);
+
+                Console.WriteLine("insert into Estudio_Aluno (CPFAluno, nomeAluno, ruaAluno, numeroAluno, bairroAluno, complementoAluno, CEPAluno, cidadeAluno, estadoAluno, telefoneAluno, emailAluno) values ('" + CPF + "','" + Nome + "','" + Rua + "','" + Numero + "','" + Bairro + "','" + Complemento + "','" + CEP + "','" + Cidade + "','" + Estado + "','" + Telefone + "','" + Email + "')");
                 insere.ExecuteNonQuery();
+                cad = true;
             } catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());

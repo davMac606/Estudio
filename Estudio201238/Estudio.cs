@@ -59,13 +59,13 @@ namespace Estudio201238
 
         private void btnLogar_Click(object sender, EventArgs e)
         {
-            int tipo = DAO_Conexao.logar(txtLogin.Text.Trim(), txtSenha.Text.Trim());
+            int tipo = DAO_Conexao.login(txtLogin.Text.Trim(), txtSenha.Text.Trim());
             if (tipo ==0)
             {
                 MessageBox.Show("Usuário/Senha inválida.", "Alerta do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             } else if (tipo == 1)
             {
-                MessageBox.Show("Usuário ADM");
+                MessageBox.Show("Usuário ADM", "Alerta do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 grpBoxEstudio.Visible = false;
                 menuStrip1.Enabled = true;
             }
