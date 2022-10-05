@@ -37,6 +37,8 @@ namespace Estudio201238
             cadAluno cd1 = new cadAluno();
             cd1.MdiParent = this;
             cd1.Show();
+            grpBoxEstudio.Visible = false;
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void toolStripComboBox1_Click(object sender, EventArgs e)
@@ -50,6 +52,8 @@ namespace Estudio201238
             cdu_login.MdiParent = this;
             cdu_login.Show();
             grpBoxEstudio.Visible = false;
+            this.WindowState = FormWindowState.Maximized;
+
         }
 
         private void sairToolStripMenuItem_Click(object sender, EventArgs e)
@@ -65,7 +69,7 @@ namespace Estudio201238
                 MessageBox.Show("Usuário/Senha inválida.", "Alerta do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             } else if (tipo == 1)
             {
-                MessageBox.Show("Usuário ADM", "Alerta do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Usuário é um administrador. Bem vindo, admin!", "Alerta do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 grpBoxEstudio.Visible = false;
                 menuStrip1.Enabled = true;
             }
@@ -75,6 +79,11 @@ namespace Estudio201238
         private void button1_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void Estudio_Load(object sender, EventArgs e)
+        {
+            menuStrip1.Enabled = false;
         }
     }
 }

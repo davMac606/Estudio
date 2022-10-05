@@ -153,6 +153,7 @@ namespace Estudio201238
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Estudio";
             this.Text = "Estudio";
+            this.Load += new System.EventHandler(this.Estudio_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.grpBoxEstudio.ResumeLayout(false);
