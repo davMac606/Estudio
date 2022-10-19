@@ -56,12 +56,14 @@ namespace Estudio201238
             this.label1 = new System.Windows.Forms.Label();
             this.mskCPF = new System.Windows.Forms.MaskedTextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.btnExcluir = new System.Windows.Forms.Button();
             this.grpDados.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).BeginInit();
             this.SuspendLayout();
             // 
             // grpDados
             // 
+            this.grpDados.Controls.Add(this.btnExcluir);
             this.grpDados.Controls.Add(this.txtEmail);
             this.grpDados.Controls.Add(this.label11);
             this.grpDados.Controls.Add(this.txtCidade);
@@ -299,6 +301,17 @@ namespace Estudio201238
             this.mskCPF.Name = "mskCPF";
             this.mskCPF.Size = new System.Drawing.Size(100, 20);
             this.mskCPF.TabIndex = 0;
+            this.mskCPF.Leave += new System.EventHandler(this.mskCPF_Leave);
+            // 
+            // btnExcluir
+            // 
+            this.btnExcluir.Location = new System.Drawing.Point(695, 368);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(75, 23);
+            this.btnExcluir.TabIndex = 25;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // cadAluno
             // 
@@ -344,5 +357,6 @@ namespace Estudio201238
         private System.Windows.Forms.TextBox txtCidade;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button btnExcluir;
     }
 }

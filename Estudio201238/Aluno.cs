@@ -9,7 +9,7 @@ namespace Estudio201238
 {
     class Aluno : cadAluno
     {
-        private string _cPF;
+        private string _CPF;
         private string _nome;
         private string _rua;
         private string _numero;
@@ -22,11 +22,12 @@ namespace Estudio201238
         private string _email;
         private byte[] foto;
         public bool ativo;
-        public bool verificaCPF()
+
+        /*public bool verificaCPF()
         {
             int soma, resto, cont = 0;
 
-           soma = 0;
+            soma = 0;
 
             CPF = CPF.Trim();
             CPF = CPF.Replace(".", "");
@@ -61,15 +62,59 @@ namespace Estudio201238
             if (resto != int.Parse(CPF.Substring(10, 1))) return false;
 
             return true;
+        }*/
+
+        public bool consultarAluno()
+        {
+            bool existe = false;
+            try
+            {
+                DAO_Conexao.con.Open();
+                MySqlCommand consulta = new MySqlCommand("SELECT * FROM Estudio_Aluno WHERE CPFAluno ='" + CPF + "'", DAO_Conexao.con);
+                MySqlDataReader result = consulta.ExecuteReader();
+                if (result.Read())
+                {
+                    existe = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            finally
+            {
+                DAO_Conexao.con.Close();
+            }
+            return existe;
+        }
+
+        public bool excluirAluno()
+        {
+            bool exc = false; 
+            try
+            {
+                DAO_Conexao.con.Open();
+                MySqlCommand exclui = new MySqlCommand("UPDATE Estudio_Aluno SET ativo = 1 WHERE CPFALUNO = '" + CPF + "'", DAO_Conexao.con);
+                exclui.ExecuteNonQuery();
+                exc = true;
+            } catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            } finally
+            {
+                DAO_Conexao.con.Close();
+            }
+            return exc;
         }
 
 
 
 
-        public string CPF { get => _cPF; 
+
+        public string CPF { get => _CPF; 
             set 
             { 
-                _cPF = value; 
+                _CPF = value; 
             } 
         }
         public string Nome { get => _nome;
@@ -139,6 +184,7 @@ namespace Estudio201238
             } 
         }
 
+        
         public Aluno(string cPF, string nome, string rua, string numero, string bairro, string complemento, string cEP, string cidade, string estado, string telefone, string email)
         {
             CPF = cPF;
@@ -153,6 +199,11 @@ namespace Estudio201238
             Telefone = telefone;
             Email = email;
             Ativo = true;
+        }
+
+        public Aluno(string cPF)
+        {
+            CPF = cPF;
         }
 
         public bool cadastrarAluno()

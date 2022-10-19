@@ -40,5 +40,23 @@ namespace Estudio201238
                 MessageBox.Show("Por favor, preencha os campos em branco.", "Alerta de Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void mskCPF_Leave(object sender, EventArgs e)
+        {
+            Aluno aluno = new Aluno(mskCPF.Text);
+            if (aluno.consultarAluno())
+            {
+                MessageBox.Show("Aluno já cadastrado!", "Alerta do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            } else
+            {
+                mskCPF.Focus();
+            }
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            frmExclusao FormExcluir = new frmExclusao();
+            FormExcluir.Show();
+        }
     }
 }

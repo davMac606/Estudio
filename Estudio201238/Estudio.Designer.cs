@@ -100,6 +100,7 @@ namespace Estudio201238
             this.txtLogin.Name = "txtLogin";
             this.txtLogin.Size = new System.Drawing.Size(100, 20);
             this.txtLogin.TabIndex = 3;
+            this.txtLogin.Text = "wanna";
             this.txtLogin.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label2
@@ -117,6 +118,7 @@ namespace Estudio201238
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.Size = new System.Drawing.Size(100, 20);
             this.txtSenha.TabIndex = 5;
+            this.txtSenha.Text = "201238";
             // 
             // btnLogar
             // 
