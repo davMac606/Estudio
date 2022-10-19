@@ -21,13 +21,50 @@ namespace Estudio201238
         private string _telefone;
         private string _email;
         private byte[] foto;
-        private bool ativo;
-
-        /*public bool verifica_cPF()
+        public bool ativo;
+        public bool verificaCPF()
         {
-            int soma, resto, cont = 0;a
+            int soma, resto, cont = 0;
             soma = 0;
-        }*/
+
+            CPF = CPF.Trim();
+            CPF = CPF.Replace(".", "");
+            CPF = CPF.Replace("-", "");
+
+            for (int i = 0; i < CPF.Length; i++)
+            {
+                int a = CPF[0] - '0';
+                int b = CPF[i] - '0';
+
+                if (a == b) cont++;
+            }
+
+            if (cont == 11) return false;
+
+            for (int i = 1; i <= 9; i++) soma += int.Parse(CPF.Substring(i - 1, 1)) * (11 - i);
+
+            resto = (soma * 10) % 11;
+
+            if ((resto == 10) || (resto == 11)) resto = 0;
+
+            if (resto != int.Parse(CPF.Substring(9, 1))) return false;
+
+            soma = 0;
+
+            for (int i = 1; i <= 10; i++) soma += int.Parse(CPF.Substring(i - 1, 1)) * (12 - i);
+
+            resto = (soma * 10) % 11;
+
+            if ((resto == 10) || (resto == 11)) resto = 0;
+
+            if (resto != int.Parse(CPF.Substring(10, 1))) return false;
+
+            return true;
+        }
+
+
+
+
         public string CPF { get => _cPF; 
             set 
             { 
