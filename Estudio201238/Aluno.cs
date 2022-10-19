@@ -25,7 +25,8 @@ namespace Estudio201238
         public bool verificaCPF()
         {
             int soma, resto, cont = 0;
-            soma = 0;
+
+           soma = 0;
 
             CPF = CPF.Trim();
             CPF = CPF.Replace(".", "");
