@@ -62,5 +62,12 @@ namespace Estudio201238
         
             
         }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            cadModal cadMo = new cadModal();
+            cadMo.Show();
+            this.Hide();
+        }
     }
 }

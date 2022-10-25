@@ -19,22 +19,27 @@ namespace Estudio201238
 
         private void btnCad_Click(object sender, EventArgs e)
         {
-            if (txtDesc.Text.Equals(""))
+            try
             {
-                MessageBox.Show("Cadastro falhou. Por favor, tente novamente.", "Alerta de Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            Modalidade mod = new Modalidade(txtDesc.Text, float.Parse(txtPreco.Text), int.Parse(txtAlunos.Text), int.Parse(txtAulas.Text));
-
-
-
-            if (mod.cadastrarModalidade())
+                if (txtDesc.Text.Equals(""))
+                {
+                    MessageBox.Show("Cadastro falhou. Por favor, tente novamente.", "Alerta do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                Modalidade mod = new Modalidade(txtDesc.Text, float.Parse(txtPreco.Text), int.Parse(txtAlunos.Text), int.Parse(txtAulas.Text));
+            
+                if (mod.cadastrarModalidade())
             {
-                MessageBox.Show("Cadastro realizado com sucesso!", "Alerta de Sistema", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Cadastro realizado com sucesso!", "Alerta do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
             {
-                MessageBox.Show("Cadastro falhou. Por favor, tente novamente.", "Alerta de Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Cadastro falhou. Por favor, tente novamente.", "Alerta do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Alerta do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
 
         }
 
@@ -42,7 +47,7 @@ namespace Estudio201238
         {
             excModal exc = new excModal();
             exc.Show();
-
+            this.Hide();
 
         }
 

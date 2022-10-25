@@ -33,6 +33,7 @@ namespace Estudio201238
             this.label1 = new System.Windows.Forms.Label();
             this.btnExcModal = new System.Windows.Forms.Button();
             this.cbxDesc = new System.Windows.Forms.ComboBox();
+            this.btnSair = new System.Windows.Forms.Button();
             this.grpExcModal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,11 +80,22 @@ namespace Estudio201238
             this.cbxDesc.TabIndex = 4;
             this.cbxDesc.SelectedIndexChanged += new System.EventHandler(this.cbxDesc_SelectedIndexChanged);
             // 
+            // btnSair
+            // 
+            this.btnSair.Location = new System.Drawing.Point(1093, 19);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(95, 51);
+            this.btnSair.TabIndex = 5;
+            this.btnSair.Text = "Voltar";
+            this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
+            // 
             // excModal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 727);
+            this.Controls.Add(this.btnSair);
             this.Controls.Add(this.grpExcModal);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -102,5 +114,6 @@ namespace Estudio201238
         private System.Windows.Forms.Button btnExcModal;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbxDesc;
+        private System.Windows.Forms.Button btnSair;
     }
 }

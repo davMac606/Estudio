@@ -16,5 +16,12 @@ namespace Estudio201238
         {
             InitializeComponent();
         }
+
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            gerenModal gerMod = new gerenModal();
+            gerMod.Show();
+            this.Hide();
+        }
     }
 }
