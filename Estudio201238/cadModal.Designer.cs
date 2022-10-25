@@ -31,11 +31,13 @@ namespace Estudio201238
         {
             this.grpCadModal = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtDesc = new System.Windows.Forms.TextBox();
             this.grpCadModal.SuspendLayout();
             this.SuspendLayout();
             // 
             // grpCadModal
             // 
+            this.grpCadModal.Controls.Add(this.txtDesc);
             this.grpCadModal.Controls.Add(this.label1);
             this.grpCadModal.Location = new System.Drawing.Point(18, 19);
             this.grpCadModal.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -54,6 +56,13 @@ namespace Estudio201238
             this.label1.Size = new System.Drawing.Size(80, 21);
             this.label1.TabIndex = 0;
             this.label1.Text = "Descricao:";
+            // 
+            // txtDesc
+            // 
+            this.txtDesc.Location = new System.Drawing.Point(93, 27);
+            this.txtDesc.Name = "txtDesc";
+            this.txtDesc.Size = new System.Drawing.Size(460, 29);
+            this.txtDesc.TabIndex = 1;
             // 
             // cadModal
             // 
@@ -75,5 +84,6 @@ namespace Estudio201238
 
         private System.Windows.Forms.GroupBox grpCadModal;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtDesc;
     }
 }
