@@ -32,18 +32,36 @@ namespace Estudio201238
             this.grpCadModal = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtDesc = new System.Windows.Forms.TextBox();
+            this.txtPreco = new System.Windows.Forms.TextBox();
+            this.txtAlunos = new System.Windows.Forms.TextBox();
+            this.txtAulas = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnCad = new System.Windows.Forms.Button();
+            this.btnExcluir = new System.Windows.Forms.Button();
+            this.btnSair = new System.Windows.Forms.Button();
             this.grpCadModal.SuspendLayout();
             this.SuspendLayout();
             // 
             // grpCadModal
             // 
+            this.grpCadModal.Controls.Add(this.btnSair);
+            this.grpCadModal.Controls.Add(this.btnExcluir);
+            this.grpCadModal.Controls.Add(this.btnCad);
+            this.grpCadModal.Controls.Add(this.label4);
+            this.grpCadModal.Controls.Add(this.label3);
+            this.grpCadModal.Controls.Add(this.label2);
+            this.grpCadModal.Controls.Add(this.txtAulas);
+            this.grpCadModal.Controls.Add(this.txtAlunos);
+            this.grpCadModal.Controls.Add(this.txtPreco);
             this.grpCadModal.Controls.Add(this.txtDesc);
             this.grpCadModal.Controls.Add(this.label1);
             this.grpCadModal.Location = new System.Drawing.Point(18, 19);
             this.grpCadModal.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.grpCadModal.Name = "grpCadModal";
             this.grpCadModal.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.grpCadModal.Size = new System.Drawing.Size(560, 481);
+            this.grpCadModal.Size = new System.Drawing.Size(614, 481);
             this.grpCadModal.TabIndex = 0;
             this.grpCadModal.TabStop = false;
             this.grpCadModal.Text = "Modalidades";
@@ -51,18 +69,96 @@ namespace Estudio201238
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 27);
+            this.label1.Location = new System.Drawing.Point(42, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(80, 21);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Descricao:";
+            this.label1.Text = "Descrição:";
             // 
             // txtDesc
             // 
-            this.txtDesc.Location = new System.Drawing.Point(93, 27);
+            this.txtDesc.Location = new System.Drawing.Point(128, 27);
             this.txtDesc.Name = "txtDesc";
             this.txtDesc.Size = new System.Drawing.Size(460, 29);
             this.txtDesc.TabIndex = 1;
+            // 
+            // txtPreco
+            // 
+            this.txtPreco.Location = new System.Drawing.Point(128, 62);
+            this.txtPreco.Name = "txtPreco";
+            this.txtPreco.Size = new System.Drawing.Size(460, 29);
+            this.txtPreco.TabIndex = 2;
+            // 
+            // txtAlunos
+            // 
+            this.txtAlunos.Location = new System.Drawing.Point(128, 97);
+            this.txtAlunos.Name = "txtAlunos";
+            this.txtAlunos.Size = new System.Drawing.Size(460, 29);
+            this.txtAlunos.TabIndex = 3;
+            // 
+            // txtAulas
+            // 
+            this.txtAulas.Location = new System.Drawing.Point(128, 132);
+            this.txtAulas.Name = "txtAulas";
+            this.txtAulas.Size = new System.Drawing.Size(460, 29);
+            this.txtAulas.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(70, 65);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(52, 21);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Preço:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(7, 100);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(115, 21);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Qtd. de Alunos:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(17, 135);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(105, 21);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Qtd. de Aulas:";
+            // 
+            // btnCad
+            // 
+            this.btnCad.Location = new System.Drawing.Point(11, 180);
+            this.btnCad.Name = "btnCad";
+            this.btnCad.Size = new System.Drawing.Size(596, 43);
+            this.btnCad.TabIndex = 1;
+            this.btnCad.Text = "Cadastrar ";
+            this.btnCad.UseVisualStyleBackColor = true;
+            this.btnCad.Click += new System.EventHandler(this.btnCad_Click);
+            // 
+            // btnExcluir
+            // 
+            this.btnExcluir.Location = new System.Drawing.Point(11, 252);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(596, 43);
+            this.btnExcluir.TabIndex = 8;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
+            // 
+            // btnSair
+            // 
+            this.btnSair.Location = new System.Drawing.Point(492, 425);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(115, 48);
+            this.btnSair.TabIndex = 9;
+            this.btnSair.Text = "Sair";
+            this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // cadModal
             // 
@@ -71,6 +167,7 @@ namespace Estudio201238
             this.ClientSize = new System.Drawing.Size(1200, 727);
             this.Controls.Add(this.grpCadModal);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.IsMdiContainer = true;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "cadModal";
             this.Text = "Cadastro de Modalidades";
@@ -85,5 +182,14 @@ namespace Estudio201238
         private System.Windows.Forms.GroupBox grpCadModal;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtDesc;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtAulas;
+        private System.Windows.Forms.TextBox txtAlunos;
+        private System.Windows.Forms.TextBox txtPreco;
+        private System.Windows.Forms.Button btnCad;
+        private System.Windows.Forms.Button btnExcluir;
+        private System.Windows.Forms.Button btnSair;
     }
 }

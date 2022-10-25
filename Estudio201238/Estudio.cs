@@ -85,5 +85,11 @@ namespace Estudio201238
         {
             menuStrip1.Enabled = false;
         }
+
+        private void modalidadesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            gerenModal gerMod = new gerenModal();
+            gerMod.Show();
+        }
     }
 }

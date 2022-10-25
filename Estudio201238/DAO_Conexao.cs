@@ -1,9 +1,11 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Estudio201238
 {
@@ -76,5 +78,31 @@ namespace Estudio201238
             return cad;
         }
 
+        public static Boolean AddItemCbxDesc()
+        {
+            bool add = false;
+            try
+            {
+                DAO_Conexao.con.Open();
+                string sql = "SELECT descModal from ModalCS";
+                MySqlCommand adiciona = new MySqlCommand(sql, DAO_Conexao.con);
+                MySqlDataAdapter da = new MySqlDataAdapter(sql, DAO_Conexao.con);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                adiciona.ExecuteNonQuery();
+                DAO_Conexao.con.Close();
+                add = true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                MessageBox.Show(ex.ToString(), "Alerta do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                DAO_Conexao.con.Close();
+            }
+            return add;
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -88,9 +89,9 @@ namespace Estudio201238
             try
             {
                 DAO_Conexao.con.Open();
-                MySqlCommand insere = new MySqlCommand("insert into MODALCS (idModal, descModal, precoModal, qtdAlModal, qtdAuModal) values ('" + Id_Modal + "','" + Desc + "','" + Preco + "','" + Qtd_Alunos + "','" + Qtd_Aulas + "')", DAO_Conexao.con);
+                MySqlCommand insere = new MySqlCommand("insert into ModalCS (idModal, descModal, precoModal, qtdAlModal, qtdAuModal) values ('" + Id_Modal + "','" + Desc + "','" + Preco + "','" + Qtd_Alunos + "','" + Qtd_Aulas + "')", DAO_Conexao.con);
 
-                Console.WriteLine("insert into MODALCS (idModal, descModal, precoModal, qtdAlModal, qtdAuModal) values ('" + Id_Modal + "','" + Desc + "','" + Preco + "','" + Qtd_Alunos + "','" + Qtd_Aulas + "')");
+                Console.WriteLine("insert into ModalCS (idModal, descModal, precoModal, qtdAlModal, qtdAuModal) values ('" + Id_Modal + "','" + Desc + "','" + Preco + "','" + Qtd_Alunos + "','" + Qtd_Aulas + "')");
                 insere.ExecuteNonQuery();
                 cad = true;
             }
@@ -126,6 +127,8 @@ namespace Estudio201238
             {
                 DAO_Conexao.con.Close();
             }
+
+      
 
             return existe;
         }

@@ -20,7 +20,6 @@ namespace Estudio201238
         private void btnCadModal_Click(object sender, EventArgs e)
         {
             cadModal cdMod = new cadModal();
-            cdMod.MdiParent = this;
             cdMod.Show();
 
         }
