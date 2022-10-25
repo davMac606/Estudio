@@ -30,6 +30,7 @@ namespace Estudio201238
         private void InitializeComponent()
         {
             this.grpDados = new System.Windows.Forms.GroupBox();
+            this.btnExcluir = new System.Windows.Forms.Button();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txtCidade = new System.Windows.Forms.TextBox();
@@ -56,7 +57,6 @@ namespace Estudio201238
             this.label1 = new System.Windows.Forms.Label();
             this.mskCPF = new System.Windows.Forms.MaskedTextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.btnExcluir = new System.Windows.Forms.Button();
             this.grpDados.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).BeginInit();
             this.SuspendLayout();
@@ -95,6 +95,17 @@ namespace Estudio201238
             this.grpDados.TabIndex = 0;
             this.grpDados.TabStop = false;
             this.grpDados.Text = "Dados Cadastrais";
+            this.grpDados.Enter += new System.EventHandler(this.grpDados_Enter);
+            // 
+            // btnExcluir
+            // 
+            this.btnExcluir.Location = new System.Drawing.Point(695, 368);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(75, 23);
+            this.btnExcluir.TabIndex = 25;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // txtEmail
             // 
@@ -302,16 +313,6 @@ namespace Estudio201238
             this.mskCPF.Size = new System.Drawing.Size(100, 20);
             this.mskCPF.TabIndex = 0;
             this.mskCPF.Leave += new System.EventHandler(this.mskCPF_Leave);
-            // 
-            // btnExcluir
-            // 
-            this.btnExcluir.Location = new System.Drawing.Point(695, 368);
-            this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(75, 23);
-            this.btnExcluir.TabIndex = 25;
-            this.btnExcluir.Text = "Excluir";
-            this.btnExcluir.UseVisualStyleBackColor = true;
-            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // cadAluno
             // 

@@ -58,11 +58,23 @@
     <Compile Include="cadAluno.Designer.cs">
       <DependentUpon>cadAluno.cs</DependentUpon>
     </Compile>
+    <Compile Include="cadModal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cadModal.Designer.cs">
+      <DependentUpon>cadModal.cs</DependentUpon>
+    </Compile>
     <Compile Include="cadUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="cadUsuario.Designer.cs">
       <DependentUpon>cadUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="consModal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="consModal.Designer.cs">
+      <DependentUpon>consModal.cs</DependentUpon>
     </Compile>
     <Compile Include="DAO_Conexao.cs" />
     <Compile Include="Estudio.cs">
@@ -71,17 +83,32 @@
     <Compile Include="Estudio.Designer.cs">
       <DependentUpon>Estudio.cs</DependentUpon>
     </Compile>
+    <Compile Include="excModal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="excModal.Designer.cs">
+      <DependentUpon>excModal.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmExclusao.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmExclusao.Designer.cs">
       <DependentUpon>frmExclusao.cs</DependentUpon>
     </Compile>
+    <Compile Include="gerenModal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gerenModal.Designer.cs">
+      <DependentUpon>gerenModal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modalidade.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="cadAluno.resx">
       <DependentUpon>cadAluno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cadModal.resx">
+      <DependentUpon>cadModal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="cadUsuario.resx">
       <DependentUpon>cadUsuario.cs</DependentUpon>
@@ -91,6 +118,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmExclusao.resx">
       <DependentUpon>frmExclusao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gerenModal.resx">
+      <DependentUpon>gerenModal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

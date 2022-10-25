@@ -58,5 +58,10 @@ namespace Estudio201238
             frmExclusao FormExcluir = new frmExclusao();
             FormExcluir.Show();
         }
+
+        private void grpDados_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

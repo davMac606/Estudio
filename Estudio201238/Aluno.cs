@@ -23,7 +23,7 @@ namespace Estudio201238
         private byte[] foto;
         public bool ativo;
 
-        /*public bool verificaCPF()
+        public bool verificaCPF()
         {
             int soma, resto, cont = 0;
 
@@ -62,7 +62,7 @@ namespace Estudio201238
             if (resto != int.Parse(CPF.Substring(10, 1))) return false;
 
             return true;
-        }*/
+        }
 
         public bool consultarAluno()
         {
