@@ -23,5 +23,19 @@ namespace Estudio201238
             cdMod.Show();
 
         }
+
+        private void btnConsModal_Click(object sender, EventArgs e)
+        {
+            consModal conMod = new consModal();
+            this.Hide();
+            conMod.Show();
+        }
+
+        private void btnExcModal_Click(object sender, EventArgs e)
+        {
+            excModal exc = new excModal();
+            this.Hide();
+            exc.Show();
+        }
     }
 }

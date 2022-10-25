@@ -53,6 +53,7 @@ namespace Estudio201238
             this.btnConsModal.TabIndex = 2;
             this.btnConsModal.Text = "Consultar Modalidade";
             this.btnConsModal.UseVisualStyleBackColor = true;
+            this.btnConsModal.Click += new System.EventHandler(this.btnConsModal_Click);
             // 
             // btnExcModal
             // 
@@ -62,6 +63,7 @@ namespace Estudio201238
             this.btnExcModal.TabIndex = 3;
             this.btnExcModal.Text = "Excluir Modalidade";
             this.btnExcModal.UseVisualStyleBackColor = true;
+            this.btnExcModal.Click += new System.EventHandler(this.btnExcModal_Click);
             // 
             // gerenModal
             // 
