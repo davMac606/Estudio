@@ -43,6 +43,7 @@ namespace Estudio201238
                 {
                     tipo = Convert.ToInt32(resultado["tipo"].ToString());
                 }
+
             }
             catch (Exception ex)
             {

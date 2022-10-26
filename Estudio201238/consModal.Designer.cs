@@ -40,11 +40,13 @@ namespace Estudio201238
             this.cbxDesc = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnVoltar = new System.Windows.Forms.Button();
+            this.btnSalvar = new System.Windows.Forms.Button();
             this.grpCons.SuspendLayout();
             this.SuspendLayout();
             // 
             // grpCons
             // 
+            this.grpCons.Controls.Add(this.btnSalvar);
             this.grpCons.Controls.Add(this.btnAtualizar);
             this.grpCons.Controls.Add(this.txtAulas);
             this.grpCons.Controls.Add(this.label4);
@@ -149,6 +151,16 @@ namespace Estudio201238
             this.btnVoltar.UseVisualStyleBackColor = true;
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
+            // btnSalvar
+            // 
+            this.btnSalvar.Location = new System.Drawing.Point(506, 241);
+            this.btnSalvar.Name = "btnSalvar";
+            this.btnSalvar.Size = new System.Drawing.Size(95, 51);
+            this.btnSalvar.TabIndex = 8;
+            this.btnSalvar.Text = "Salvar";
+            this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
+            // 
             // consModal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -180,5 +192,6 @@ namespace Estudio201238
         private System.Windows.Forms.ComboBox cbxDesc;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnAtualizar;
+        private System.Windows.Forms.Button btnSalvar;
     }
 }

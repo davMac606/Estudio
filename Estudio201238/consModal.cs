@@ -59,16 +59,27 @@ namespace Estudio201238
 
         private void updatePreco()
         {
-            DAO_Conexao.con.Open();
-            string sql = "SELECT precoModal from ModalCS where descModal = '" + cbxDesc.SelectedItem + "'";
-            MySqlCommand cmd = new MySqlCommand(sql, DAO_Conexao.con);
-            MySqlDataReader dr = cmd.ExecuteReader();
-            while (dr.Read())
+            try
             {
-                txtPreco.Text = dr[0].ToString();
+                DAO_Conexao.con.Open();
+                string sql = "SELECT precoModal from ModalCS where descModal = '" + cbxDesc.SelectedItem + "'";
+                MySqlCommand cmd = new MySqlCommand(sql, DAO_Conexao.con);
+                MySqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    txtPreco.Text = dr[0].ToString();
+                }
             }
-            DAO_Conexao.con.Close();
-        } 
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                DAO_Conexao.con.Close();
+            }
+        }
+        
         private void updateQtdAl()
         {
             DAO_Conexao.con.Open();
@@ -93,6 +104,37 @@ namespace Estudio201238
                 txtAulas.Text = dr[0].ToString();
             }
             DAO_Conexao.con.Close();
+        }
+
+        public bool cadastrarModalidade()
+        {
+            Modalidade mod = new Modalidade();
+            bool cad = false;
+            try
+            {
+                DAO_Conexao.con.Open();
+                mod.Preco = float.Parse(txtPreco.Text);
+                mod.Qtd_Alunos = int.Parse(txtAlunos.Text);
+                mod.Qtd_Aulas = int.Parse(txtAulas.Text);
+                MySqlCommand updatePrice = new MySqlCommand("UPDATE ModalCS SET precoModal = '" + mod.Preco + "' WHERE ativa = 0", DAO_Conexao.con);
+                MySqlCommand updateQtdAl = new MySqlCommand("UPDATE ModalCS SET qtdAlModal = '" + mod.Qtd_Alunos + "' WHERE ativa = 0", DAO_Conexao.con);
+                MySqlCommand updateQtdAu = new MySqlCommand("UPDATE ModalCS SET qtdAuModal = '" + mod.Qtd_Aulas + "' WHERE ativa = 0", DAO_Conexao.con);
+
+                updatePrice.ExecuteNonQuery();
+                updateQtdAl.ExecuteNonQuery();
+                updateQtdAu.ExecuteNonQuery();
+                
+                cad = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Alerta do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                DAO_Conexao.con.Close();
+            }
+            return cad;
         }
         public consModal()
         {
@@ -122,6 +164,7 @@ namespace Estudio201238
             txtAlunos.Enabled = false;
             txtAulas.Enabled = false;
             txtPreco.Enabled = false;
+            btnSalvar.Visible = false;
         }
 
         private void cbxDesc_SelectedIndexChanged(object sender, EventArgs e)
@@ -139,6 +182,18 @@ namespace Estudio201238
         private void grpCons_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+      if (cadastrarModalidade())
+            {
+                MessageBox.Show("Modalidade atualizada com sucesso!", "Alerta de Sistema", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            } else
+            {
+                MessageBox.Show("Erro: Por favor, tente novamente.", "Alerta de Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
     }
 }

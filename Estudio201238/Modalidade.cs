@@ -84,29 +84,6 @@ namespace Estudio201238
 
         }
 
-        public bool cadastrarModalidade()
-        {
-            bool cad = false;
-            try
-            {
-                DAO_Conexao.con.Open();
-                MySqlCommand insere = new MySqlCommand("insert into ModalCS (idModal, descModal, precoModal, qtdAlModal, qtdAuModal) values ('" + Id_Modal + "','" + Desc + "','" + Preco + "','" + Qtd_Alunos + "','" + Qtd_Aulas + "')", DAO_Conexao.con);
-
-                Console.WriteLine("insert into ModalCS (idModal, descModal, precoModal, qtdAlModal, qtdAuModal) values ('" + Id_Modal + "','" + Desc + "','" + Preco + "','" + Qtd_Alunos + "','" + Qtd_Aulas + "')");
-                insere.ExecuteNonQuery();
-                cad = true;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
-            finally
-            {
-                DAO_Conexao.con.Close();
-            }
-            return cad;
-        }
-
         public bool consultarModal()
         {
             bool existe = false;

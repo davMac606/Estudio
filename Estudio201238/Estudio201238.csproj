@@ -67,6 +67,12 @@
     <Compile Include="Aluno.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="buscaModal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="buscaModal.Designer.cs">
+      <DependentUpon>buscaModal.cs</DependentUpon>
+    </Compile>
     <Compile Include="cadAluno.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +125,9 @@
     <Compile Include="Modalidade.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="buscaModal.resx">
+      <DependentUpon>buscaModal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="cadAluno.resx">
       <DependentUpon>cadAluno.cs</DependentUpon>
     </EmbeddedResource>
