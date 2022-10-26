@@ -37,6 +37,25 @@ namespace Estudio201238
                 DAO_Conexao.con.Close();
             }
         }
+        public void atualizacaoPaia()
+        {
+            bool atu = false;
+            try
+            {
+                DAO_Conexao.con.Open();
+                string sql = "SELECT * from ModalCS";
+                MySqlCommand cmd = new MySqlCommand(sql, DAO_Conexao.con);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                DAO_Conexao.con.Close();
+            }
+        }
 
         private void updatePreco()
         {
