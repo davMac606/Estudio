@@ -30,17 +30,17 @@ namespace Estudio201238
         private void InitializeComponent()
         {
             this.grpCadModal = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtDesc = new System.Windows.Forms.TextBox();
-            this.txtPreco = new System.Windows.Forms.TextBox();
-            this.txtAlunos = new System.Windows.Forms.TextBox();
-            this.txtAulas = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.btnCad = new System.Windows.Forms.Button();
-            this.btnExcluir = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
+            this.btnCad = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtAulas = new System.Windows.Forms.TextBox();
+            this.txtAlunos = new System.Windows.Forms.TextBox();
+            this.txtPreco = new System.Windows.Forms.TextBox();
+            this.txtDesc = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnExcluir = new System.Windows.Forms.Button();
             this.grpCadModal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,69 +66,15 @@ namespace Estudio201238
             this.grpCadModal.TabStop = false;
             this.grpCadModal.Text = "Modalidades";
             // 
-            // label1
+            // btnSair
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(42, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 21);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Descrição:";
-            // 
-            // txtDesc
-            // 
-            this.txtDesc.Location = new System.Drawing.Point(128, 27);
-            this.txtDesc.Name = "txtDesc";
-            this.txtDesc.Size = new System.Drawing.Size(460, 29);
-            this.txtDesc.TabIndex = 1;
-            // 
-            // txtPreco
-            // 
-            this.txtPreco.Location = new System.Drawing.Point(128, 62);
-            this.txtPreco.Name = "txtPreco";
-            this.txtPreco.Size = new System.Drawing.Size(460, 29);
-            this.txtPreco.TabIndex = 2;
-            // 
-            // txtAlunos
-            // 
-            this.txtAlunos.Location = new System.Drawing.Point(128, 97);
-            this.txtAlunos.Name = "txtAlunos";
-            this.txtAlunos.Size = new System.Drawing.Size(460, 29);
-            this.txtAlunos.TabIndex = 3;
-            // 
-            // txtAulas
-            // 
-            this.txtAulas.Location = new System.Drawing.Point(128, 132);
-            this.txtAulas.Name = "txtAulas";
-            this.txtAulas.Size = new System.Drawing.Size(460, 29);
-            this.txtAulas.TabIndex = 4;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(70, 65);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 21);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Preço:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 100);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(115, 21);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Qtd. de Alunos:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(17, 135);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(105, 21);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Qtd. de Aulas:";
+            this.btnSair.Location = new System.Drawing.Point(492, 425);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(115, 48);
+            this.btnSair.TabIndex = 9;
+            this.btnSair.Text = "Sair";
+            this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // btnCad
             // 
@@ -140,6 +86,70 @@ namespace Estudio201238
             this.btnCad.UseVisualStyleBackColor = true;
             this.btnCad.Click += new System.EventHandler(this.btnCad_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(17, 135);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(105, 21);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Qtd. de Aulas:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(7, 100);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(115, 21);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Qtd. de Alunos:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(70, 65);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(52, 21);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Preço:";
+            // 
+            // txtAulas
+            // 
+            this.txtAulas.Location = new System.Drawing.Point(128, 132);
+            this.txtAulas.Name = "txtAulas";
+            this.txtAulas.Size = new System.Drawing.Size(460, 29);
+            this.txtAulas.TabIndex = 4;
+            // 
+            // txtAlunos
+            // 
+            this.txtAlunos.Location = new System.Drawing.Point(128, 97);
+            this.txtAlunos.Name = "txtAlunos";
+            this.txtAlunos.Size = new System.Drawing.Size(460, 29);
+            this.txtAlunos.TabIndex = 3;
+            // 
+            // txtPreco
+            // 
+            this.txtPreco.Location = new System.Drawing.Point(128, 62);
+            this.txtPreco.Name = "txtPreco";
+            this.txtPreco.Size = new System.Drawing.Size(460, 29);
+            this.txtPreco.TabIndex = 2;
+            // 
+            // txtDesc
+            // 
+            this.txtDesc.Location = new System.Drawing.Point(128, 27);
+            this.txtDesc.Name = "txtDesc";
+            this.txtDesc.Size = new System.Drawing.Size(460, 29);
+            this.txtDesc.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(42, 30);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(80, 21);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Descrição:";
+            // 
             // btnExcluir
             // 
             this.btnExcluir.Location = new System.Drawing.Point(11, 252);
@@ -149,16 +159,6 @@ namespace Estudio201238
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
-            // 
-            // btnSair
-            // 
-            this.btnSair.Location = new System.Drawing.Point(492, 425);
-            this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(115, 48);
-            this.btnSair.TabIndex = 9;
-            this.btnSair.Text = "Sair";
-            this.btnSair.UseVisualStyleBackColor = true;
-            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // cadModal
             // 
@@ -189,7 +189,7 @@ namespace Estudio201238
         private System.Windows.Forms.TextBox txtAlunos;
         private System.Windows.Forms.TextBox txtPreco;
         private System.Windows.Forms.Button btnCad;
-        private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnSair;
+        private System.Windows.Forms.Button btnExcluir;
     }
 }

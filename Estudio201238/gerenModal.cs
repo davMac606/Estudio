@@ -27,9 +27,13 @@ namespace Estudio201238
         private void btnConsModal_Click(object sender, EventArgs e)
         {
             consModal conMod = new consModal();
-            this.Hide();
             conMod.Show();
         }
 
+        private void btnBusca_Click(object sender, EventArgs e)
+        {
+            BuscaModal busca = new BuscaModal();
+            busca.Show();
+        }
     }
 }

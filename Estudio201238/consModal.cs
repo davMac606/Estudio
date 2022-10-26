@@ -15,9 +15,21 @@ namespace Estudio201238
     {
         public void updateComboBox()
         {
+            cbxDesc.Items.Clear();
+            if (DAO_Conexao.con.State == ConnectionState.Open)
+            {
+                DAO_Conexao.con.Close();
+            }
+            bool aberta = false;
+            
             try
             {
+                if (DAO_Conexao.con.State == ConnectionState.Open)
+                {
+                    DAO_Conexao.con.Close();
+                }
                 DAO_Conexao.con.Open();
+                aberta = true;
                 string sql = "SELECT idModal, descModal, precoModal, qtdAlModal, qtdAuModal from ModalCS";
                 MySqlCommand adiciona = new MySqlCommand(sql, DAO_Conexao.con);
                 MySqlDataReader dr = adiciona.ExecuteReader();
@@ -25,7 +37,6 @@ namespace Estudio201238
                 {
                     cbxDesc.Items.Add(dr["descModal"].ToString());
                     cbxDesc.DisplayMember = (dr["descModal"].ToString());
-                    cbxDesc.ValueMember = (dr["idModal"].ToString());
                 }
             }
             catch (Exception ex)
@@ -150,11 +161,13 @@ namespace Estudio201238
 
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
-            Modalidade mod = new Modalidade();
+            btnSalvar.Visible = true;
+            Modalidade mod = new Modalidade();     
             updateComboBox();
             txtPreco.Enabled = true;
             txtAulas.Enabled = true;
             txtAlunos.Enabled = true;
+            cbxDesc.Enabled = false;
         }
 
         private void consModal_Load(object sender, EventArgs e)
@@ -165,6 +178,10 @@ namespace Estudio201238
             txtAulas.Enabled = false;
             txtPreco.Enabled = false;
             btnSalvar.Visible = false;
+            if (btnSalvar.Visible)
+            {
+                btnAtualizar.Enabled = false;
+            }
         }
 
         private void cbxDesc_SelectedIndexChanged(object sender, EventArgs e)
@@ -193,7 +210,8 @@ namespace Estudio201238
             {
                 MessageBox.Show("Erro: Por favor, tente novamente.", "Alerta de Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+            btnSalvar.Visible = false;
+            cbxDesc.Enabled = true;
         }
     }
 }

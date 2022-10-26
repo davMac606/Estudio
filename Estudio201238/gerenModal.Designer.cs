@@ -31,6 +31,7 @@ namespace Estudio201238
         {
             this.btnCadModal = new System.Windows.Forms.Button();
             this.btnConsModal = new System.Windows.Forms.Button();
+            this.btnBusca = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnCadModal
@@ -54,11 +55,22 @@ namespace Estudio201238
             this.btnConsModal.UseVisualStyleBackColor = true;
             this.btnConsModal.Click += new System.EventHandler(this.btnConsModal_Click);
             // 
+            // btnBusca
+            // 
+            this.btnBusca.Location = new System.Drawing.Point(18, 105);
+            this.btnBusca.Name = "btnBusca";
+            this.btnBusca.Size = new System.Drawing.Size(201, 35);
+            this.btnBusca.TabIndex = 4;
+            this.btnBusca.Text = "Buscar Modalidade";
+            this.btnBusca.UseVisualStyleBackColor = true;
+            this.btnBusca.Click += new System.EventHandler(this.btnBusca_Click);
+            // 
             // gerenModal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 727);
+            this.Controls.Add(this.btnBusca);
             this.Controls.Add(this.btnConsModal);
             this.Controls.Add(this.btnCadModal);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -74,5 +86,6 @@ namespace Estudio201238
 
         private System.Windows.Forms.Button btnCadModal;
         private System.Windows.Forms.Button btnConsModal;
+        private System.Windows.Forms.Button btnBusca;
     }
 }
