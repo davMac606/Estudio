@@ -31,11 +31,5 @@ namespace Estudio201238
             conMod.Show();
         }
 
-        private void btnExcModal_Click(object sender, EventArgs e)
-        {
-            excModal exc = new excModal();
-            this.Hide();
-            exc.Show();
-        }
     }
 }

@@ -31,7 +31,6 @@ namespace Estudio201238
         {
             this.btnCadModal = new System.Windows.Forms.Button();
             this.btnConsModal = new System.Windows.Forms.Button();
-            this.btnExcModal = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnCadModal
@@ -55,22 +54,11 @@ namespace Estudio201238
             this.btnConsModal.UseVisualStyleBackColor = true;
             this.btnConsModal.Click += new System.EventHandler(this.btnConsModal_Click);
             // 
-            // btnExcModal
-            // 
-            this.btnExcModal.Location = new System.Drawing.Point(18, 105);
-            this.btnExcModal.Name = "btnExcModal";
-            this.btnExcModal.Size = new System.Drawing.Size(201, 35);
-            this.btnExcModal.TabIndex = 3;
-            this.btnExcModal.Text = "Excluir Modalidade";
-            this.btnExcModal.UseVisualStyleBackColor = true;
-            this.btnExcModal.Click += new System.EventHandler(this.btnExcModal_Click);
-            // 
             // gerenModal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 727);
-            this.Controls.Add(this.btnExcModal);
             this.Controls.Add(this.btnConsModal);
             this.Controls.Add(this.btnCadModal);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -86,6 +74,5 @@ namespace Estudio201238
 
         private System.Windows.Forms.Button btnCadModal;
         private System.Windows.Forms.Button btnConsModal;
-        private System.Windows.Forms.Button btnExcModal;
     }
 }

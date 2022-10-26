@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Estudio201238
 {
@@ -131,6 +132,25 @@ namespace Estudio201238
       
 
             return existe;
+        }
+
+        public bool excluirModal()
+        {
+            bool excl = false;
+            try
+            {
+                DAO_Conexao.con.Open();
+                MySqlCommand cmd = new MySqlCommand("UPDATE ModalCS SET ativa = 1 WHERE descModal LIKE '" + Desc + "'", DAO_Conexao.con);
+                cmd.ExecuteNonQuery();
+                excl = true;
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Alerta do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            } finally
+            {
+                DAO_Conexao.con.Close();
+            }
+            return excl;
         }
 
         

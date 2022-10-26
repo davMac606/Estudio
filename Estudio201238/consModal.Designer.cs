@@ -60,6 +60,7 @@ namespace Estudio201238
             this.grpCons.TabIndex = 0;
             this.grpCons.TabStop = false;
             this.grpCons.Text = "Modalidades";
+            this.grpCons.Enter += new System.EventHandler(this.grpCons_Enter);
             // 
             // btnAtualizar
             // 
@@ -77,6 +78,7 @@ namespace Estudio201238
             this.txtAulas.Name = "txtAulas";
             this.txtAulas.Size = new System.Drawing.Size(431, 29);
             this.txtAulas.TabIndex = 6;
+            this.txtAulas.TextChanged += new System.EventHandler(this.txtAulas_TextChanged);
             // 
             // label4
             // 

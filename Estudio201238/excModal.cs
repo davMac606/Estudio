@@ -17,23 +17,21 @@ namespace Estudio201238
         {
             InitializeComponent();
         }
+
         public void updateComboBox()
         {
             try
             {
                 DAO_Conexao.con.Open();
-                string sql = "SELECT descModal from ModalCS";
+                string sql = "SELECT idModal, descModal, precoModal, qtdAlModal, qtdAuModal from ModalCS";
                 MySqlCommand adiciona = new MySqlCommand(sql, DAO_Conexao.con);
-                MySqlDataAdapter da = new MySqlDataAdapter(sql, DAO_Conexao.con);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-                adiciona.ExecuteNonQuery();
-                DAO_Conexao.con.Close();
-                DAO_Conexao.AddItemCbxDesc();
-                cbxDesc.DisplayMember = "items";
-                cbxDesc.ValueMember = "items";
-                cbxDesc.DataSource = ds.Tables[1];
-                cbxDesc.Enabled = true;
+                MySqlDataReader dr = adiciona.ExecuteReader();
+                while (dr.Read())
+                {
+                    cbxDesc.Items.Add(dr["descModal"].ToString());
+                    cbxDesc.DisplayMember = (dr["descModal"].ToString());
+                    cbxDesc.ValueMember = (dr["idModal"].ToString());
+                }
             }
             catch (Exception ex)
             {
@@ -52,7 +50,17 @@ namespace Estudio201238
 
         private void btnExcModal_Click(object sender, EventArgs e)
         {
+                Modalidade mod = new Modalidade();
+                mod.Desc = cbxDesc.Text.ToString();
+                if (mod.excluirModal())
+            {
+                MessageBox.Show("Modalidade desativada com sucesso!", "ALerta do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            } else
+            {
+                MessageBox.Show("Erro: Por favor, tente novamente", "Alerta do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
+            
         }
 
         private void cbxDesc_SelectedIndexChanged(object sender, EventArgs e)
@@ -62,10 +70,7 @@ namespace Estudio201238
 
         private void excModal_Load(object sender, EventArgs e)
         {
-            Modalidade mod = new Modalidade();
             updateComboBox();
-
-
         }
         
 

@@ -110,12 +110,18 @@ namespace Estudio201238
         {
             Modalidade mod = new Modalidade();
             updateComboBox();
+            txtPreco.Enabled = true;
+            txtAulas.Enabled = true;
+            txtAlunos.Enabled = true;
         }
 
         private void consModal_Load(object sender, EventArgs e)
         {
             Modalidade mod = new Modalidade();
             updateComboBox();
+            txtAlunos.Enabled = false;
+            txtAulas.Enabled = false;
+            txtPreco.Enabled = false;
         }
 
         private void cbxDesc_SelectedIndexChanged(object sender, EventArgs e)
@@ -123,6 +129,16 @@ namespace Estudio201238
             updatePreco();
             updateQtdAl();
             updateQtdAu();
+        }
+
+        private void txtAulas_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void grpCons_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
