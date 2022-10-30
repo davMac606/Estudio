@@ -31,6 +31,7 @@ namespace Estudio201238
         {
             this.grpCadModal = new System.Windows.Forms.GroupBox();
             this.btnSair = new System.Windows.Forms.Button();
+            this.btnExcluir = new System.Windows.Forms.Button();
             this.btnCad = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -40,7 +41,6 @@ namespace Estudio201238
             this.txtPreco = new System.Windows.Forms.TextBox();
             this.txtDesc = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnExcluir = new System.Windows.Forms.Button();
             this.grpCadModal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,6 +75,16 @@ namespace Estudio201238
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = true;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
+            // 
+            // btnExcluir
+            // 
+            this.btnExcluir.Location = new System.Drawing.Point(11, 252);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(596, 43);
+            this.btnExcluir.TabIndex = 8;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnCad
             // 
@@ -140,6 +150,7 @@ namespace Estudio201238
             this.txtDesc.Name = "txtDesc";
             this.txtDesc.Size = new System.Drawing.Size(460, 29);
             this.txtDesc.TabIndex = 1;
+            this.txtDesc.Leave += new System.EventHandler(this.txtDesc_Leave);
             // 
             // label1
             // 
@@ -149,16 +160,6 @@ namespace Estudio201238
             this.label1.Size = new System.Drawing.Size(80, 21);
             this.label1.TabIndex = 0;
             this.label1.Text = "Descrição:";
-            // 
-            // btnExcluir
-            // 
-            this.btnExcluir.Location = new System.Drawing.Point(11, 252);
-            this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(596, 43);
-            this.btnExcluir.TabIndex = 8;
-            this.btnExcluir.Text = "Excluir";
-            this.btnExcluir.UseVisualStyleBackColor = true;
-            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // cadModal
             // 

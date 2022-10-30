@@ -36,13 +36,8 @@ namespace Estudio201238
         private void btnCad_Click(object sender, EventArgs e)
         {
             try
-            {
-                if (verificaExist())
-                {
-                    MessageBox.Show("Usuário já cadastrado.", "Alerta do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
+            { 
+                
                     if (txtDesc.Text.Equals(""))
                     {
                         MessageBox.Show("Cadastro falhou. Por favor, tente novamente.", "Alerta do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -57,7 +52,7 @@ namespace Estudio201238
                     {
                         MessageBox.Show("Cadastro falhou. Por favor, tente novamente.", "Alerta do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                }
+                
                 } catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString(), "Alerta do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -81,6 +76,14 @@ namespace Estudio201238
             gerenModal gerMod = new gerenModal();
             gerMod.Show();
             this.Hide();
+        }
+
+        private void txtDesc_Leave(object sender, EventArgs e)
+        {
+            if (verificaExist())
+            {
+                MessageBox.Show("Modalidade já cadastrada.", "Alerta do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
     }
