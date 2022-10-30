@@ -84,6 +84,8 @@ namespace Estudio201238
 
         }
 
+       
+
         public bool cadastrarModalidade()
         {
             bool cad = false;
@@ -95,6 +97,7 @@ namespace Estudio201238
                 Console.WriteLine("insert into ModalCS (idModal, descModal, precoModal, qtdAlModal, qtdAuModal) values ('" + Id_Modal + "','" + Desc + "','" + Preco + "','" + Qtd_Alunos + "','" + Qtd_Aulas + "')");
                 insere.ExecuteNonQuery();
                 cad = true;
+
             }
             catch (Exception ex)
             {
@@ -141,11 +144,11 @@ namespace Estudio201238
             {
                 DAO_Conexao.con.Open();
                 MySqlCommand cmd = new MySqlCommand("UPDATE ModalCS SET ativa = 1 WHERE descModal LIKE '" + Desc + "'", DAO_Conexao.con);
-                cmd.ExecuteNonQuery();
+                cmd.ExecuteReader();
                 excl = true;
             } catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString(), "Alerta do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Houve um erro. Por favor, tente novamente", "Alerta do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
             } finally
             {
                 DAO_Conexao.con.Close();

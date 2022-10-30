@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,28 +18,52 @@ namespace Estudio201238
             InitializeComponent();
         }
 
+        public bool verificaExist()
+        {
+            bool exists = false;
+          
+                DAO_Conexao.con.Open();
+                MySqlCommand existe = new MySqlCommand("SELECT * FROM ModalCS WHERE descModal LIKE '" + txtDesc.Text + "'", DAO_Conexao.con);
+            exists = existe.ExecuteReader().Read();
+                DAO_Conexao.con.Close();
+                
+         return exists;
+            }
+
+
+
+
         private void btnCad_Click(object sender, EventArgs e)
         {
             try
             {
-                if (txtDesc.Text.Equals(""))
+                if (verificaExist())
                 {
-                    MessageBox.Show("Cadastro falhou. Por favor, tente novamente.", "Alerta do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Usuário já cadastrado.", "Alerta do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                Modalidade mod = new Modalidade(txtDesc.Text, float.Parse(txtPreco.Text), int.Parse(txtAlunos.Text), int.Parse(txtAulas.Text));
-            
-                if (mod.cadastrarModalidade())
-            {
-                MessageBox.Show("Cadastro realizado com sucesso!", "Alerta do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-            else
-            {
-                MessageBox.Show("Cadastro falhou. Por favor, tente novamente.", "Alerta do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            } catch (Exception ex)
+                else
+                {
+                    if (txtDesc.Text.Equals(""))
+                    {
+                        MessageBox.Show("Cadastro falhou. Por favor, tente novamente.", "Alerta do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    Modalidade mod = new Modalidade(txtDesc.Text, float.Parse(txtPreco.Text), int.Parse(txtAlunos.Text), int.Parse(txtAulas.Text));
+
+                    if (mod.cadastrarModalidade())
+                    {
+                        MessageBox.Show("Cadastro realizado com sucesso!", "Alerta do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Cadastro falhou. Por favor, tente novamente.", "Alerta do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                } catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString(), "Alerta do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        
+
 
 
         }
