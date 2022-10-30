@@ -21,6 +21,7 @@ namespace Estudio201238
         {
             cadModal cdMod = new cadModal();
             cdMod.Show();
+            this.Hide();
 
         }
 
@@ -28,12 +29,14 @@ namespace Estudio201238
         {
             consModal conMod = new consModal();
             conMod.Show();
+            this.Hide();
         }
 
         private void btnBusca_Click(object sender, EventArgs e)
         {
             BuscaModal busca = new BuscaModal();
             busca.Show();
+            this.Hide();
         }
     }
 }

@@ -58,7 +58,7 @@ namespace Estudio201238
 
         private void sairToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            this.Close();
         }
 
         private void btnLogar_Click(object sender, EventArgs e)
