@@ -212,6 +212,9 @@ namespace Estudio201238
             }
             btnSalvar.Visible = false;
             cbxDesc.Enabled = true;
+            txtAlunos.Enabled = false;
+            txtAulas.Enabled = false;
+            txtPreco.Enabled = false;
         }
     }
 }
