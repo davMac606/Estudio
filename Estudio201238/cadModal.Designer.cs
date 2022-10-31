@@ -150,6 +150,7 @@ namespace Estudio201238
             this.txtDesc.Name = "txtDesc";
             this.txtDesc.Size = new System.Drawing.Size(460, 29);
             this.txtDesc.TabIndex = 1;
+            this.txtDesc.TextChanged += new System.EventHandler(this.txtDesc_TextChanged);
             this.txtDesc.Leave += new System.EventHandler(this.txtDesc_Leave);
             // 
             // label1

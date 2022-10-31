@@ -98,6 +98,7 @@ namespace Estudio201238
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(396, 29);
             this.txtUser.TabIndex = 5;
+            this.txtUser.Leave += new System.EventHandler(this.txtUser_Leave);
             // 
             // btnCadastro
             // 

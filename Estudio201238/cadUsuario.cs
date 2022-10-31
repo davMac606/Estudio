@@ -23,6 +23,18 @@ namespace Estudio201238
 
         }
 
+        public bool verificaExist()
+        {
+            bool exists = false;
+
+            DAO_Conexao.con.Open();
+            MySqlCommand existe = new MySqlCommand("SELECT * FROM CSDAO WHERE usuario LIKE '" + txtUser.Text + "'", DAO_Conexao.con);
+            exists = existe.ExecuteReader().Read();
+            DAO_Conexao.con.Close();
+
+            return exists;
+        }
+
         private void btnCadastro_Click(object sender, EventArgs e)
         {
            int tipo = 0;
@@ -43,6 +55,14 @@ namespace Estudio201238
             }
 
                
-            } 
+            }
+
+        private void txtUser_Leave(object sender, EventArgs e)
+        {
+            if (verificaExist())
+            {
+                MessageBox.Show("Usuário já cadastrado!", "Alerta do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+    }
     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,6 +17,19 @@ namespace Estudio201238
         {
             InitializeComponent();
         }
+
+        public bool verificaExist()
+        {
+            bool exists = false;
+
+            DAO_Conexao.con.Open();
+            MySqlCommand existe = new MySqlCommand("SELECT * FROM Estudio_Aluno WHERE CPFAluno LIKE '" + mskCPF.Text + "'", DAO_Conexao.con);
+            exists = existe.ExecuteReader().Read();
+            DAO_Conexao.con.Close();
+
+            return exists;
+        }
+
 
         private void btnCadastroAluno_Click(object sender, EventArgs e)
         {
@@ -43,13 +57,9 @@ namespace Estudio201238
 
         private void mskCPF_Leave(object sender, EventArgs e)
         {
-            Aluno aluno = new Aluno(mskCPF.Text);
-            if (aluno.consultarAluno())
+            if (verificaExist())
             {
-                MessageBox.Show("Aluno já cadastrado!", "Alerta do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            } else
-            {
-                mskCPF.Focus();
+                MessageBox.Show("Aluno já cadastrado.", "Alerta do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

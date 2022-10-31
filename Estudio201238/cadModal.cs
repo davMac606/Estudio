@@ -85,5 +85,10 @@ namespace Estudio201238
                 MessageBox.Show("Modalidade já cadastrada.", "Alerta do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void txtDesc_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
     }
