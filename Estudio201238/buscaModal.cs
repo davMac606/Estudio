@@ -77,6 +77,7 @@ namespace Estudio201238
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            cbxModal.Items.Clear();
             if (string.IsNullOrWhiteSpace(txtDesc.Text.ToString()))
                 buscaGeral();
             else
