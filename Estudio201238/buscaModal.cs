@@ -17,6 +17,33 @@ namespace Estudio201238
         { 
             InitializeComponent();
             tt.SetToolTip(txtDesc, "Insira uma descrição para busca. Para uma busca geral, deixe o campo vazio.");
+            
+                try
+                {
+                    if (DAO_Conexao.con.State == ConnectionState.Open)
+                    {
+                        DAO_Conexao.con.Close();
+                    }
+                    DAO_Conexao.con.Open();
+                    string sql = "SELECT * FROM ModalCS WHERE LOWER(descModal) LIKE '%" + txtDesc.Text.Trim().ToLower() + "%' AND ativa = 0";
+                    MySqlCommand adiciona = new MySqlCommand(sql, DAO_Conexao.con);
+                    MySqlDataReader dr = adiciona.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        txtDesc.AutoCompleteCustomSource.Add(dr["descModal"].ToString());
+                    }
+
+                }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            finally
+            {
+                DAO_Conexao.con.Close();
+            }
+
+
         }
         public void buscaParam()
         {
@@ -93,6 +120,11 @@ namespace Estudio201238
             this.Hide();
             gerenModal gerMod = new gerenModal();
             gerMod.Show();
+        }
+
+        private void cbxModal_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

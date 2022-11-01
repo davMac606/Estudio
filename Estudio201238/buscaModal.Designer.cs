@@ -31,10 +31,10 @@ namespace Estudio201238
         {
             this.btnSearch = new System.Windows.Forms.Button();
             this.grpBusca = new System.Windows.Forms.GroupBox();
+            this.btnVoltar = new System.Windows.Forms.Button();
             this.cbxModal = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtDesc = new System.Windows.Forms.TextBox();
-            this.btnVoltar = new System.Windows.Forms.Button();
             this.grpBusca.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,6 +63,17 @@ namespace Estudio201238
             this.grpBusca.TabStop = false;
             this.grpBusca.Text = "Modalidades";
             // 
+            // btnVoltar
+            // 
+            this.btnVoltar.Location = new System.Drawing.Point(458, 21);
+            this.btnVoltar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnVoltar.Name = "btnVoltar";
+            this.btnVoltar.Size = new System.Drawing.Size(112, 37);
+            this.btnVoltar.TabIndex = 4;
+            this.btnVoltar.Text = "Voltar";
+            this.btnVoltar.UseVisualStyleBackColor = true;
+            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
+            // 
             // cbxModal
             // 
             this.cbxModal.FormattingEnabled = true;
@@ -70,6 +81,7 @@ namespace Estudio201238
             this.cbxModal.Name = "cbxModal";
             this.cbxModal.Size = new System.Drawing.Size(445, 29);
             this.cbxModal.TabIndex = 3;
+            this.cbxModal.SelectedIndexChanged += new System.EventHandler(this.cbxModal_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -82,21 +94,12 @@ namespace Estudio201238
             // 
             // txtDesc
             // 
+            this.txtDesc.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.txtDesc.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.txtDesc.Location = new System.Drawing.Point(126, 75);
             this.txtDesc.Name = "txtDesc";
             this.txtDesc.Size = new System.Drawing.Size(445, 29);
             this.txtDesc.TabIndex = 1;
-            // 
-            // btnVoltar
-            // 
-            this.btnVoltar.Location = new System.Drawing.Point(458, 21);
-            this.btnVoltar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnVoltar.Name = "btnVoltar";
-            this.btnVoltar.Size = new System.Drawing.Size(112, 37);
-            this.btnVoltar.TabIndex = 4;
-            this.btnVoltar.Text = "Voltar";
-            this.btnVoltar.UseVisualStyleBackColor = true;
-            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
             // BuscaModal
             // 
