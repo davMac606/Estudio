@@ -33,6 +33,8 @@ namespace Estudio201238
 
         private void btnCadastroAluno_Click(object sender, EventArgs e)
         {
+            consModal cons = new consModal();
+            cons.Show();
             Aluno aluno = new Aluno(mskCPF.Text, txtNome.Text, txtEndereco.Text, txtNum.Text, txtBairro.Text, txtComp.Text, mskCEP.Text, txtCidade.Text, txtEstado.Text, mskTel.Text, txtEmail.Text);
 
             
@@ -49,10 +51,16 @@ namespace Estudio201238
 
         private void validaCampos()
         {
-            if (string.IsNullOrWhiteSpace(mskCPF.Text) || string.IsNullOrWhiteSpace(txtNome.Text) || string.IsNullOrWhiteSpace(txtEndereco.Text) || string.IsNullOrWhiteSpace(txtNum.Text) || string.IsNullOrWhiteSpace(txtBairro.Text) || string.IsNullOrWhiteSpace(txtComp.Text) || string.IsNullOrWhiteSpace(mskCEP.Text) || string.IsNullOrWhiteSpace(txtCidade.Text) || string.IsNullOrWhiteSpace(txtEstado.Text) || string.IsNullOrWhiteSpace(mskTel.Text) || string.IsNullOrWhiteSpace(txtEmail.Text))
+            foreach (TextBoxBase txt in this.Controls.OfType<TextBoxBase>())
             {
-                MessageBox.Show("Por favor, preencha os campos em branco.", "Alerta de Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (string.IsNullOrWhiteSpace(txt.ToString()))
+                {
+                    MessageBox.Show("Não é permitido inserir um campo vazio!", "Alerta do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txt.Focus();
+                    return;
+                }
             }
+            
         }
 
         private void mskCPF_Leave(object sender, EventArgs e)
