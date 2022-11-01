@@ -41,6 +41,7 @@ namespace Estudio201238
             this.txtSenha = new System.Windows.Forms.TextBox();
             this.btnLogar = new System.Windows.Forms.Button();
             this.grpBoxEstudio = new System.Windows.Forms.GroupBox();
+            this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.grpBoxEstudio.SuspendLayout();
             this.SuspendLayout();
@@ -62,7 +63,8 @@ namespace Estudio201238
             this.cadastrarAlunoToolStripMenuItem,
             this.cadastrarLoginToolStripMenuItem,
             this.modalidadesToolStripMenuItem,
-            this.sairToolStripMenuItem});
+            this.sairToolStripMenuItem,
+            this.sobreToolStripMenuItem});
             this.arquivoToolStripMenuItem.Name = "arquivoToolStripMenuItem";
             this.arquivoToolStripMenuItem.Size = new System.Drawing.Size(61, 19);
             this.arquivoToolStripMenuItem.Text = "Arquivo";
@@ -70,28 +72,28 @@ namespace Estudio201238
             // cadastrarAlunoToolStripMenuItem
             // 
             this.cadastrarAlunoToolStripMenuItem.Name = "cadastrarAlunoToolStripMenuItem";
-            this.cadastrarAlunoToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.cadastrarAlunoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cadastrarAlunoToolStripMenuItem.Text = "Cadastrar Aluno";
             this.cadastrarAlunoToolStripMenuItem.Click += new System.EventHandler(this.cadastrarAlunoToolStripMenuItem_Click);
             // 
             // cadastrarLoginToolStripMenuItem
             // 
             this.cadastrarLoginToolStripMenuItem.Name = "cadastrarLoginToolStripMenuItem";
-            this.cadastrarLoginToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.cadastrarLoginToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cadastrarLoginToolStripMenuItem.Text = "Cadastrar Login";
             this.cadastrarLoginToolStripMenuItem.Click += new System.EventHandler(this.cadastrarLoginToolStripMenuItem_Click);
             // 
             // modalidadesToolStripMenuItem
             // 
             this.modalidadesToolStripMenuItem.Name = "modalidadesToolStripMenuItem";
-            this.modalidadesToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.modalidadesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.modalidadesToolStripMenuItem.Text = "Modalidades";
             this.modalidadesToolStripMenuItem.Click += new System.EventHandler(this.modalidadesToolStripMenuItem_Click);
             // 
             // sairToolStripMenuItem
             // 
             this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sairToolStripMenuItem.Text = "Sair";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
@@ -161,6 +163,13 @@ namespace Estudio201238
             this.grpBoxEstudio.TabStop = false;
             this.grpBoxEstudio.Text = "Cadastro Estudio";
             // 
+            // sobreToolStripMenuItem
+            // 
+            this.sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
+            this.sobreToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sobreToolStripMenuItem.Text = "Sobre";
+            this.sobreToolStripMenuItem.Click += new System.EventHandler(this.sobreToolStripMenuItem_Click);
+            // 
             // Estudio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -198,6 +207,7 @@ namespace Estudio201238
         private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
         private System.Windows.Forms.GroupBox grpBoxEstudio;
         private System.Windows.Forms.ToolStripMenuItem modalidadesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sobreToolStripMenuItem;
     }
 }
 

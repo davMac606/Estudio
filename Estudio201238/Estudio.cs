@@ -91,5 +91,10 @@ namespace Estudio201238
             gerenModal gerMod = new gerenModal();
             gerMod.Show();
         }
+
+        private void sobreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Feito por: Davi Andrade Macedo\n RA: 201238", "Alerta do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }
