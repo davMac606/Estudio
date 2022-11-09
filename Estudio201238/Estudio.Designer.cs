@@ -35,13 +35,14 @@ namespace Estudio201238
             this.cadastrarLoginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modalidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.txtLogin = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtSenha = new System.Windows.Forms.TextBox();
             this.btnLogar = new System.Windows.Forms.Button();
             this.grpBoxEstudio = new System.Windows.Forms.GroupBox();
-            this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.turmasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.grpBoxEstudio.SuspendLayout();
             this.SuspendLayout();
@@ -63,8 +64,9 @@ namespace Estudio201238
             this.cadastrarAlunoToolStripMenuItem,
             this.cadastrarLoginToolStripMenuItem,
             this.modalidadesToolStripMenuItem,
-            this.sairToolStripMenuItem,
-            this.sobreToolStripMenuItem});
+            this.turmasToolStripMenuItem,
+            this.sobreToolStripMenuItem,
+            this.sairToolStripMenuItem});
             this.arquivoToolStripMenuItem.Name = "arquivoToolStripMenuItem";
             this.arquivoToolStripMenuItem.Size = new System.Drawing.Size(61, 19);
             this.arquivoToolStripMenuItem.Text = "Arquivo";
@@ -96,6 +98,13 @@ namespace Estudio201238
             this.sairToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sairToolStripMenuItem.Text = "Sair";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
+            // 
+            // sobreToolStripMenuItem
+            // 
+            this.sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
+            this.sobreToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sobreToolStripMenuItem.Text = "Sobre";
+            this.sobreToolStripMenuItem.Click += new System.EventHandler(this.sobreToolStripMenuItem_Click);
             // 
             // label1
             // 
@@ -163,12 +172,12 @@ namespace Estudio201238
             this.grpBoxEstudio.TabStop = false;
             this.grpBoxEstudio.Text = "Cadastro Estudio";
             // 
-            // sobreToolStripMenuItem
+            // turmasToolStripMenuItem
             // 
-            this.sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
-            this.sobreToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.sobreToolStripMenuItem.Text = "Sobre";
-            this.sobreToolStripMenuItem.Click += new System.EventHandler(this.sobreToolStripMenuItem_Click);
+            this.turmasToolStripMenuItem.Name = "turmasToolStripMenuItem";
+            this.turmasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.turmasToolStripMenuItem.Text = "Turmas";
+            this.turmasToolStripMenuItem.Click += new System.EventHandler(this.turmasToolStripMenuItem_Click);
             // 
             // Estudio
             // 
@@ -208,6 +217,7 @@ namespace Estudio201238
         private System.Windows.Forms.GroupBox grpBoxEstudio;
         private System.Windows.Forms.ToolStripMenuItem modalidadesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sobreToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem turmasToolStripMenuItem;
     }
 }
 

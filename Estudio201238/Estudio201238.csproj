@@ -73,6 +73,12 @@
     <Compile Include="buscaModal.Designer.cs">
       <DependentUpon>buscaModal.cs</DependentUpon>
     </Compile>
+    <Compile Include="buscaTurma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="buscaTurma.Designer.cs">
+      <DependentUpon>buscaTurma.cs</DependentUpon>
+    </Compile>
     <Compile Include="cadAluno.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +91,12 @@
     <Compile Include="cadModal.Designer.cs">
       <DependentUpon>cadModal.cs</DependentUpon>
     </Compile>
+    <Compile Include="cadTurma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cadTurma.Designer.cs">
+      <DependentUpon>cadTurma.cs</DependentUpon>
+    </Compile>
     <Compile Include="cadUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +108,12 @@
     </Compile>
     <Compile Include="consModal.Designer.cs">
       <DependentUpon>consModal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="consTurma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="consTurma.Designer.cs">
+      <DependentUpon>consTurma.cs</DependentUpon>
     </Compile>
     <Compile Include="DAO_Conexao.cs" />
     <Compile Include="Estudio.cs">
@@ -121,6 +139,12 @@
     </Compile>
     <Compile Include="gerenModal.Designer.cs">
       <DependentUpon>gerenModal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gerenTurma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gerenTurma.Designer.cs">
+      <DependentUpon>gerenTurma.cs</DependentUpon>
     </Compile>
     <Compile Include="Modalidade.cs" />
     <Compile Include="Program.cs" />
@@ -151,6 +175,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="gerenModal.resx">
       <DependentUpon>gerenModal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gerenTurma.resx">
+      <DependentUpon>gerenTurma.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

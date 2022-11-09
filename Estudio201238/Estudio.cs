@@ -96,5 +96,11 @@ namespace Estudio201238
         {
             MessageBox.Show("Feito por: Davi Andrade Macedo\n RA: 201238", "Alerta do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private void turmasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            gerenTurma gerTur = new gerenTurma();
+            gerTur.Show();
+        }
     }
 }

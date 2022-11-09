@@ -143,7 +143,7 @@ namespace Estudio201238
             try
             {
                 DAO_Conexao.con.Open();
-                MySqlCommand cmd = new MySqlCommand("UPDATE ModalCS SET ativa = 1 WHERE descModal LIKE '" + Desc + "'", DAO_Conexao.con);
+                MySqlCommand cmd = new MySqlCommand("UPDATE ModalCS SET ativa = 1 WHERE descModal = '" + Desc + "'", DAO_Conexao.con);
                 cmd.ExecuteReader();
                 excl = true;
             } catch (Exception ex)
