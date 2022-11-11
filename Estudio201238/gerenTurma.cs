@@ -22,6 +22,12 @@ namespace Estudio201238
             cadTurma cadTu = new cadTurma();
             cadTu.MdiParent = this;
             cadTu.Show();
+            grpTurma.Visible = false;
+        }
+
+        private void grpTurma_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

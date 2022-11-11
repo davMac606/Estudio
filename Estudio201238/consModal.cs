@@ -120,13 +120,16 @@ namespace Estudio201238
         private void updateID()
         {
             DAO_Conexao.con.Open();
-            string sql = "SELECT idModal FROM ModalCS WHERE descModal = '" + cbxDesc.SelectedItem + "'";
+            string sql = "SELECT idModal from ModalCS where descModal = '" + cbxDesc.SelectedItem + "'";
             MySqlCommand cmd = new MySqlCommand(sql, DAO_Conexao.con);
             MySqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
             {
                 txtID.Text = dr[0].ToString();
+                cadTurma cadTur = new cadTurma();
+                cadTur.txtIDModal.Text = dr[0].ToString();
             }
+            DAO_Conexao.con.Close();
         }
 
         public bool cadastrarModalidade()
@@ -186,6 +189,8 @@ namespace Estudio201238
         {
             Modalidade mod = new Modalidade();
             updateComboBox();
+            txtID.Visible = true;
+            lblID.Visible = true;
             txtAlunos.Enabled = false;
             txtAulas.Enabled = false;
             txtPreco.Enabled = false;
@@ -194,6 +199,8 @@ namespace Estudio201238
             {
                 btnAtualizar.Enabled = false;
             }
+
+            
         }
 
         private void cbxDesc_SelectedIndexChanged(object sender, EventArgs e)
@@ -201,6 +208,7 @@ namespace Estudio201238
             updatePreco();
             updateQtdAl();
             updateQtdAu();
+            updateID();
         }
 
         private void txtAulas_TextChanged(object sender, EventArgs e)

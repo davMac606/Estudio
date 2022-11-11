@@ -22,6 +22,7 @@ namespace Estudio201238
             cadModal cdMod = new cadModal();
             cdMod.Show();
             this.Hide();
+            
 
         }
 

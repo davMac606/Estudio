@@ -13,7 +13,7 @@ namespace Estudio201238
         private int _idModal;
         private string _professor;
         private string _diaSemana;
-        private int _hora;
+        private string _hora;
         private int _numAlunMatriculados;
         private bool _ativa;
 
@@ -51,7 +51,7 @@ namespace Estudio201238
                 _diaSemana = value;
             }
         }
-        public int Hora
+        public string Hora
         {
             get => _hora;
             set
@@ -77,27 +77,29 @@ namespace Estudio201238
             }
         }
 
-        public Turma(int _idTurma, int _idModal, string _professor, string _diaSemana, int _hora, int _numAlunMatriculados, bool _ativa)
+        public Turma(int _idModal, string _professor, string _diaSemana, string _hora, int _numAlunMatriculados)
         {
-            Id_Turma = _idTurma;
             Id_Modal = _idModal;
             Professor = _professor;
             Dia_Semana = _diaSemana;
             Hora = _hora;
             NumAlunMatriculados = _numAlunMatriculados;
-            Ativa = _ativa;
+        }
+
+        public Turma()
+        {
+
         }
 
         public bool cadastrarTurma()
         {
             bool cad = false;
-            Modalidade mod = new Modalidade();
-                _idModal = mod.Id_Modal;
+            
             try
             {
                 
                 DAO_Conexao.con.Open();
-                MySqlCommand insere = new MySqlCommand("INSERT INTO TurmaCS (idTurma, Id_Modalidade, Professor, Dia_Semana, Hora, NumAlunMatriculados, TurmaAtiva) VALUES ('" + Id_Turma + "','" + Id_Modal + "','" + Professor + "','" + Dia_Semana + "','" + Hora + "','" + NumAlunMatriculados + "','" + Ativa + "')");
+                MySqlCommand insere = new MySqlCommand("INSERT INTO TurmaCS (idTurma, Id_Modalidade, Professor, Dia_Semana, Hora, NumAlunMatriculados, TurmaAtiva) VALUES ('" + Id_Turma + "','" + Id_Modal + "','" + Professor + "','" + Dia_Semana + "','" + Hora + "','" + NumAlunMatriculados + "','" + 1 + "')");
                 insere.ExecuteNonQuery();
                 cad = true;
                 

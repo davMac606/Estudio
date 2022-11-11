@@ -32,11 +32,14 @@ namespace Estudio201238
             this.btnCadastroTurma = new System.Windows.Forms.Button();
             this.btnConsultaTurma = new System.Windows.Forms.Button();
             this.btnBuscaTurma = new System.Windows.Forms.Button();
+            this.grpTurma = new System.Windows.Forms.GroupBox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.grpTurma.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnCadastroTurma
             // 
-            this.btnCadastroTurma.Location = new System.Drawing.Point(12, 12);
+            this.btnCadastroTurma.Location = new System.Drawing.Point(6, 28);
             this.btnCadastroTurma.Name = "btnCadastroTurma";
             this.btnCadastroTurma.Size = new System.Drawing.Size(201, 37);
             this.btnCadastroTurma.TabIndex = 0;
@@ -46,7 +49,7 @@ namespace Estudio201238
             // 
             // btnConsultaTurma
             // 
-            this.btnConsultaTurma.Location = new System.Drawing.Point(12, 65);
+            this.btnConsultaTurma.Location = new System.Drawing.Point(6, 71);
             this.btnConsultaTurma.Name = "btnConsultaTurma";
             this.btnConsultaTurma.Size = new System.Drawing.Size(201, 37);
             this.btnConsultaTurma.TabIndex = 1;
@@ -55,26 +58,38 @@ namespace Estudio201238
             // 
             // btnBuscaTurma
             // 
-            this.btnBuscaTurma.Location = new System.Drawing.Point(12, 117);
+            this.btnBuscaTurma.Location = new System.Drawing.Point(6, 114);
             this.btnBuscaTurma.Name = "btnBuscaTurma";
             this.btnBuscaTurma.Size = new System.Drawing.Size(201, 37);
             this.btnBuscaTurma.TabIndex = 2;
             this.btnBuscaTurma.Text = "Buscar Turma";
             this.btnBuscaTurma.UseVisualStyleBackColor = true;
             // 
+            // grpTurma
+            // 
+            this.grpTurma.Controls.Add(this.btnCadastroTurma);
+            this.grpTurma.Controls.Add(this.btnBuscaTurma);
+            this.grpTurma.Controls.Add(this.btnConsultaTurma);
+            this.grpTurma.Location = new System.Drawing.Point(12, 12);
+            this.grpTurma.Name = "grpTurma";
+            this.grpTurma.Size = new System.Drawing.Size(1176, 702);
+            this.grpTurma.TabIndex = 4;
+            this.grpTurma.TabStop = false;
+            this.grpTurma.Text = "Gerenciar Turmas";
+            this.grpTurma.Enter += new System.EventHandler(this.grpTurma_Enter);
+            // 
             // gerenTurma
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 726);
-            this.Controls.Add(this.btnBuscaTurma);
-            this.Controls.Add(this.btnConsultaTurma);
-            this.Controls.Add(this.btnCadastroTurma);
+            this.Controls.Add(this.grpTurma);
             this.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.IsMdiContainer = true;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "gerenTurma";
-            this.Text = "gerenTurma";
+            this.Text = "Turmas";
+            this.grpTurma.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -84,5 +99,7 @@ namespace Estudio201238
         private System.Windows.Forms.Button btnCadastroTurma;
         private System.Windows.Forms.Button btnConsultaTurma;
         private System.Windows.Forms.Button btnBuscaTurma;
+        private System.Windows.Forms.GroupBox grpTurma;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
