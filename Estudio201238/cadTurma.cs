@@ -16,5 +16,12 @@ namespace Estudio201238
         {
             InitializeComponent();
         }
+
+        private void btnCadastro_Click(object sender, EventArgs e)
+        {
+
+            Turma tur = new Turma();
+            tur.cadastrarTurma()
+        }
     }
 }

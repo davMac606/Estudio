@@ -149,6 +149,7 @@
     <Compile Include="Modalidade.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Turma.cs" />
     <EmbeddedResource Include="buscaModal.resx">
       <DependentUpon>buscaModal.cs</DependentUpon>
     </EmbeddedResource>
@@ -157,6 +158,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="cadModal.resx">
       <DependentUpon>cadModal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cadTurma.resx">
+      <DependentUpon>cadTurma.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="cadUsuario.resx">
       <DependentUpon>cadUsuario.cs</DependentUpon>

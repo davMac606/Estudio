@@ -19,7 +19,9 @@ namespace Estudio201238
 
         private void btnCadastroTurma_Click(object sender, EventArgs e)
         {
-
+            cadTurma cadTu = new cadTurma();
+            cadTu.MdiParent = this;
+            cadTu.Show();
         }
     }
 }

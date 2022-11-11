@@ -30,6 +30,7 @@ namespace Estudio201238
         private void InitializeComponent()
         {
             this.grpCons = new System.Windows.Forms.GroupBox();
+            this.btnSalvar = new System.Windows.Forms.Button();
             this.btnAtualizar = new System.Windows.Forms.Button();
             this.txtAulas = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -40,12 +41,15 @@ namespace Estudio201238
             this.cbxDesc = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnVoltar = new System.Windows.Forms.Button();
-            this.btnSalvar = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtID = new System.Windows.Forms.TextBox();
             this.grpCons.SuspendLayout();
             this.SuspendLayout();
             // 
             // grpCons
             // 
+            this.grpCons.Controls.Add(this.txtID);
+            this.grpCons.Controls.Add(this.label5);
             this.grpCons.Controls.Add(this.btnSalvar);
             this.grpCons.Controls.Add(this.btnAtualizar);
             this.grpCons.Controls.Add(this.txtAulas);
@@ -58,15 +62,25 @@ namespace Estudio201238
             this.grpCons.Controls.Add(this.label1);
             this.grpCons.Location = new System.Drawing.Point(12, 12);
             this.grpCons.Name = "grpCons";
-            this.grpCons.Size = new System.Drawing.Size(607, 345);
+            this.grpCons.Size = new System.Drawing.Size(614, 414);
             this.grpCons.TabIndex = 0;
             this.grpCons.TabStop = false;
             this.grpCons.Text = "Modalidades";
             this.grpCons.Enter += new System.EventHandler(this.grpCons_Enter);
             // 
+            // btnSalvar
+            // 
+            this.btnSalvar.Location = new System.Drawing.Point(506, 166);
+            this.btnSalvar.Name = "btnSalvar";
+            this.btnSalvar.Size = new System.Drawing.Size(95, 51);
+            this.btnSalvar.TabIndex = 8;
+            this.btnSalvar.Text = "Salvar";
+            this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
+            // 
             // btnAtualizar
             // 
-            this.btnAtualizar.Location = new System.Drawing.Point(6, 298);
+            this.btnAtualizar.Location = new System.Drawing.Point(6, 367);
             this.btnAtualizar.Name = "btnAtualizar";
             this.btnAtualizar.Size = new System.Drawing.Size(595, 41);
             this.btnAtualizar.TabIndex = 7;
@@ -151,15 +165,21 @@ namespace Estudio201238
             this.btnVoltar.UseVisualStyleBackColor = true;
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
-            // btnSalvar
+            // label5
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(506, 241);
-            this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(95, 51);
-            this.btnSalvar.TabIndex = 8;
-            this.btnSalvar.Text = "Salvar";
-            this.btnSalvar.UseVisualStyleBackColor = true;
-            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(166, 176);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(135, 21);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "ID da Modalidade:";
+            // 
+            // txtID
+            // 
+            this.txtID.Location = new System.Drawing.Point(307, 173);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(29, 29);
+            this.txtID.TabIndex = 10;
             // 
             // consModal
             // 
@@ -193,5 +213,7 @@ namespace Estudio201238
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnAtualizar;
         private System.Windows.Forms.Button btnSalvar;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtID;
     }
 }

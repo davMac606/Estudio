@@ -110,6 +110,7 @@ namespace Estudio201238
             return cad;
         }
 
+
         public bool consultarModal()
         {
             bool existe = false;

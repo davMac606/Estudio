@@ -117,6 +117,18 @@ namespace Estudio201238
             DAO_Conexao.con.Close();
         }
 
+        private void updateID()
+        {
+            DAO_Conexao.con.Open();
+            string sql = "SELECT idModal FROM ModalCS WHERE descModal = '" + cbxDesc.SelectedItem + "'";
+            MySqlCommand cmd = new MySqlCommand(sql, DAO_Conexao.con);
+            MySqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                txtID.Text = dr[0].ToString();
+            }
+        }
+
         public bool cadastrarModalidade()
         {
             Modalidade mod = new Modalidade();
