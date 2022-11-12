@@ -19,41 +19,44 @@ namespace Estudio201238
         }
            int limiteAviso;
         Modalidade mod = new Modalidade();
+
+
         private void btnCadastro_Click(object sender, EventArgs e)
         {
-            
+
             try
             {
+                if (DAO_Conexao.con.State == ConnectionState.Open)
+                {
+                    DAO_Conexao.con.Close();
+                }
                 bool ativ = false;
-                if (chkAtiva.Checked)
-                {
-                    ativ = true;
-                }
-                else
-                {
-                    ativ = false;
-                }
+
+
                 int horaStart = int.Parse(dtHoraComeco.Value.ToShortTimeString());
                 int horaEnd = int.Parse(dtHoraFim.Value.ToShortTimeString());
                 string dias = lsbDias.SelectedItems.ToString();
-                int horario = horaStart - horaEnd;
-                string hora = horario.ToString();
+                string hora = horaStart.ToString() + "-" + horaEnd.ToString();
+
+
                 consModal cons = new consModal();
                 if (int.Parse(txtAlunos.Text) == int.Parse(cons.txtAlunos.Text) - 5)
                 {
                     lblLimite.ForeColor = System.Drawing.Color.Red;
                     lblLimite.Text = "Só restam " + limiteAviso.ToString() + " alunos na modalidade!";
                     while (int.Parse(txtAlunos.Text) > mod.Qtd_Alunos)
-                {
-                    MessageBox.Show("A quantidade de alunos excede o limite.", "Alerta do Sistema", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                    {
+                        MessageBox.Show("A quantidade de alunos excede o limite.", "Alerta do Sistema", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                    }
+                    Turma tur = new Turma(int.Parse(cons.txtID.Text), txtProfessor.Text.ToString(), dias.ToString(), hora, int.Parse(txtAlunos.Text));
+                    DAO_Conexao.con.Close();
+                    cbxIDDesc.Items.Clear();
+
                 }
-                Turma tur = new Turma(int.Parse(cons.txtID.Text), txtProfessor.Text.ToString(), dias.ToString(), hora, int.Parse(txtAlunos.Text));
-                tur.cadastrarTurma();
-                }
-                
-                
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
+
                 Console.WriteLine(ex.ToString());
             }
         }

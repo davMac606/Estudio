@@ -30,10 +30,13 @@ namespace Estudio201238
         private void InitializeComponent()
         {
             this.grpCadTurma = new System.Windows.Forms.GroupBox();
+            this.lblLimite = new System.Windows.Forms.Label();
+            this.dtHoraFim = new System.Windows.Forms.DateTimePicker();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.txtIDModal = new System.Windows.Forms.TextBox();
             this.dtHoraComeco = new System.Windows.Forms.DateTimePicker();
-            this.chkAtiva = new System.Windows.Forms.CheckBox();
-            this.btnModal = new System.Windows.Forms.Button();
             this.btnCadastro = new System.Windows.Forms.Button();
             this.lsbDias = new System.Windows.Forms.ListBox();
             this.txtAlunos = new System.Windows.Forms.TextBox();
@@ -41,16 +44,15 @@ namespace Estudio201238
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.dtHoraFim = new System.Windows.Forms.DateTimePicker();
-            this.lblLimite = new System.Windows.Forms.Label();
+            this.cbxIDDesc = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.grpCadTurma.SuspendLayout();
             this.SuspendLayout();
             // 
             // grpCadTurma
             // 
+            this.grpCadTurma.Controls.Add(this.label7);
+            this.grpCadTurma.Controls.Add(this.cbxIDDesc);
             this.grpCadTurma.Controls.Add(this.lblLimite);
             this.grpCadTurma.Controls.Add(this.dtHoraFim);
             this.grpCadTurma.Controls.Add(this.label6);
@@ -58,8 +60,6 @@ namespace Estudio201238
             this.grpCadTurma.Controls.Add(this.label4);
             this.grpCadTurma.Controls.Add(this.txtIDModal);
             this.grpCadTurma.Controls.Add(this.dtHoraComeco);
-            this.grpCadTurma.Controls.Add(this.chkAtiva);
-            this.grpCadTurma.Controls.Add(this.btnModal);
             this.grpCadTurma.Controls.Add(this.btnCadastro);
             this.grpCadTurma.Controls.Add(this.lsbDias);
             this.grpCadTurma.Controls.Add(this.txtAlunos);
@@ -73,6 +73,49 @@ namespace Estudio201238
             this.grpCadTurma.TabIndex = 0;
             this.grpCadTurma.TabStop = false;
             this.grpCadTurma.Text = "Turmas";
+            // 
+            // lblLimite
+            // 
+            this.lblLimite.AutoSize = true;
+            this.lblLimite.Location = new System.Drawing.Point(480, 54);
+            this.lblLimite.Name = "lblLimite";
+            this.lblLimite.Size = new System.Drawing.Size(0, 21);
+            this.lblLimite.TabIndex = 20;
+            // 
+            // dtHoraFim
+            // 
+            this.dtHoraFim.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtHoraFim.Location = new System.Drawing.Point(511, 159);
+            this.dtHoraFim.Name = "dtHoraFim";
+            this.dtHoraFim.Size = new System.Drawing.Size(220, 29);
+            this.dtHoraFim.TabIndex = 19;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(336, 161);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(169, 21);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "Hora de encerramento:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(15, 161);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(109, 21);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "Hora de início:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(15, 205);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(28, 21);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "ID:";
             // 
             // txtIDModal
             // 
@@ -89,29 +132,6 @@ namespace Estudio201238
             this.dtHoraComeco.Size = new System.Drawing.Size(200, 29);
             this.dtHoraComeco.TabIndex = 14;
             this.dtHoraComeco.ValueChanged += new System.EventHandler(this.dtHoraComeco_ValueChanged);
-            // 
-            // chkAtiva
-            // 
-            this.chkAtiva.AutoSize = true;
-            this.chkAtiva.Checked = true;
-            this.chkAtiva.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkAtiva.Enabled = false;
-            this.chkAtiva.Location = new System.Drawing.Point(667, 65);
-            this.chkAtiva.Name = "chkAtiva";
-            this.chkAtiva.Size = new System.Drawing.Size(64, 25);
-            this.chkAtiva.TabIndex = 13;
-            this.chkAtiva.Text = "Ativa";
-            this.chkAtiva.UseVisualStyleBackColor = true;
-            // 
-            // btnModal
-            // 
-            this.btnModal.Location = new System.Drawing.Point(84, 198);
-            this.btnModal.Name = "btnModal";
-            this.btnModal.Size = new System.Drawing.Size(200, 35);
-            this.btnModal.TabIndex = 12;
-            this.btnModal.Text = "Escolha uma Modalidade";
-            this.btnModal.UseVisualStyleBackColor = true;
-            this.btnModal.Click += new System.EventHandler(this.btnModal_Click);
             // 
             // btnCadastro
             // 
@@ -180,48 +200,22 @@ namespace Estudio201238
             this.label1.TabIndex = 0;
             this.label1.Text = "Professor:";
             // 
-            // label4
+            // cbxIDDesc
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(15, 205);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(28, 21);
-            this.label4.TabIndex = 16;
-            this.label4.Text = "ID:";
+            this.cbxIDDesc.FormattingEnabled = true;
+            this.cbxIDDesc.Location = new System.Drawing.Point(340, 202);
+            this.cbxIDDesc.Name = "cbxIDDesc";
+            this.cbxIDDesc.Size = new System.Drawing.Size(391, 29);
+            this.cbxIDDesc.TabIndex = 22;
             // 
-            // label5
+            // label7
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(15, 161);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(109, 21);
-            this.label5.TabIndex = 17;
-            this.label5.Text = "Hora de início:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(336, 161);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(169, 21);
-            this.label6.TabIndex = 18;
-            this.label6.Text = "Hora de encerramento:";
-            // 
-            // dtHoraFim
-            // 
-            this.dtHoraFim.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtHoraFim.Location = new System.Drawing.Point(511, 159);
-            this.dtHoraFim.Name = "dtHoraFim";
-            this.dtHoraFim.Size = new System.Drawing.Size(220, 29);
-            this.dtHoraFim.TabIndex = 19;
-            // 
-            // lblLimite
-            // 
-            this.lblLimite.AutoSize = true;
-            this.lblLimite.Location = new System.Drawing.Point(480, 54);
-            this.lblLimite.Name = "lblLimite";
-            this.lblLimite.Size = new System.Drawing.Size(0, 21);
-            this.lblLimite.TabIndex = 20;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(171, 205);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(159, 21);
+            this.label7.TabIndex = 23;
+            this.label7.Text = "Lista de Modalidades:";
             // 
             // cadTurma
             // 
@@ -250,8 +244,6 @@ namespace Estudio201238
         private System.Windows.Forms.TextBox txtAlunos;
         private System.Windows.Forms.ListBox lsbDias;
         private System.Windows.Forms.Button btnCadastro;
-        private System.Windows.Forms.Button btnModal;
-        private System.Windows.Forms.CheckBox chkAtiva;
         private System.Windows.Forms.DateTimePicker dtHoraComeco;
         public System.Windows.Forms.TextBox txtIDModal;
         private System.Windows.Forms.Label label5;
@@ -259,5 +251,7 @@ namespace Estudio201238
         private System.Windows.Forms.DateTimePicker dtHoraFim;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lblLimite;
+        private System.Windows.Forms.ComboBox cbxIDDesc;
+        private System.Windows.Forms.Label label7;
     }
 }
