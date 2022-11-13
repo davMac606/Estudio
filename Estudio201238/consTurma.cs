@@ -19,12 +19,7 @@ namespace Estudio201238
         }
         public void updateComboBox()
         {
-            cbxNome.Items.Clear();
-            if (DAO_Conexao.con.State == ConnectionState.Open)
-            {
-                DAO_Conexao.con.Close();
-            }
-
+        
             try
             {
                 if (DAO_Conexao.con.State == ConnectionState.Open)
@@ -32,7 +27,7 @@ namespace Estudio201238
                     DAO_Conexao.con.Close();
                 }
                 DAO_Conexao.con.Open();
-                string sql = "SELECT idTurma, nomeTurma, professor, diaSemana, hora, numAlunMatriculados from TurmaCS";
+                string sql = "SELECT idTurma, idModalidade, nomeTurma, professor, diaSemana, hora, numAlunMatriculados, turmaAtiva from TurmaCS";
                 MySqlCommand adiciona = new MySqlCommand(sql, DAO_Conexao.con);
                 MySqlDataReader dr = adiciona.ExecuteReader();
                 while (dr.Read())

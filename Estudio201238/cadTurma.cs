@@ -108,6 +108,7 @@ namespace Estudio201238
         {
             updateComboBox();
             txtIDModal.Visible = true;
+            txtIDModal.Clear();
            
         }
 
@@ -180,6 +181,13 @@ namespace Estudio201238
         private void txtHora_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            gerenTurma gerTur = new gerenTurma();
+            gerTur.Show();
         }
 
         /*private void txtAlunos_TextChanged(object sender, EventArgs e)

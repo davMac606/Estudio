@@ -29,5 +29,13 @@ namespace Estudio201238
         {
 
         }
+
+        private void btnConsultaTurma_Click(object sender, EventArgs e)
+        {
+            consTurma conTur = new consTurma();
+            conTur.MdiParent = this;
+            conTur.Show();
+            grpTurma.Visible = false;
+        }
     }
 }

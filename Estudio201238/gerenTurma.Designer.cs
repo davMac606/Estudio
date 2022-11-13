@@ -55,6 +55,7 @@ namespace Estudio201238
             this.btnConsultaTurma.TabIndex = 1;
             this.btnConsultaTurma.Text = "Consultar Turma";
             this.btnConsultaTurma.UseVisualStyleBackColor = true;
+            this.btnConsultaTurma.Click += new System.EventHandler(this.btnConsultaTurma_Click);
             // 
             // btnBuscaTurma
             // 

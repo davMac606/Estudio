@@ -30,17 +30,19 @@ namespace Estudio201238
         private void InitializeComponent()
         {
             this.grpCadTurma = new System.Windows.Forms.GroupBox();
+            this.txtNome = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.txtHora = new System.Windows.Forms.TextBox();
             this.txtDias = new System.Windows.Forms.TextBox();
             this.grpListas = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
             this.cbxDesc = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtIDModal = new System.Windows.Forms.TextBox();
             this.lblLimite = new System.Windows.Forms.Label();
             this.dtHoraFim = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtIDModal = new System.Windows.Forms.TextBox();
             this.dtHoraComeco = new System.Windows.Forms.DateTimePicker();
             this.btnCadastro = new System.Windows.Forms.Button();
             this.lsbDias = new System.Windows.Forms.ListBox();
@@ -50,14 +52,14 @@ namespace Estudio201238
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtNome = new System.Windows.Forms.TextBox();
+            this.btnVoltar = new System.Windows.Forms.Button();
             this.grpCadTurma.SuspendLayout();
             this.grpListas.SuspendLayout();
             this.SuspendLayout();
             // 
             // grpCadTurma
             // 
+            this.grpCadTurma.Controls.Add(this.btnVoltar);
             this.grpCadTurma.Controls.Add(this.txtNome);
             this.grpCadTurma.Controls.Add(this.label7);
             this.grpCadTurma.Controls.Add(this.txtHora);
@@ -82,6 +84,22 @@ namespace Estudio201238
             this.grpCadTurma.TabStop = false;
             this.grpCadTurma.Text = "Turmas";
             // 
+            // txtNome
+            // 
+            this.txtNome.Location = new System.Drawing.Point(136, 51);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(213, 29);
+            this.txtNome.TabIndex = 29;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 54);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(126, 21);
+            this.label7.TabIndex = 28;
+            this.label7.Text = "Nome da Turma:";
+            // 
             // txtHora
             // 
             this.txtHora.Enabled = false;
@@ -95,7 +113,6 @@ namespace Estudio201238
             // 
             this.txtDias.Enabled = false;
             this.txtDias.Location = new System.Drawing.Point(262, 229);
-            this.txtDias.Multiline = true;
             this.txtDias.Name = "txtDias";
             this.txtDias.Size = new System.Drawing.Size(181, 29);
             this.txtDias.TabIndex = 26;
@@ -130,6 +147,22 @@ namespace Estudio201238
             this.cbxDesc.Size = new System.Drawing.Size(391, 29);
             this.cbxDesc.TabIndex = 24;
             this.cbxDesc.SelectedIndexChanged += new System.EventHandler(this.cbxDesc_SelectedIndexChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(141, 116);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(28, 21);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "ID:";
+            // 
+            // txtIDModal
+            // 
+            this.txtIDModal.Location = new System.Drawing.Point(175, 113);
+            this.txtIDModal.Name = "txtIDModal";
+            this.txtIDModal.Size = new System.Drawing.Size(29, 29);
+            this.txtIDModal.TabIndex = 15;
             // 
             // lblLimite
             // 
@@ -167,22 +200,6 @@ namespace Estudio201238
             this.label5.Size = new System.Drawing.Size(109, 21);
             this.label5.TabIndex = 17;
             this.label5.Text = "Hora de início:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(141, 116);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(28, 21);
-            this.label4.TabIndex = 16;
-            this.label4.Text = "ID:";
-            // 
-            // txtIDModal
-            // 
-            this.txtIDModal.Location = new System.Drawing.Point(175, 113);
-            this.txtIDModal.Name = "txtIDModal";
-            this.txtIDModal.Size = new System.Drawing.Size(29, 29);
-            this.txtIDModal.TabIndex = 15;
             // 
             // dtHoraComeco
             // 
@@ -265,21 +282,15 @@ namespace Estudio201238
             this.label1.TabIndex = 0;
             this.label1.Text = "Professor:";
             // 
-            // label7
+            // btnVoltar
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 54);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(126, 21);
-            this.label7.TabIndex = 28;
-            this.label7.Text = "Nome da Turma:";
-            // 
-            // txtNome
-            // 
-            this.txtNome.Location = new System.Drawing.Point(136, 51);
-            this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(213, 29);
-            this.txtNome.TabIndex = 29;
+            this.btnVoltar.Location = new System.Drawing.Point(1020, 25);
+            this.btnVoltar.Name = "btnVoltar";
+            this.btnVoltar.Size = new System.Drawing.Size(150, 50);
+            this.btnVoltar.TabIndex = 1;
+            this.btnVoltar.Text = "Voltar";
+            this.btnVoltar.UseVisualStyleBackColor = true;
+            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
             // cadTurma
             // 
@@ -325,5 +336,6 @@ namespace Estudio201238
         private System.Windows.Forms.TextBox txtHora;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtNome;
+        private System.Windows.Forms.Button btnVoltar;
     }
 }
