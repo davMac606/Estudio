@@ -99,7 +99,7 @@ namespace Estudio201238
             {
                 
                 DAO_Conexao.con.Open();
-                MySqlCommand insere = new MySqlCommand("INSERT INTO TurmaCS (idTurma, Id_Modalidade, Professor, Dia_Semana, Hora, NumAlunMatriculados, TurmaAtiva) VALUES ('" + Id_Turma + "','" + Id_Modal + "','" + Professor + "','" + Dia_Semana + "','" + Hora + "','" + NumAlunMatriculados + "','" + 1 + "')");
+                MySqlCommand insere = new MySqlCommand("INSERT INTO TurmaCS (idTurma, idModalidade, professor, diaSemana, hora, numAlunMatriculados, turmaAtiva) VALUES ('" + Id_Turma + "','" + Id_Modal + "','" + Professor + "','" + Dia_Semana + "','" + Hora + "','" + NumAlunMatriculados + "','" + 1 + "')");
                 insere.ExecuteNonQuery();
                 cad = true;
                 

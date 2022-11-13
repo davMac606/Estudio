@@ -35,7 +35,7 @@ namespace Estudio201238
                 MySqlDataReader dr = adiciona.ExecuteReader();
                 while (dr.Read())
                 {
-                    cbxDesc.Items.Add(dr["descModal"].ToString());
+                    cbxDesc.Items.Add(dr["idModal" + "-" + "descModal" ].ToString());
                     cbxDesc.DisplayMember = (dr["descModal"].ToString());
                 }
             }

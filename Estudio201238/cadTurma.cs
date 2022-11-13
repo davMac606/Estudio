@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,6 +20,24 @@ namespace Estudio201238
         }
            int limiteAviso;
         Modalidade mod = new Modalidade();
+        bool uau = false;
+        private void updateComboBox()
+        {
+            DAO_Conexao.con.Open();
+
+            uau = true;
+
+            string sql = "SELECT idModal, descModal FROM ModalCS";
+            MySqlCommand adiciona = new MySqlCommand(sql, DAO_Conexao.con);
+            MySqlDataReader dr = adiciona.ExecuteReader();
+            while (dr.Read())
+            {
+                cbxID.Items.Add(dr["idModal"].ToString());
+                cbxID.DisplayMember = (dr["idModal"].ToString());
+            }
+        }
+
+        private void ()
 
 
         private void btnCadastro_Click(object sender, EventArgs e)
@@ -26,11 +45,7 @@ namespace Estudio201238
 
             try
             {
-                if (DAO_Conexao.con.State == ConnectionState.Open)
-                {
-                    DAO_Conexao.con.Close();
-                }
-                bool ativ = false;
+
 
 
                 int horaStart = int.Parse(dtHoraComeco.Value.ToShortTimeString());
@@ -39,25 +54,38 @@ namespace Estudio201238
                 string hora = horaStart.ToString() + "-" + horaEnd.ToString();
 
 
+                while (int.Parse(txtAlunos.Text) >= mod.Qtd_Alunos)
+                {
+                    MessageBox.Show("A quantidade de alunos excede o limite.", "Alerta do Sistema", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                }
+
                 consModal cons = new consModal();
                 if (int.Parse(txtAlunos.Text) == int.Parse(cons.txtAlunos.Text) - 5)
                 {
                     lblLimite.ForeColor = System.Drawing.Color.Red;
                     lblLimite.Text = "Só restam " + limiteAviso.ToString() + " alunos na modalidade!";
-                    while (int.Parse(txtAlunos.Text) > mod.Qtd_Alunos)
-                    {
-                        MessageBox.Show("A quantidade de alunos excede o limite.", "Alerta do Sistema", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
-                    }
+                }
+
                     Turma tur = new Turma(int.Parse(cons.txtID.Text), txtProfessor.Text.ToString(), dias.ToString(), hora, int.Parse(txtAlunos.Text));
-                    DAO_Conexao.con.Close();
-                    cbxIDDesc.Items.Clear();
+                    cbxID.Items.Clear();
+                if (tur.cadastrarTurma())
+                {
+                    MessageBox.Show("Cadastro de Turma realizado com sucesso!", "Alerta do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                } else
+                {
 
                 }
+             
+
             }
             catch (Exception ex)
             {
 
                 Console.WriteLine(ex.ToString());
+            }
+            finally
+            {
+                DAO_Conexao.con.Close();
             }
         }
  private void btnModal_Click(object sender, EventArgs e)
@@ -70,7 +98,7 @@ namespace Estudio201238
 
         private void cadTurma_Load(object sender, EventArgs e)
         {
-            
+            updateComboBox();
             txtIDModal.Visible = true;
            
         }
@@ -78,6 +106,13 @@ namespace Estudio201238
         private void dtHoraComeco_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void cbxDesc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DAO_Conexao
+            string
+            cbxID.Text = 
         }
     }
 
