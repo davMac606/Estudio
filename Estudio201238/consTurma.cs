@@ -168,7 +168,7 @@ namespace Estudio201238
                 tur.NumAlunMatriculados = int.Parse(txtAlunos.Text);
                 MySqlCommand updateProfessor = new MySqlCommand("UPDATE TurmaCS SET professor = '" + tur.Professor + "' WHERE turmaAtiva = 1", DAO_Conexao.con);
                 MySqlCommand updateDias = new MySqlCommand("UPDATE TurmaCS SET diaSemana = '" + tur.Dia_Semana + "' WHERE turmaAtiva = 1", DAO_Conexao.con);
-                MySqlCommand updateHora = new MySqlCommand("UPDATE ModalCS SET hora = '" + tur.Hora + "' WHERE turmaAtiva = 1", DAO_Conexao.con);
+                MySqlCommand updateHora = new MySqlCommand("UPDATE TurmaCS SET hora = '" + tur.Hora + "' WHERE turmaAtiva = 1", DAO_Conexao.con);
                 MySqlCommand updateAlunos = new MySqlCommand("UPDATE TurmaCS SET numAlunMatriculados = '" + tur.NumAlunMatriculados + "' WHERE turmaAtiva = 1", DAO_Conexao.con);
                 updateProfessor.ExecuteNonQuery();
                 updateDias.ExecuteNonQuery();
