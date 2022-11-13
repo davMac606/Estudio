@@ -30,13 +30,10 @@ namespace Estudio201238
         private void InitializeComponent()
         {
             this.grpCadTurma = new System.Windows.Forms.GroupBox();
-            this.btnTempo = new System.Windows.Forms.Button();
             this.txtHora = new System.Windows.Forms.TextBox();
             this.txtDias = new System.Windows.Forms.TextBox();
             this.grpListas = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.cbxID = new System.Windows.Forms.ComboBox();
             this.cbxDesc = new System.Windows.Forms.ComboBox();
             this.lblLimite = new System.Windows.Forms.Label();
             this.dtHoraFim = new System.Windows.Forms.DateTimePicker();
@@ -59,7 +56,6 @@ namespace Estudio201238
             // 
             // grpCadTurma
             // 
-            this.grpCadTurma.Controls.Add(this.btnTempo);
             this.grpCadTurma.Controls.Add(this.txtHora);
             this.grpCadTurma.Controls.Add(this.txtDias);
             this.grpCadTurma.Controls.Add(this.grpListas);
@@ -84,16 +80,6 @@ namespace Estudio201238
             this.grpCadTurma.TabStop = false;
             this.grpCadTurma.Text = "Turmas";
             // 
-            // btnTempo
-            // 
-            this.btnTempo.Location = new System.Drawing.Point(19, 425);
-            this.btnTempo.Name = "btnTempo";
-            this.btnTempo.Size = new System.Drawing.Size(75, 58);
-            this.btnTempo.TabIndex = 28;
-            this.btnTempo.Text = "ver tempo";
-            this.btnTempo.UseVisualStyleBackColor = true;
-            this.btnTempo.Click += new System.EventHandler(this.btnTempo_Click);
-            // 
             // txtHora
             // 
             this.txtHora.Location = new System.Drawing.Point(10, 390);
@@ -111,8 +97,6 @@ namespace Estudio201238
             // grpListas
             // 
             this.grpListas.Controls.Add(this.label8);
-            this.grpListas.Controls.Add(this.label7);
-            this.grpListas.Controls.Add(this.cbxID);
             this.grpListas.Controls.Add(this.cbxDesc);
             this.grpListas.Location = new System.Drawing.Point(159, 205);
             this.grpListas.Name = "grpListas";
@@ -129,24 +113,6 @@ namespace Estudio201238
             this.label8.Size = new System.Drawing.Size(95, 21);
             this.label8.TabIndex = 26;
             this.label8.Text = "Modalidade:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(141, 47);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(28, 21);
-            this.label7.TabIndex = 25;
-            this.label7.Text = "ID:";
-            // 
-            // cbxID
-            // 
-            this.cbxID.FormattingEnabled = true;
-            this.cbxID.Location = new System.Drawing.Point(175, 44);
-            this.cbxID.Name = "cbxID";
-            this.cbxID.Size = new System.Drawing.Size(391, 29);
-            this.cbxID.TabIndex = 22;
-            this.cbxID.SelectedIndexChanged += new System.EventHandler(this.cbxID_SelectedIndexChanged);
             // 
             // cbxDesc
             // 
@@ -174,6 +140,7 @@ namespace Estudio201238
             this.dtHoraFim.TabIndex = 19;
             this.dtHoraFim.Value = new System.DateTime(2022, 11, 12, 14, 0, 0, 0);
             this.dtHoraFim.ValueChanged += new System.EventHandler(this.dtHoraFim_ValueChanged);
+            this.dtHoraFim.Leave += new System.EventHandler(this.dtHoraFim_Leave);
             // 
             // label6
             // 
@@ -326,14 +293,11 @@ namespace Estudio201238
         private System.Windows.Forms.DateTimePicker dtHoraFim;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lblLimite;
-        private System.Windows.Forms.ComboBox cbxID;
         private System.Windows.Forms.ComboBox cbxDesc;
         private System.Windows.Forms.GroupBox grpListas;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtDias;
         private System.Windows.Forms.TextBox txtHora;
-        private System.Windows.Forms.Button btnTempo;
     }
 }

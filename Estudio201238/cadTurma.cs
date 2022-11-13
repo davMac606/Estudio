@@ -29,8 +29,8 @@ namespace Estudio201238
             MySqlDataReader dr = adiciona.ExecuteReader();
             while (dr.Read())
             {
-                cbxID.Items.Add(dr["idModal"].ToString());
-                cbxID.DisplayMember = (dr["idModal"].ToString());
+                txtIDModal.Text = (dr["idModal"].ToString());
+                txtIDModal.ReadOnly = true;
                 cbxDesc.Items.Add(dr["descModal"].ToString());
                 cbxDesc.DisplayMember = (dr["descModal"].ToString());
                 mod.Qtd_Alunos = int.Parse((dr["qtdAuModal"].ToString()));
@@ -50,7 +50,7 @@ namespace Estudio201238
             MySqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                cbxID.Text = dr[0].ToString();
+                txtIDModal.Text = dr[0].ToString();
                 mod.Qtd_Alunos = int.Parse(dr[1].ToString());
             }
             DAO_Conexao.con.Close();
@@ -71,7 +71,6 @@ namespace Estudio201238
                 consModal cons = new consModal();
 
                 Turma tur = new Turma(int.Parse(txtIDModal.Text), txtProfessor.Text.ToString(), dias.ToString(), hora, int.Parse(txtAlunos.Text));
-                cbxID.Items.Clear();
 
                 if (int.Parse(txtAlunos.Text) >= mod.Qtd_Alunos)
                 {
@@ -113,6 +112,10 @@ namespace Estudio201238
 
         private void dtHoraComeco_ValueChanged(object sender, EventArgs e)
         {
+            txtHora.Visible = true;
+            string hora = dtHoraComeco.Text + "-" + dtHoraFim.Text;
+            txtHora.Text = hora;
+            MessageBox.Show(hora);
         }
 
         private void cbxDesc_SelectedIndexChanged(object sender, EventArgs e)
@@ -123,8 +126,11 @@ namespace Estudio201238
 
         private void dtHoraFim_ValueChanged(object sender, EventArgs e)
         {
+            txtHora.Visible = true;
+            string hora = dtHoraComeco.Text + "-" + dtHoraFim.Text;
+            txtHora.Text = hora;
+            MessageBox.Show(hora);
 
-            
         }
 
         private void lsbDias_SelectedIndexChanged(object sender, EventArgs e)
@@ -151,7 +157,6 @@ namespace Estudio201238
             txtHora.Visible = true;
             string hora = dtHoraComeco.Text + "-" + dtHoraFim.Text;
             txtHora.Text = hora;
-            MessageBox.Show(hora);
         }
 
         private void cbxID_SelectedIndexChanged(object sender, EventArgs e)
@@ -162,6 +167,11 @@ namespace Estudio201238
         private void txtAlunos_Leave(object sender, EventArgs e)
         {
             
+        }
+
+        private void dtHoraFim_Leave(object sender, EventArgs e)
+        {
+          
         }
 
         /*private void txtAlunos_TextChanged(object sender, EventArgs e)
