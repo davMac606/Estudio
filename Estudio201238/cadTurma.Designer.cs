@@ -50,12 +50,16 @@ namespace Estudio201238
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtNome = new System.Windows.Forms.TextBox();
             this.grpCadTurma.SuspendLayout();
             this.grpListas.SuspendLayout();
             this.SuspendLayout();
             // 
             // grpCadTurma
             // 
+            this.grpCadTurma.Controls.Add(this.txtNome);
+            this.grpCadTurma.Controls.Add(this.label7);
             this.grpCadTurma.Controls.Add(this.txtHora);
             this.grpCadTurma.Controls.Add(this.txtDias);
             this.grpCadTurma.Controls.Add(this.grpListas);
@@ -63,8 +67,6 @@ namespace Estudio201238
             this.grpCadTurma.Controls.Add(this.dtHoraFim);
             this.grpCadTurma.Controls.Add(this.label6);
             this.grpCadTurma.Controls.Add(this.label5);
-            this.grpCadTurma.Controls.Add(this.label4);
-            this.grpCadTurma.Controls.Add(this.txtIDModal);
             this.grpCadTurma.Controls.Add(this.dtHoraComeco);
             this.grpCadTurma.Controls.Add(this.btnCadastro);
             this.grpCadTurma.Controls.Add(this.lsbDias);
@@ -75,21 +77,25 @@ namespace Estudio201238
             this.grpCadTurma.Controls.Add(this.label1);
             this.grpCadTurma.Location = new System.Drawing.Point(12, 12);
             this.grpCadTurma.Name = "grpCadTurma";
-            this.grpCadTurma.Size = new System.Drawing.Size(737, 591);
+            this.grpCadTurma.Size = new System.Drawing.Size(1176, 702);
             this.grpCadTurma.TabIndex = 0;
             this.grpCadTurma.TabStop = false;
             this.grpCadTurma.Text = "Turmas";
             // 
             // txtHora
             // 
-            this.txtHora.Location = new System.Drawing.Point(10, 390);
+            this.txtHora.Enabled = false;
+            this.txtHora.Location = new System.Drawing.Point(728, 290);
             this.txtHora.Name = "txtHora";
             this.txtHora.Size = new System.Drawing.Size(100, 29);
             this.txtHora.TabIndex = 27;
+            this.txtHora.TextChanged += new System.EventHandler(this.txtHora_TextChanged);
             // 
             // txtDias
             // 
-            this.txtDias.Location = new System.Drawing.Point(262, 65);
+            this.txtDias.Enabled = false;
+            this.txtDias.Location = new System.Drawing.Point(262, 229);
+            this.txtDias.Multiline = true;
             this.txtDias.Name = "txtDias";
             this.txtDias.Size = new System.Drawing.Size(181, 29);
             this.txtDias.TabIndex = 26;
@@ -98,7 +104,9 @@ namespace Estudio201238
             // 
             this.grpListas.Controls.Add(this.label8);
             this.grpListas.Controls.Add(this.cbxDesc);
-            this.grpListas.Location = new System.Drawing.Point(159, 205);
+            this.grpListas.Controls.Add(this.label4);
+            this.grpListas.Controls.Add(this.txtIDModal);
+            this.grpListas.Location = new System.Drawing.Point(252, 325);
             this.grpListas.Name = "grpListas";
             this.grpListas.Size = new System.Drawing.Size(572, 322);
             this.grpListas.TabIndex = 25;
@@ -134,18 +142,18 @@ namespace Estudio201238
             // dtHoraFim
             // 
             this.dtHoraFim.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtHoraFim.Location = new System.Drawing.Point(511, 159);
+            this.dtHoraFim.Location = new System.Drawing.Point(502, 290);
             this.dtHoraFim.Name = "dtHoraFim";
             this.dtHoraFim.Size = new System.Drawing.Size(220, 29);
             this.dtHoraFim.TabIndex = 19;
-            this.dtHoraFim.Value = new System.DateTime(2022, 11, 12, 14, 0, 0, 0);
+            this.dtHoraFim.Value = new System.DateTime(2022, 11, 12, 0, 0, 0, 0);
             this.dtHoraFim.ValueChanged += new System.EventHandler(this.dtHoraFim_ValueChanged);
             this.dtHoraFim.Leave += new System.EventHandler(this.dtHoraFim_Leave);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(336, 161);
+            this.label6.Location = new System.Drawing.Point(327, 296);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(169, 21);
             this.label6.TabIndex = 18;
@@ -154,7 +162,7 @@ namespace Estudio201238
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(15, 161);
+            this.label5.Location = new System.Drawing.Point(6, 296);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(109, 21);
             this.label5.TabIndex = 17;
@@ -163,7 +171,7 @@ namespace Estudio201238
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(15, 205);
+            this.label4.Location = new System.Drawing.Point(141, 116);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(28, 21);
             this.label4.TabIndex = 16;
@@ -171,7 +179,7 @@ namespace Estudio201238
             // 
             // txtIDModal
             // 
-            this.txtIDModal.Location = new System.Drawing.Point(49, 202);
+            this.txtIDModal.Location = new System.Drawing.Point(175, 113);
             this.txtIDModal.Name = "txtIDModal";
             this.txtIDModal.Size = new System.Drawing.Size(29, 29);
             this.txtIDModal.TabIndex = 15;
@@ -179,19 +187,19 @@ namespace Estudio201238
             // dtHoraComeco
             // 
             this.dtHoraComeco.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtHoraComeco.Location = new System.Drawing.Point(130, 159);
+            this.dtHoraComeco.Location = new System.Drawing.Point(121, 290);
             this.dtHoraComeco.Name = "dtHoraComeco";
             this.dtHoraComeco.Size = new System.Drawing.Size(200, 29);
             this.dtHoraComeco.TabIndex = 14;
-            this.dtHoraComeco.Value = new System.DateTime(2022, 11, 12, 13, 15, 0, 0);
+            this.dtHoraComeco.Value = new System.DateTime(2022, 11, 12, 0, 0, 0, 0);
             this.dtHoraComeco.ValueChanged += new System.EventHandler(this.dtHoraComeco_ValueChanged);
             this.dtHoraComeco.Leave += new System.EventHandler(this.dtHoraComeco_Leave);
             // 
             // btnCadastro
             // 
-            this.btnCadastro.Location = new System.Drawing.Point(10, 533);
+            this.btnCadastro.Location = new System.Drawing.Point(6, 653);
             this.btnCadastro.Name = "btnCadastro";
-            this.btnCadastro.Size = new System.Drawing.Size(721, 43);
+            this.btnCadastro.Size = new System.Drawing.Size(1164, 43);
             this.btnCadastro.TabIndex = 11;
             this.btnCadastro.Text = "Cadastrar";
             this.btnCadastro.UseVisualStyleBackColor = true;
@@ -207,7 +215,7 @@ namespace Estudio201238
             "Quarta-feira",
             "Quinta-feira",
             "Sexta-feira"});
-            this.lsbDias.Location = new System.Drawing.Point(136, 65);
+            this.lsbDias.Location = new System.Drawing.Point(136, 196);
             this.lsbDias.Name = "lsbDias";
             this.lsbDias.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.lsbDias.Size = new System.Drawing.Size(120, 88);
@@ -217,15 +225,15 @@ namespace Estudio201238
             // 
             // txtAlunos
             // 
-            this.txtAlunos.Location = new System.Drawing.Point(460, 22);
+            this.txtAlunos.Location = new System.Drawing.Point(493, 161);
             this.txtAlunos.Name = "txtAlunos";
-            this.txtAlunos.Size = new System.Drawing.Size(271, 29);
+            this.txtAlunos.Size = new System.Drawing.Size(335, 29);
             this.txtAlunos.TabIndex = 5;
             this.txtAlunos.Leave += new System.EventHandler(this.txtAlunos_Leave);
             // 
             // txtProfessor
             // 
-            this.txtProfessor.Location = new System.Drawing.Point(91, 22);
+            this.txtProfessor.Location = new System.Drawing.Point(136, 161);
             this.txtProfessor.Name = "txtProfessor";
             this.txtProfessor.Size = new System.Drawing.Size(213, 29);
             this.txtProfessor.TabIndex = 3;
@@ -233,7 +241,7 @@ namespace Estudio201238
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(310, 25);
+            this.label3.Location = new System.Drawing.Point(352, 164);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(144, 21);
             this.label3.TabIndex = 2;
@@ -242,7 +250,7 @@ namespace Estudio201238
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 65);
+            this.label2.Location = new System.Drawing.Point(6, 229);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(124, 21);
             this.label2.TabIndex = 1;
@@ -251,11 +259,27 @@ namespace Estudio201238
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 25);
+            this.label1.Location = new System.Drawing.Point(51, 164);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 21);
             this.label1.TabIndex = 0;
             this.label1.Text = "Professor:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 54);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(126, 21);
+            this.label7.TabIndex = 28;
+            this.label7.Text = "Nome da Turma:";
+            // 
+            // txtNome
+            // 
+            this.txtNome.Location = new System.Drawing.Point(136, 51);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(213, 29);
+            this.txtNome.TabIndex = 29;
             // 
             // cadTurma
             // 
@@ -299,5 +323,7 @@ namespace Estudio201238
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtDias;
         private System.Windows.Forms.TextBox txtHora;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtNome;
     }
 }

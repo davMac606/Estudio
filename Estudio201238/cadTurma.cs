@@ -65,12 +65,13 @@ namespace Estudio201238
             {
                 string hora = txtHora.Text;
                 string dias = txtDias.Text;
+
                 //string hora = horaStart.ToString() + "-" + horaEnd.ToString();
 
 
                 consModal cons = new consModal();
 
-                Turma tur = new Turma(int.Parse(txtIDModal.Text), txtProfessor.Text.ToString(), dias.ToString(), hora, int.Parse(txtAlunos.Text));
+                Turma tur = new Turma(int.Parse(txtIDModal.Text), txtNome.Text.ToString(), txtProfessor.Text.ToString(), dias.ToString(), hora, int.Parse(txtAlunos.Text));
 
                 if (int.Parse(txtAlunos.Text) >= mod.Qtd_Alunos)
                 {
@@ -121,7 +122,9 @@ namespace Estudio201238
         private void cbxDesc_SelectedIndexChanged(object sender, EventArgs e)
         {
             atualizaID();
-            lblLimite.Text = mod.Qtd_Alunos.ToString();
+            string limite = mod.Qtd_Alunos.ToString();
+            lblLimite.ForeColor = Color.Red;
+            lblLimite.Text = "Limite de " + limite + " alunos.";
         }
 
         private void dtHoraFim_ValueChanged(object sender, EventArgs e)
@@ -172,6 +175,11 @@ namespace Estudio201238
         private void dtHoraFim_Leave(object sender, EventArgs e)
         {
           
+        }
+
+        private void txtHora_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
         /*private void txtAlunos_TextChanged(object sender, EventArgs e)

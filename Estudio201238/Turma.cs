@@ -13,6 +13,7 @@ namespace Estudio201238
     {
         private int _idTurma;
         private int _idModal;
+        private string _nomeTurma;
         private string _professor;
         private string _diaSemana;
         private string _hora;
@@ -79,12 +80,22 @@ namespace Estudio201238
             }
         }
 
-        public Turma(int _idModal, string _professor, string _diaSemana, string _hora, int _numAlunMatriculados)
+        public string NomeTurma
+        {
+            get => _nomeTurma;
+            set
+            {
+                _nomeTurma = value;
+            }
+        }
+
+        public Turma(int _idModal, string _nomeTurma, string _professor, string _diaSemana, string _hora, int _numAlunMatriculados)
         {
             Id_Modal = _idModal;
             Professor = _professor;
             Dia_Semana = _diaSemana;
             Hora = _hora;
+            NomeTurma = _nomeTurma;
             NumAlunMatriculados = _numAlunMatriculados;
         }
 
@@ -104,8 +115,7 @@ namespace Estudio201238
                     DAO_Conexao.con.Close();
                 }*/
                 DAO_Conexao.con.Open();
-                MessageBox.Show(DAO_Conexao.con.State.ToString());
-                MySqlCommand insere = new MySqlCommand("INSERT INTO TurmaCS (idTurma, idModalidade, professor, diaSemana, hora, numAlunMatriculados, turmaAtiva) VALUES ('" + Id_Turma + "','" + Id_Modal + "','" + Professor + "','" + Dia_Semana + "','" + Hora + "','" + NumAlunMatriculados + "','" + 1 + "')", DAO_Conexao.con);
+                MySqlCommand insere = new MySqlCommand("INSERT INTO TurmaCS (idTurma, idModalidade, nomeTurma, professor, diaSemana, hora, numAlunMatriculados, turmaAtiva) VALUES ('" + Id_Turma + "','" + Id_Modal + "','" + NomeTurma + "','" + Professor + "','" + Dia_Semana + "','" + Hora + "','" + NumAlunMatriculados + "','" + 1 + "')", DAO_Conexao.con);
                 insere.ExecuteNonQuery();
                 cad = true;
                 
