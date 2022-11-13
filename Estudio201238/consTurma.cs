@@ -32,8 +32,8 @@ namespace Estudio201238
                 MySqlDataReader dr = adiciona.ExecuteReader();
                 while (dr.Read())
                 {
-                    cbxNome.Items.Add(dr["nomeTurma"].ToString());
-                    cbxNome.DisplayMember = (dr["nomeTurma"].ToString());
+                    cbxID.Items.Add("ID: " + dr["idTurma"].ToString());
+                    cbxID.DisplayMember = ("ID: " + dr["idTurma"].ToString());
                 }
             }
             catch (Exception ex)
@@ -51,7 +51,7 @@ namespace Estudio201238
             try
             {
                 DAO_Conexao.con.Open();
-                string sql = "SELECT professor from ModalCS where nomeTurma = '" + cbxNome.SelectedItem + "'";
+                string sql = "SELECT professor from TurmaCS where idTurma = '" + cbxID.SelectedItem + "'";
                 MySqlCommand cmd = new MySqlCommand(sql, DAO_Conexao.con);
                 MySqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
@@ -74,7 +74,7 @@ namespace Estudio201238
             try
             {
                 DAO_Conexao.con.Open();
-                string sql = "SELECT diaSemana from ModalCS where nomeTurma = '" + cbxNome.SelectedItem + "'";
+                string sql = "SELECT diaSemana from TurmaCS where idTurma = '" + cbxID.SelectedItem + "'";
                 MySqlCommand cmd = new MySqlCommand(sql, DAO_Conexao.con);
                 MySqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
@@ -97,7 +97,7 @@ namespace Estudio201238
             try
             {
                 DAO_Conexao.con.Open();
-                string sql = "SELECT hora from ModalCS where nomeTurma = '" + cbxNome.SelectedItem + "'";
+                string sql = "SELECT hora from TurmaCS where idTurma = '" + cbxID.SelectedItem + "'";
                 MySqlCommand cmd = new MySqlCommand(sql, DAO_Conexao.con);
                 MySqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
@@ -120,7 +120,7 @@ namespace Estudio201238
             try
             {
                 DAO_Conexao.con.Open();
-                string sql = "SELECT numAlunMatriculados from ModalCS where nomeTurma = '" + cbxNome.SelectedItem + "'";
+                string sql = "SELECT numAlunMatriculados from TurmaCS where idTurma = '" + cbxID.SelectedItem + "'";
                 MySqlCommand cmd = new MySqlCommand(sql, DAO_Conexao.con);
                 MySqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
@@ -147,7 +147,7 @@ namespace Estudio201238
             txtDias.Enabled = true;
             txtHora.Enabled = true;
             txtProfessor.Enabled = true;
-            cbxNome.Enabled = false;
+            cbxID.Enabled = false;
         }
 
         public bool atualizaTurma()
@@ -192,13 +192,7 @@ namespace Estudio201238
             txtProfessor.Enabled = false;
         }
 
-        private void cbxNome_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            updateAlunos();
-            updateDias();
-            updateHora();
-            updateProfessor();
-        }
+       
 
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
@@ -216,12 +210,33 @@ namespace Estudio201238
                     MessageBox.Show("Erro: Por favor, tente novamente.", "Alerta de Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 btnAtualizar.Text = "Atualizar";
-                cbxNome.Enabled = true;
+                cbxID.Enabled = true;
                 txtAlunos.Enabled = false;
                 txtDias.Enabled = false;
                 txtHora.Enabled = false;
                 txtProfessor.Enabled = false;
             }
+        }
+
+        private void cbxId_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DAO_Conexao.con.State == ConnectionState.Open)
+            {
+                DAO_Conexao.con.Close();
+            }
+            DAO_Conexao.con.Open();
+            Turma tur = new Turma();
+            string sql = "SELECT nomeTurma FROM TurmaCS WHERE idTurma = '" + tur.Id_Turma + "'";
+            MySqlCommand addId = new MySqlCommand(sql, DAO_Conexao.con);
+            MySqlDataReader dr = addId.ExecuteReader();
+            while (dr.Read())
+            {
+                txtNome.Text = (dr[0].ToString());
+            }
+            updateAlunos();
+            updateDias();
+            updateHora();
+            updateProfessor();
         }
     }
 }
