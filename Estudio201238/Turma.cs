@@ -1,9 +1,11 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Estudio201238
 {
@@ -97,9 +99,13 @@ namespace Estudio201238
             
             try
             {
-                
+                /*if (DAO_Conexao.con.State == ConnectionState.Open)
+                {
+                    DAO_Conexao.con.Close();
+                }*/
                 DAO_Conexao.con.Open();
-                MySqlCommand insere = new MySqlCommand("INSERT INTO TurmaCS (idTurma, idModalidade, professor, diaSemana, hora, numAlunMatriculados, turmaAtiva) VALUES ('" + Id_Turma + "','" + Id_Modal + "','" + Professor + "','" + Dia_Semana + "','" + Hora + "','" + NumAlunMatriculados + "','" + 1 + "')");
+                MessageBox.Show(DAO_Conexao.con.State.ToString());
+                MySqlCommand insere = new MySqlCommand("INSERT INTO TurmaCS (idTurma, idModalidade, professor, diaSemana, hora, numAlunMatriculados, turmaAtiva) VALUES ('" + Id_Turma + "','" + Id_Modal + "','" + Professor + "','" + Dia_Semana + "','" + Hora + "','" + NumAlunMatriculados + "','" + 1 + "')", DAO_Conexao.con);
                 insere.ExecuteNonQuery();
                 cad = true;
                 
