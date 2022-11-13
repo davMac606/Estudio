@@ -125,7 +125,6 @@ namespace Estudio201238
             MySqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                txtID.Text = dr[0].ToString();
                 cadTurma cadTur = new cadTurma();
                 cadTur.txtIDModal.Text = dr[0].ToString();
             }
@@ -189,8 +188,6 @@ namespace Estudio201238
         {
             Modalidade mod = new Modalidade();
             updateComboBox();
-            txtID.Visible = true;
-            lblID.Visible = true;
             txtAlunos.Enabled = false;
             txtAulas.Enabled = false;
             txtPreco.Enabled = false;

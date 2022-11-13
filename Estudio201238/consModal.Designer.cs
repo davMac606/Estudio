@@ -41,17 +41,13 @@ namespace Estudio201238
             this.cbxDesc = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnVoltar = new System.Windows.Forms.Button();
-            this.lblID = new System.Windows.Forms.Label();
-            this.txtID = new System.Windows.Forms.TextBox();
             this.grpCons.SuspendLayout();
             this.SuspendLayout();
             // 
             // grpCons
             // 
-            this.grpCons.Controls.Add(this.txtID);
             this.grpCons.Controls.Add(this.btnSalvar);
             this.grpCons.Controls.Add(this.btnAtualizar);
-            this.grpCons.Controls.Add(this.lblID);
             this.grpCons.Controls.Add(this.txtAulas);
             this.grpCons.Controls.Add(this.label4);
             this.grpCons.Controls.Add(this.label3);
@@ -165,23 +161,6 @@ namespace Estudio201238
             this.btnVoltar.UseVisualStyleBackColor = true;
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
-            // lblID
-            // 
-            this.lblID.AutoSize = true;
-            this.lblID.Location = new System.Drawing.Point(166, 181);
-            this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(135, 21);
-            this.lblID.TabIndex = 9;
-            this.lblID.Text = "ID da Modalidade:";
-            // 
-            // txtID
-            // 
-            this.txtID.Enabled = false;
-            this.txtID.Location = new System.Drawing.Point(307, 178);
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(29, 29);
-            this.txtID.TabIndex = 10;
-            // 
             // consModal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -214,7 +193,5 @@ namespace Estudio201238
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnAtualizar;
         private System.Windows.Forms.Button btnSalvar;
-        private System.Windows.Forms.Label lblID;
-        public System.Windows.Forms.TextBox txtID;
     }
 }

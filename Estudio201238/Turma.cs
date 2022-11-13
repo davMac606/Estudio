@@ -62,7 +62,7 @@ namespace Estudio201238
                 _hora = value;
             }
         }
-        private int NumAlunMatriculados
+        public int NumAlunMatriculados
         {
             get => _numAlunMatriculados;
             set
