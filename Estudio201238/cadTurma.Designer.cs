@@ -83,6 +83,7 @@ namespace Estudio201238
             this.grpCadTurma.TabIndex = 0;
             this.grpCadTurma.TabStop = false;
             this.grpCadTurma.Text = "Turmas";
+            this.grpCadTurma.Enter += new System.EventHandler(this.grpCadTurma_Enter);
             // 
             // btnVoltar
             // 
@@ -177,7 +178,7 @@ namespace Estudio201238
             // lblLimite
             // 
             this.lblLimite.AutoSize = true;
-            this.lblLimite.Location = new System.Drawing.Point(480, 54);
+            this.lblLimite.Location = new System.Drawing.Point(515, 83);
             this.lblLimite.Name = "lblLimite";
             this.lblLimite.Size = new System.Drawing.Size(0, 21);
             this.lblLimite.TabIndex = 20;
@@ -268,7 +269,7 @@ namespace Estudio201238
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(355, 54);
+            this.label3.Location = new System.Drawing.Point(352, 54);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(144, 21);
             this.label3.TabIndex = 2;

@@ -30,6 +30,8 @@ namespace Estudio201238
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtNome = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.btnAtualizar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.txtAlunos = new System.Windows.Forms.TextBox();
@@ -41,13 +43,13 @@ namespace Estudio201238
             this.cbxID = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtNome = new System.Windows.Forms.TextBox();
+            this.btnSalvar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnSalvar);
             this.groupBox1.Controls.Add(this.txtNome);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.btnAtualizar);
@@ -69,6 +71,22 @@ namespace Estudio201238
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Turmas";
+            // 
+            // txtNome
+            // 
+            this.txtNome.Location = new System.Drawing.Point(614, 49);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(100, 29);
+            this.txtNome.TabIndex = 13;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(135, 52);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(28, 21);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "ID:";
             // 
             // btnAtualizar
             // 
@@ -162,21 +180,16 @@ namespace Estudio201238
             this.label1.TabIndex = 0;
             this.label1.Text = "Professor:";
             // 
-            // label6
+            // btnSalvar
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(135, 52);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(28, 21);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "ID:";
-            // 
-            // txtNome
-            // 
-            this.txtNome.Location = new System.Drawing.Point(614, 49);
-            this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(100, 29);
-            this.txtNome.TabIndex = 13;
+            this.btnSalvar.Location = new System.Drawing.Point(12, 640);
+            this.btnSalvar.Name = "btnSalvar";
+            this.btnSalvar.Size = new System.Drawing.Size(1155, 51);
+            this.btnSalvar.TabIndex = 14;
+            this.btnSalvar.Text = "Salvar";
+            this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Visible = false;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // consTurma
             // 
@@ -211,5 +224,6 @@ namespace Estudio201238
         private System.Windows.Forms.Button btnAtualizar;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtNome;
+        private System.Windows.Forms.Button btnSalvar;
     }
 }

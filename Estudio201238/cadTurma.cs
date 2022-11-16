@@ -189,6 +189,11 @@ namespace Estudio201238
             gerTur.Show();
         }
 
+        private void grpCadTurma_Enter(object sender, EventArgs e)
+        {
+
+        }
+
         /*private void txtAlunos_TextChanged(object sender, EventArgs e)
         {
             if (int.Parse(txtAlunos.Text) == int.Parse(cons.txtAlunos.Text) - 5)

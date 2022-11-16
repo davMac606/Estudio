@@ -167,14 +167,7 @@ namespace Estudio201238
 
         public void atualizaDados()
         {
-            btnAtualizar.Text = "Salvar";
-            Turma tur = new Turma();
-            updateComboBox();
-            txtAlunos.Enabled = true;
-            txtDias.Enabled = true;
-            txtHora.Enabled = true;
-            txtProfessor.Enabled = true;
-            cbxID.Enabled = false;
+
         }
 
         public bool atualizaTurma()
@@ -227,26 +220,16 @@ namespace Estudio201238
             {
                 DAO_Conexao.con.Close();
             }
-            if (btnAtualizar.Text.Equals("Atualizar"))
-            {
-                atualizaDados();
-            }
-            if (btnAtualizar.Text.Equals("Salvar"))
-            {
-                if (atualizaTurma())
-                {
-                    MessageBox.Show("Turma atualizada com sucesso!", "Alerta de Sistema", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                } else
-                {
-                    MessageBox.Show("Erro: Por favor, tente novamente.", "Alerta de Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                btnAtualizar.Text = "Atualizar";
-                cbxID.Enabled = true;
-                txtAlunos.Enabled = false;
-                txtDias.Enabled = false;
-                txtHora.Enabled = false;
-                txtProfessor.Enabled = false;
-            }
+                Turma tur = new Turma();
+                updateComboBox();
+                txtAlunos.Enabled = true;
+                txtDias.Enabled = true;
+                txtHora.Enabled = true;
+                txtProfessor.Enabled = true;
+                cbxID.Enabled = false;
+            btnAtualizar.Visible = false;
+            btnSalvar.Visible = true;
+           
         }
 
         private void cbxId_SelectedIndexChanged(object sender, EventArgs e)
@@ -264,6 +247,33 @@ namespace Estudio201238
             updateProfessor();
             updateTurma();
             txtAlunos.Enabled = true;
+            txtHora.Enabled = true;
+            txtDias.Enabled = true;
+            txtProfessor.Enabled = true;
+        }
+
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+            if (DAO_Conexao.con.State == ConnectionState.Open)
+            {
+                DAO_Conexao.con.Close();
+            }
+            if (atualizaTurma())
+            {
+                MessageBox.Show("Turma atualizada com sucesso!", "Alerta de Sistema", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
+            {
+                MessageBox.Show("Erro: Por favor, tente novamente.", "Alerta de Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            cbxID.Enabled = true;
+            txtAlunos.Enabled = false;
+            txtDias.Enabled = false;
+            txtHora.Enabled = false;
+            txtProfessor.Enabled = false;
+            txtNome.Enabled = false;
+            btnAtualizar.Visible = true;
+            btnSalvar.Visible = false;
         }
     }
 }
