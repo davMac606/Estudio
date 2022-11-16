@@ -31,7 +31,7 @@ namespace Estudio201238
         {
             this.btnCadastroTurma = new System.Windows.Forms.Button();
             this.btnConsultaTurma = new System.Windows.Forms.Button();
-            this.btnBuscaTurma = new System.Windows.Forms.Button();
+            this.btnExcsTurma = new System.Windows.Forms.Button();
             this.grpTurma = new System.Windows.Forms.GroupBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.grpTurma.SuspendLayout();
@@ -57,19 +57,20 @@ namespace Estudio201238
             this.btnConsultaTurma.UseVisualStyleBackColor = true;
             this.btnConsultaTurma.Click += new System.EventHandler(this.btnConsultaTurma_Click);
             // 
-            // btnBuscaTurma
+            // btnExcsTurma
             // 
-            this.btnBuscaTurma.Location = new System.Drawing.Point(6, 114);
-            this.btnBuscaTurma.Name = "btnBuscaTurma";
-            this.btnBuscaTurma.Size = new System.Drawing.Size(201, 37);
-            this.btnBuscaTurma.TabIndex = 2;
-            this.btnBuscaTurma.Text = "Buscar Turma";
-            this.btnBuscaTurma.UseVisualStyleBackColor = true;
+            this.btnExcsTurma.Location = new System.Drawing.Point(6, 114);
+            this.btnExcsTurma.Name = "btnExcsTurma";
+            this.btnExcsTurma.Size = new System.Drawing.Size(201, 37);
+            this.btnExcsTurma.TabIndex = 2;
+            this.btnExcsTurma.Text = "Excluir Turma";
+            this.btnExcsTurma.UseVisualStyleBackColor = true;
+            this.btnExcsTurma.Click += new System.EventHandler(this.btnExcsTurma_Click);
             // 
             // grpTurma
             // 
             this.grpTurma.Controls.Add(this.btnCadastroTurma);
-            this.grpTurma.Controls.Add(this.btnBuscaTurma);
+            this.grpTurma.Controls.Add(this.btnExcsTurma);
             this.grpTurma.Controls.Add(this.btnConsultaTurma);
             this.grpTurma.Location = new System.Drawing.Point(12, 12);
             this.grpTurma.Name = "grpTurma";
@@ -99,7 +100,7 @@ namespace Estudio201238
 
         private System.Windows.Forms.Button btnCadastroTurma;
         private System.Windows.Forms.Button btnConsultaTurma;
-        private System.Windows.Forms.Button btnBuscaTurma;
+        private System.Windows.Forms.Button btnExcsTurma;
         private System.Windows.Forms.GroupBox grpTurma;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }

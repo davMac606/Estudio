@@ -61,7 +61,7 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MySql.Data">
@@ -144,6 +144,12 @@
     <Compile Include="excModal.Designer.cs">
       <DependentUpon>excModal.cs</DependentUpon>
     </Compile>
+    <Compile Include="excTurma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="excTurma.Designer.cs">
+      <DependentUpon>excTurma.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmExclusao.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -192,6 +198,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="excModal.resx">
       <DependentUpon>excModal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="excTurma.resx">
+      <DependentUpon>excTurma.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmExclusao.resx">
       <DependentUpon>frmExclusao.cs</DependentUpon>

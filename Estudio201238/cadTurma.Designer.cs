@@ -30,6 +30,7 @@ namespace Estudio201238
         private void InitializeComponent()
         {
             this.grpCadTurma = new System.Windows.Forms.GroupBox();
+            this.btnVoltar = new System.Windows.Forms.Button();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtHora = new System.Windows.Forms.TextBox();
@@ -52,7 +53,6 @@ namespace Estudio201238
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.btnVoltar = new System.Windows.Forms.Button();
             this.grpCadTurma.SuspendLayout();
             this.grpListas.SuspendLayout();
             this.SuspendLayout();
@@ -83,6 +83,16 @@ namespace Estudio201238
             this.grpCadTurma.TabIndex = 0;
             this.grpCadTurma.TabStop = false;
             this.grpCadTurma.Text = "Turmas";
+            // 
+            // btnVoltar
+            // 
+            this.btnVoltar.Location = new System.Drawing.Point(1020, 25);
+            this.btnVoltar.Name = "btnVoltar";
+            this.btnVoltar.Size = new System.Drawing.Size(150, 50);
+            this.btnVoltar.TabIndex = 1;
+            this.btnVoltar.Text = "Voltar";
+            this.btnVoltar.UseVisualStyleBackColor = true;
+            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
             // txtNome
             // 
@@ -242,7 +252,7 @@ namespace Estudio201238
             // 
             // txtAlunos
             // 
-            this.txtAlunos.Location = new System.Drawing.Point(493, 161);
+            this.txtAlunos.Location = new System.Drawing.Point(502, 51);
             this.txtAlunos.Name = "txtAlunos";
             this.txtAlunos.Size = new System.Drawing.Size(335, 29);
             this.txtAlunos.TabIndex = 5;
@@ -258,7 +268,7 @@ namespace Estudio201238
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(352, 164);
+            this.label3.Location = new System.Drawing.Point(355, 54);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(144, 21);
             this.label3.TabIndex = 2;
@@ -281,16 +291,6 @@ namespace Estudio201238
             this.label1.Size = new System.Drawing.Size(79, 21);
             this.label1.TabIndex = 0;
             this.label1.Text = "Professor:";
-            // 
-            // btnVoltar
-            // 
-            this.btnVoltar.Location = new System.Drawing.Point(1020, 25);
-            this.btnVoltar.Name = "btnVoltar";
-            this.btnVoltar.Size = new System.Drawing.Size(150, 50);
-            this.btnVoltar.TabIndex = 1;
-            this.btnVoltar.Text = "Voltar";
-            this.btnVoltar.UseVisualStyleBackColor = true;
-            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
             // cadTurma
             // 

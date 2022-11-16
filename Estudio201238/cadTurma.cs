@@ -114,10 +114,7 @@ namespace Estudio201238
 
         private void dtHoraComeco_ValueChanged(object sender, EventArgs e)
         {
-            txtHora.Visible = true;
-            string hora = dtHoraComeco.Text + "-" + dtHoraFim.Text;
-            txtHora.Text = hora;
-            MessageBox.Show(hora);
+       
         }
 
         private void cbxDesc_SelectedIndexChanged(object sender, EventArgs e)
@@ -130,10 +127,6 @@ namespace Estudio201238
 
         private void dtHoraFim_ValueChanged(object sender, EventArgs e)
         {
-            txtHora.Visible = true;
-            string hora = dtHoraComeco.Text + "-" + dtHoraFim.Text;
-            txtHora.Text = hora;
-            MessageBox.Show(hora);
 
         }
 
@@ -153,7 +146,9 @@ namespace Estudio201238
 
         private void dtHoraComeco_Leave(object sender, EventArgs e)
         {
-            
+            txtHora.Visible = true;
+            string hora = dtHoraComeco.Text + "-" + dtHoraFim.Text;
+            txtHora.Text = hora;
         }
 
         private void btnTempo_Click(object sender, EventArgs e)
@@ -161,6 +156,7 @@ namespace Estudio201238
             txtHora.Visible = true;
             string hora = dtHoraComeco.Text + "-" + dtHoraFim.Text;
             txtHora.Text = hora;
+            txtHora.Enabled = false;
         }
 
         private void cbxID_SelectedIndexChanged(object sender, EventArgs e)
@@ -175,7 +171,10 @@ namespace Estudio201238
 
         private void dtHoraFim_Leave(object sender, EventArgs e)
         {
-          
+            txtHora.Visible = true;
+            string hora = dtHoraComeco.Text + "-" + dtHoraFim.Text;
+            txtHora.Text = hora;
+            txtHora.Enabled = false;
         }
 
         private void txtHora_TextChanged(object sender, EventArgs e)

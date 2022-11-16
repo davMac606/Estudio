@@ -23,6 +23,7 @@ namespace Estudio201238
             cadTu.MdiParent = this;
             cadTu.Show();
             grpTurma.Visible = false;
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void grpTurma_Enter(object sender, EventArgs e)
@@ -36,6 +37,16 @@ namespace Estudio201238
             conTur.MdiParent = this;
             conTur.Show();
             grpTurma.Visible = false;
+            this.WindowState = FormWindowState.Maximized;
+        }
+
+        private void btnExcsTurma_Click(object sender, EventArgs e)
+        {
+            excTurma excTur = new excTurma();
+            excTur.MdiParent = this;
+            excTur.Show();
+            grpTurma.Visible = false;
+            this.WindowState = FormWindowState.Maximized;
         }
     }
 }

@@ -32,8 +32,8 @@ namespace Estudio201238
                 MySqlDataReader dr = adiciona.ExecuteReader();
                 while (dr.Read())
                 {
-                    cbxID.Items.Add("ID: " + dr["idTurma"].ToString());
-                    cbxID.DisplayMember = ("ID: " + dr["idTurma"].ToString());
+                    cbxID.Items.Add(dr["idTurma"].ToString());
+                    cbxID.DisplayMember = (dr["idTurma"].ToString());
                 }
             }
             catch (Exception ex)
@@ -115,22 +115,49 @@ namespace Estudio201238
             }
         }
 
-        public void updateAlunos()
+        public void updateTurma()
         {
             try
             {
                 DAO_Conexao.con.Open();
-                string sql = "SELECT numAlunMatriculados from TurmaCS where idTurma = '" + cbxID.SelectedItem + "'";
-                MySqlCommand cmd = new MySqlCommand(sql, DAO_Conexao.con);
-                MySqlDataReader dr = cmd.ExecuteReader();
+                string sql = "SELECT nomeTurma FROM TurmaCS WHERE idTurma = '" + cbxID.SelectedItem + "' AND turmaAtiva = 1";
+                MySqlCommand addId = new MySqlCommand(sql, DAO_Conexao.con);
+                MySqlDataReader dr = addId.ExecuteReader();
                 while (dr.Read())
                 {
-                    txtAlunos.Text = dr[0].ToString();
+                    txtNome.Text = (dr[0].ToString());
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                Console.WriteLine(ex.ToString());
+            }
+            finally
+            {
+                DAO_Conexao.con.Close();
+            }
+        }
+
+        public void updateAlunos()
+        {
+            if (DAO_Conexao.con.State == ConnectionState.Open)
+            {
+                DAO_Conexao.con.Close();
+            }
+            try
+            {
+                DAO_Conexao.con.Open();
+                string sql = "SELECT numAlunMatriculados FROM TurmaCS WHERE idTurma = '" + cbxID.SelectedItem + "'";
+                MySqlCommand addId = new MySqlCommand(sql, DAO_Conexao.con);
+                MySqlDataReader dr = addId.ExecuteReader();
+                if (dr.Read())
+                {
+                    txtAlunos.Text = (dr[0].ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
             }
             finally
             {
@@ -196,6 +223,10 @@ namespace Estudio201238
 
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
+            if (DAO_Conexao.con.State == ConnectionState.Open)
+            {
+                DAO_Conexao.con.Close();
+            }
             if (btnAtualizar.Text.Equals("Atualizar"))
             {
                 atualizaDados();
@@ -226,17 +257,13 @@ namespace Estudio201238
             }
             DAO_Conexao.con.Open();
             Turma tur = new Turma();
-            string sql = "SELECT nomeTurma FROM TurmaCS WHERE idTurma = '" + tur.Id_Turma + "'";
-            MySqlCommand addId = new MySqlCommand(sql, DAO_Conexao.con);
-            MySqlDataReader dr = addId.ExecuteReader();
-            while (dr.Read())
-            {
-                txtNome.Text = (dr[0].ToString());
-            }
+           
             updateAlunos();
             updateDias();
             updateHora();
             updateProfessor();
+            updateTurma();
+            txtAlunos.Enabled = true;
         }
     }
 }
