@@ -71,6 +71,7 @@ namespace Estudio201238
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Turmas";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // txtNome
             // 
@@ -212,7 +213,7 @@ namespace Estudio201238
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cbxID;
+        public System.Windows.Forms.ComboBox cbxID;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtProfessor;
         private System.Windows.Forms.TextBox txtDias;

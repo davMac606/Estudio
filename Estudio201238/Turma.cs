@@ -115,7 +115,7 @@ namespace Estudio201238
                     DAO_Conexao.con.Close();
                 }*/
                 DAO_Conexao.con.Open();
-                MySqlCommand insere = new MySqlCommand("INSERT INTO TurmaCS (idTurma, idModalidade, nomeTurma, professor, diaSemana, hora, numAlunMatriculados, turmaAtiva) VALUES ('" + Id_Turma + "','" + Id_Modal + "','" + NomeTurma + "','" + Professor + "','" + Dia_Semana + "','" + Hora + "','" + NumAlunMatriculados + "','" + 1 + "')", DAO_Conexao.con);
+                MySqlCommand insere = new MySqlCommand("INSERT INTO TurmaCS (idTurma, idModalidade, nomeTurma, professor, diaSemana, hora, numAlunMatriculados, turmaAtiva) VALUES ('" + Id_Turma + "','" + Id_Modal + "','" + NomeTurma + "','" + Professor + "','" + Dia_Semana + "','" + Hora + "','" + NumAlunMatriculados + "','" + 0 + "')", DAO_Conexao.con);
                 insere.ExecuteNonQuery();
                 cad = true;
                 
@@ -130,5 +130,7 @@ namespace Estudio201238
         }
 
         
+
+
     }
 }

@@ -16,17 +16,16 @@ namespace Estudio201238
         public consTurma()
         {
             InitializeComponent();
+            updateComboBox();
         }
+
         public void updateComboBox()
         {
-        
+
             try
             {
-                if (DAO_Conexao.con.State == ConnectionState.Open)
-                {
-                    DAO_Conexao.con.Close();
-                }
-                DAO_Conexao.con.Open();
+                if (DAO_Conexao.con.State != ConnectionState.Open)
+                    DAO_Conexao.con.Open();
                 string sql = "SELECT idTurma, idModalidade, nomeTurma, professor, diaSemana, hora, numAlunMatriculados, turmaAtiva from TurmaCS";
                 MySqlCommand adiciona = new MySqlCommand(sql, DAO_Conexao.con);
                 MySqlDataReader dr = adiciona.ExecuteReader();
@@ -51,7 +50,7 @@ namespace Estudio201238
             try
             {
                 DAO_Conexao.con.Open();
-                string sql = "SELECT professor from TurmaCS where idTurma = '" + cbxID.SelectedItem + "'";
+                string sql = "SELECT professor from TurmaCS where idTurma = '" + cbxID.SelectedItem + "' AND turmaAtiva = 0";
                 MySqlCommand cmd = new MySqlCommand(sql, DAO_Conexao.con);
                 MySqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
@@ -74,7 +73,7 @@ namespace Estudio201238
             try
             {
                 DAO_Conexao.con.Open();
-                string sql = "SELECT diaSemana from TurmaCS where idTurma = '" + cbxID.SelectedItem + "'";
+                string sql = "SELECT diaSemana from TurmaCS where idTurma = '" + cbxID.SelectedItem + "' AND turmaAtiva = 0";
                 MySqlCommand cmd = new MySqlCommand(sql, DAO_Conexao.con);
                 MySqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
@@ -97,7 +96,7 @@ namespace Estudio201238
             try
             {
                 DAO_Conexao.con.Open();
-                string sql = "SELECT hora from TurmaCS where idTurma = '" + cbxID.SelectedItem + "'";
+                string sql = "SELECT hora from TurmaCS where idTurma = '" + cbxID.SelectedItem + "' AND turmaAtiva = 0";
                 MySqlCommand cmd = new MySqlCommand(sql, DAO_Conexao.con);
                 MySqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
@@ -120,7 +119,7 @@ namespace Estudio201238
             try
             {
                 DAO_Conexao.con.Open();
-                string sql = "SELECT nomeTurma FROM TurmaCS WHERE idTurma = '" + cbxID.SelectedItem + "' AND turmaAtiva = 1";
+                string sql = "SELECT nomeTurma FROM TurmaCS WHERE idTurma = '" + cbxID.SelectedItem + "' AND turmaAtiva = 0";
                 MySqlCommand addId = new MySqlCommand(sql, DAO_Conexao.con);
                 MySqlDataReader dr = addId.ExecuteReader();
                 while (dr.Read())
@@ -147,7 +146,7 @@ namespace Estudio201238
             try
             {
                 DAO_Conexao.con.Open();
-                string sql = "SELECT numAlunMatriculados FROM TurmaCS WHERE idTurma = '" + cbxID.SelectedItem + "'";
+                string sql = "SELECT numAlunMatriculados FROM TurmaCS WHERE idTurma = '" + cbxID.SelectedItem + "' AND turmaAtiva = 0";
                 MySqlCommand addId = new MySqlCommand(sql, DAO_Conexao.con);
                 MySqlDataReader dr = addId.ExecuteReader();
                 if (dr.Read())
@@ -173,6 +172,7 @@ namespace Estudio201238
         public bool atualizaTurma()
         {
             Turma tur = new Turma();
+            
             bool atu = false;
             try
             {
@@ -181,14 +181,22 @@ namespace Estudio201238
                 tur.Dia_Semana = txtDias.Text;
                 tur.Hora = txtHora.Text;
                 tur.NumAlunMatriculados = int.Parse(txtAlunos.Text);
-                MySqlCommand updateProfessor = new MySqlCommand("UPDATE TurmaCS SET professor = '" + tur.Professor + "' WHERE turmaAtiva = 1", DAO_Conexao.con);
-                MySqlCommand updateDias = new MySqlCommand("UPDATE TurmaCS SET diaSemana = '" + tur.Dia_Semana + "' WHERE turmaAtiva = 1", DAO_Conexao.con);
-                MySqlCommand updateHora = new MySqlCommand("UPDATE TurmaCS SET hora = '" + tur.Hora + "' WHERE turmaAtiva = 1", DAO_Conexao.con);
-                MySqlCommand updateAlunos = new MySqlCommand("UPDATE TurmaCS SET numAlunMatriculados = '" + tur.NumAlunMatriculados + "' WHERE turmaAtiva = 1", DAO_Conexao.con);
+                tur.NomeTurma = txtNome.Text;
+                MySqlCommand updateProfessor = new MySqlCommand("UPDATE TurmaCS SET professor = '" + tur.Professor + "' WHERE idModalidade = '" + cbxID.SelectedItem + "' AND turmaAtiva = 0", DAO_Conexao.con);
+
+                MySqlCommand updateDias = new MySqlCommand("UPDATE TurmaCS SET diaSemana = '" + tur.Dia_Semana + "' WHERE idModalidade = '" + cbxID.SelectedItem + "' AND turmaAtiva = 0", DAO_Conexao.con);
+
+                MySqlCommand updateHora = new MySqlCommand("UPDATE TurmaCS SET hora = '" + tur.Hora + "' WHERE idModalidade = '" + cbxID.SelectedItem + "' AND turmaAtiva = 0", DAO_Conexao.con);
+
+                MySqlCommand updateAlunos = new MySqlCommand("UPDATE TurmaCS SET numAlunMatriculados = '" + tur.NumAlunMatriculados + "' WHERE idModalidade = '" + cbxID.SelectedItem + "' AND turmaAtiva = 0", DAO_Conexao.con);
+
+                MySqlCommand updateNome = new MySqlCommand("UPDATE TurmaCS SET nomeTurma = '" + tur.NomeTurma + "' WHERE idModalidade = '" + cbxID.SelectedItem + "' AND turmaAtiva = 0", DAO_Conexao.con);
+
                 updateProfessor.ExecuteNonQuery();
                 updateDias.ExecuteNonQuery();
                 updateHora.ExecuteNonQuery();
                 updateAlunos.ExecuteNonQuery();
+                updateNome.ExecuteNonQuery();
 
                 atu = true;
             }
@@ -202,10 +210,11 @@ namespace Estudio201238
             }
             return atu;
         }
+
+
         private void consTurma_Load(object sender, EventArgs e)
         {
-            updateComboBox();
-            Turma tur = new Turma();
+            Turma tur = new Turma(); 
             txtAlunos.Enabled = false;
             txtDias.Enabled = false;
             txtHora.Enabled = false;
@@ -221,7 +230,8 @@ namespace Estudio201238
                 DAO_Conexao.con.Close();
             }
                 Turma tur = new Turma();
-                updateComboBox();
+
+            txtNome.Enabled = true;
                 txtAlunos.Enabled = true;
                 txtDias.Enabled = true;
                 txtHora.Enabled = true;
@@ -246,14 +256,16 @@ namespace Estudio201238
             updateHora();
             updateProfessor();
             updateTurma();
-            txtAlunos.Enabled = true;
-            txtHora.Enabled = true;
-            txtDias.Enabled = true;
-            txtProfessor.Enabled = true;
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
+            /*Turma tur = new Turma();
+            tur.Professor = txtProfessor.Text;
+            tur.Dia_Semana = txtDias.Text;
+            tur.Hora = txtHora.Text;
+            tur.NumAlunMatriculados = int.Parse(txtAlunos.Text);
+            tur.Id_Modal = int.Parse(cbxID.Text);*/
             if (DAO_Conexao.con.State == ConnectionState.Open)
             {
                 DAO_Conexao.con.Close();
@@ -266,6 +278,7 @@ namespace Estudio201238
             {
                 MessageBox.Show("Erro: Por favor, tente novamente.", "Alerta de Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            cbxID.Items.Clear();
             cbxID.Enabled = true;
             txtAlunos.Enabled = false;
             txtDias.Enabled = false;
@@ -274,6 +287,11 @@ namespace Estudio201238
             txtNome.Enabled = false;
             btnAtualizar.Visible = true;
             btnSalvar.Visible = false;
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

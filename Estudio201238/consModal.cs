@@ -141,9 +141,9 @@ namespace Estudio201238
                 mod.Preco = float.Parse(txtPreco.Text);
                 mod.Qtd_Alunos = int.Parse(txtAlunos.Text);
                 mod.Qtd_Aulas = int.Parse(txtAulas.Text);
-                MySqlCommand updatePrice = new MySqlCommand("UPDATE ModalCS SET precoModal = '" + mod.Preco + "' WHERE ativa = 0", DAO_Conexao.con);
-                MySqlCommand updateQtdAl = new MySqlCommand("UPDATE ModalCS SET qtdAlModal = '" + mod.Qtd_Alunos + "' WHERE ativa = 0", DAO_Conexao.con);
-                MySqlCommand updateQtdAu = new MySqlCommand("UPDATE ModalCS SET qtdAuModal = '" + mod.Qtd_Aulas + "' WHERE ativa = 0", DAO_Conexao.con);
+                MySqlCommand updatePrice = new MySqlCommand("UPDATE ModalCS SET precoModal = '" + mod.Preco + "' WHERE ativa = 0 AND descModal = '" + cbxDesc.Text + "'", DAO_Conexao.con);
+                MySqlCommand updateQtdAl = new MySqlCommand("UPDATE ModalCS SET qtdAlModal = '" + mod.Qtd_Alunos + "' WHERE ativa = 0 AND descModal = '" + cbxDesc.Text + "'", DAO_Conexao.con);
+                MySqlCommand updateQtdAu = new MySqlCommand("UPDATE ModalCS SET qtdAuModal = '" + mod.Qtd_Aulas + "' WHERE ativa = 0 AND descModal = '" + cbxDesc.Text + "'", DAO_Conexao.con);
 
                 updatePrice.ExecuteNonQuery();
                 updateQtdAl.ExecuteNonQuery();
