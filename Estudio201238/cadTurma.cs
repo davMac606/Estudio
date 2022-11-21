@@ -66,8 +66,6 @@ namespace Estudio201238
                 string hora = txtHora.Text;
                 string dias = txtDias.Text;
 
-                //string hora = horaStart.ToString() + "-" + horaEnd.ToString();
-
 
                 consModal cons = new consModal();
 
@@ -79,6 +77,7 @@ namespace Estudio201238
                 }
                 else
                 {
+                  
                     if (tur.cadastrarTurma())
                     {
                         MessageBox.Show("Cadastro de Turma realizado com sucesso!", "Alerta do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -109,31 +108,21 @@ namespace Estudio201238
             updateComboBox();
             txtIDModal.Visible = true;
             txtIDModal.Clear();
+            grpCadTurma.Enabled = false;
            
         }
 
-        private void dtHoraComeco_ValueChanged(object sender, EventArgs e)
-        {
-       
-        }
+  
 
         private void cbxDesc_SelectedIndexChanged(object sender, EventArgs e)
         {
             atualizaID();
-            string limite = mod.Qtd_Alunos.ToString();
+            int limite = mod.Qtd_Alunos;
             lblLimite.ForeColor = Color.Red;
-            lblLimite.Text = "Limite de " + limite + " alunos.";
+            lblLimite.Text = "O Limite de " + limite.ToString() + " alunos.";
+            grpCadTurma.Enabled = true;
         }
 
-        private void dtHoraFim_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lsbDias_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void lsbDias_Leave(object sender, EventArgs e)
         {
@@ -159,14 +148,15 @@ namespace Estudio201238
             txtHora.Enabled = false;
         }
 
-        private void cbxID_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+   
 
         private void txtAlunos_Leave(object sender, EventArgs e)
         {
-            
+            bool isInt = txtAlunos.Text.All(char.IsDigit);
+            if (isInt)
+            {
+                MessageBox.Show("ERRO: Não é permitido inserir letras no número de alunos. Por favor, tente novamente com dígitos.", "Alerta do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void dtHoraFim_Leave(object sender, EventArgs e)
@@ -177,10 +167,7 @@ namespace Estudio201238
             txtHora.Enabled = false;
         }
 
-        private void txtHora_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+    
 
         private void btnVoltar_Click(object sender, EventArgs e)
         {
@@ -189,9 +176,24 @@ namespace Estudio201238
             gerTur.Show();
         }
 
+       
+
+        private void txtNome_Leave(object sender, EventArgs e)
+        {
+            bool isInt = txtNome.Text.All(char.IsDigit);
+            if (isInt)
+            {
+                MessageBox.Show("ERRO: Não é permitido cadastrar números no nome. Por favor, tente novamente.", "Alerta do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void grpCadTurma_Enter(object sender, EventArgs e)
         {
-
+            while (grpCadTurma.Enabled = false)
+            {
+                MessageBox.Show("Esta seção está desabilitada até uma modalidade ser escolhida.", "Alerta do Sistema", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
+                cbxDesc.Focus();
+            }
         }
 
         /*private void txtAlunos_TextChanged(object sender, EventArgs e)

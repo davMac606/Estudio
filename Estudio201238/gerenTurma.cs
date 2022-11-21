@@ -19,11 +19,12 @@ namespace Estudio201238
 
         private void btnCadastroTurma_Click(object sender, EventArgs e)
         {
+            this.WindowState = FormWindowState.Maximized;
             cadTurma cadTu = new cadTurma();
             cadTu.MdiParent = this;
             cadTu.Show();
             grpTurma.Visible = false;
-            this.WindowState = FormWindowState.Maximized;
+
         }
 
         private void grpTurma_Enter(object sender, EventArgs e)
@@ -33,20 +34,22 @@ namespace Estudio201238
 
         private void btnConsultaTurma_Click(object sender, EventArgs e)
         {
+            this.WindowState = FormWindowState.Maximized;
             consTurma conTur = new consTurma();
             conTur.MdiParent = this;
             conTur.Show();
             grpTurma.Visible = false;
-            this.WindowState = FormWindowState.Maximized;
+            
         }
 
         private void btnExcsTurma_Click(object sender, EventArgs e)
         {
+            this.WindowState = FormWindowState.Maximized;
             excTurma excTur = new excTurma();
             excTur.MdiParent = this;
             excTur.Show();
             grpTurma.Visible = false;
-            this.WindowState = FormWindowState.Maximized;
+
         }
     }
 }

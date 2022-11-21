@@ -35,11 +35,6 @@ namespace Estudio201238
             this.label7 = new System.Windows.Forms.Label();
             this.txtHora = new System.Windows.Forms.TextBox();
             this.txtDias = new System.Windows.Forms.TextBox();
-            this.grpListas = new System.Windows.Forms.GroupBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.cbxDesc = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtIDModal = new System.Windows.Forms.TextBox();
             this.lblLimite = new System.Windows.Forms.Label();
             this.dtHoraFim = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
@@ -52,6 +47,11 @@ namespace Estudio201238
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.grpListas = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cbxDesc = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtIDModal = new System.Windows.Forms.TextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.grpCadTurma.SuspendLayout();
             this.grpListas.SuspendLayout();
@@ -64,7 +64,6 @@ namespace Estudio201238
             this.grpCadTurma.Controls.Add(this.label7);
             this.grpCadTurma.Controls.Add(this.txtHora);
             this.grpCadTurma.Controls.Add(this.txtDias);
-            this.grpCadTurma.Controls.Add(this.grpListas);
             this.grpCadTurma.Controls.Add(this.lblLimite);
             this.grpCadTurma.Controls.Add(this.dtHoraFim);
             this.grpCadTurma.Controls.Add(this.label6);
@@ -79,7 +78,7 @@ namespace Estudio201238
             this.grpCadTurma.Controls.Add(this.label1);
             this.grpCadTurma.Location = new System.Drawing.Point(12, 12);
             this.grpCadTurma.Name = "grpCadTurma";
-            this.grpCadTurma.Size = new System.Drawing.Size(1176, 702);
+            this.grpCadTurma.Size = new System.Drawing.Size(1003, 702);
             this.grpCadTurma.TabIndex = 0;
             this.grpCadTurma.TabStop = false;
             this.grpCadTurma.Text = "Turmas";
@@ -87,7 +86,7 @@ namespace Estudio201238
             // 
             // btnVoltar
             // 
-            this.btnVoltar.Location = new System.Drawing.Point(1020, 25);
+            this.btnVoltar.Location = new System.Drawing.Point(847, 30);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(150, 50);
             this.btnVoltar.TabIndex = 1;
@@ -101,6 +100,7 @@ namespace Estudio201238
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(213, 29);
             this.txtNome.TabIndex = 29;
+            this.txtNome.Leave += new System.EventHandler(this.txtNome_Leave);
             // 
             // label7
             // 
@@ -118,7 +118,6 @@ namespace Estudio201238
             this.txtHora.Name = "txtHora";
             this.txtHora.Size = new System.Drawing.Size(100, 29);
             this.txtHora.TabIndex = 27;
-            this.txtHora.TextChanged += new System.EventHandler(this.txtHora_TextChanged);
             // 
             // txtDias
             // 
@@ -127,53 +126,6 @@ namespace Estudio201238
             this.txtDias.Name = "txtDias";
             this.txtDias.Size = new System.Drawing.Size(181, 29);
             this.txtDias.TabIndex = 26;
-            // 
-            // grpListas
-            // 
-            this.grpListas.Controls.Add(this.label8);
-            this.grpListas.Controls.Add(this.cbxDesc);
-            this.grpListas.Controls.Add(this.label4);
-            this.grpListas.Controls.Add(this.txtIDModal);
-            this.grpListas.Location = new System.Drawing.Point(252, 325);
-            this.grpListas.Name = "grpListas";
-            this.grpListas.Size = new System.Drawing.Size(572, 322);
-            this.grpListas.TabIndex = 25;
-            this.grpListas.TabStop = false;
-            this.grpListas.Text = "ID\'s e suas Modalidades:";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(74, 82);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(95, 21);
-            this.label8.TabIndex = 26;
-            this.label8.Text = "Modalidade:";
-            // 
-            // cbxDesc
-            // 
-            this.cbxDesc.FormattingEnabled = true;
-            this.cbxDesc.Location = new System.Drawing.Point(175, 79);
-            this.cbxDesc.Name = "cbxDesc";
-            this.cbxDesc.Size = new System.Drawing.Size(391, 29);
-            this.cbxDesc.TabIndex = 24;
-            this.cbxDesc.SelectedIndexChanged += new System.EventHandler(this.cbxDesc_SelectedIndexChanged);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(141, 116);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(28, 21);
-            this.label4.TabIndex = 16;
-            this.label4.Text = "ID:";
-            // 
-            // txtIDModal
-            // 
-            this.txtIDModal.Location = new System.Drawing.Point(175, 113);
-            this.txtIDModal.Name = "txtIDModal";
-            this.txtIDModal.Size = new System.Drawing.Size(29, 29);
-            this.txtIDModal.TabIndex = 15;
             // 
             // lblLimite
             // 
@@ -191,7 +143,6 @@ namespace Estudio201238
             this.dtHoraFim.Size = new System.Drawing.Size(220, 29);
             this.dtHoraFim.TabIndex = 19;
             this.dtHoraFim.Value = new System.DateTime(2022, 11, 12, 0, 0, 0, 0);
-            this.dtHoraFim.ValueChanged += new System.EventHandler(this.dtHoraFim_ValueChanged);
             this.dtHoraFim.Leave += new System.EventHandler(this.dtHoraFim_Leave);
             // 
             // label6
@@ -220,14 +171,13 @@ namespace Estudio201238
             this.dtHoraComeco.Size = new System.Drawing.Size(200, 29);
             this.dtHoraComeco.TabIndex = 14;
             this.dtHoraComeco.Value = new System.DateTime(2022, 11, 12, 0, 0, 0, 0);
-            this.dtHoraComeco.ValueChanged += new System.EventHandler(this.dtHoraComeco_ValueChanged);
             this.dtHoraComeco.Leave += new System.EventHandler(this.dtHoraComeco_Leave);
             // 
             // btnCadastro
             // 
             this.btnCadastro.Location = new System.Drawing.Point(6, 653);
             this.btnCadastro.Name = "btnCadastro";
-            this.btnCadastro.Size = new System.Drawing.Size(1164, 43);
+            this.btnCadastro.Size = new System.Drawing.Size(991, 43);
             this.btnCadastro.TabIndex = 11;
             this.btnCadastro.Text = "Cadastrar";
             this.btnCadastro.UseVisualStyleBackColor = true;
@@ -248,7 +198,6 @@ namespace Estudio201238
             this.lsbDias.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.lsbDias.Size = new System.Drawing.Size(120, 88);
             this.lsbDias.TabIndex = 10;
-            this.lsbDias.SelectedIndexChanged += new System.EventHandler(this.lsbDias_SelectedIndexChanged);
             this.lsbDias.Leave += new System.EventHandler(this.lsbDias_Leave);
             // 
             // txtAlunos
@@ -293,12 +242,60 @@ namespace Estudio201238
             this.label1.TabIndex = 0;
             this.label1.Text = "Professor:";
             // 
+            // grpListas
+            // 
+            this.grpListas.Controls.Add(this.label8);
+            this.grpListas.Controls.Add(this.cbxDesc);
+            this.grpListas.Controls.Add(this.label4);
+            this.grpListas.Controls.Add(this.txtIDModal);
+            this.grpListas.Location = new System.Drawing.Point(1021, 12);
+            this.grpListas.Name = "grpListas";
+            this.grpListas.Size = new System.Drawing.Size(572, 702);
+            this.grpListas.TabIndex = 25;
+            this.grpListas.TabStop = false;
+            this.grpListas.Text = "ID\'s e suas Modalidades:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(74, 82);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(95, 21);
+            this.label8.TabIndex = 26;
+            this.label8.Text = "Modalidade:";
+            // 
+            // cbxDesc
+            // 
+            this.cbxDesc.FormattingEnabled = true;
+            this.cbxDesc.Location = new System.Drawing.Point(175, 79);
+            this.cbxDesc.Name = "cbxDesc";
+            this.cbxDesc.Size = new System.Drawing.Size(391, 29);
+            this.cbxDesc.TabIndex = 24;
+            this.cbxDesc.SelectedIndexChanged += new System.EventHandler(this.cbxDesc_SelectedIndexChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(141, 116);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(28, 21);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "ID:";
+            // 
+            // txtIDModal
+            // 
+            this.txtIDModal.Location = new System.Drawing.Point(175, 113);
+            this.txtIDModal.Name = "txtIDModal";
+            this.txtIDModal.Size = new System.Drawing.Size(29, 29);
+            this.txtIDModal.TabIndex = 15;
+            // 
             // cadTurma
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 726);
+            this.ClientSize = new System.Drawing.Size(1602, 726);
             this.Controls.Add(this.grpCadTurma);
+            this.Controls.Add(this.grpListas);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "cadTurma";

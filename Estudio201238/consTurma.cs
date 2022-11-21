@@ -182,22 +182,22 @@ namespace Estudio201238
                 tur.Hora = txtHora.Text;
                 tur.NumAlunMatriculados = int.Parse(txtAlunos.Text);
                 tur.NomeTurma = txtNome.Text;
-                MySqlCommand updateProfessor = new MySqlCommand("UPDATE TurmaCS SET professor = '" + tur.Professor + "' WHERE idModalidade = '" + cbxID.SelectedItem + "' AND turmaAtiva = 0", DAO_Conexao.con);
+                MySqlCommand updateProfessor = new MySqlCommand("UPDATE TurmaCS SET professor = '" + tur.Professor + "' WHERE nomeTurma = '" + txtNome.Text + "' AND turmaAtiva = 0", DAO_Conexao.con);
 
-                MySqlCommand updateDias = new MySqlCommand("UPDATE TurmaCS SET diaSemana = '" + tur.Dia_Semana + "' WHERE idModalidade = '" + cbxID.SelectedItem + "' AND turmaAtiva = 0", DAO_Conexao.con);
+                MySqlCommand updateDias = new MySqlCommand("UPDATE TurmaCS SET diaSemana = '" + tur.Dia_Semana + "' WHERE nomeTurma = '" + txtNome.Text + "' AND turmaAtiva = 0", DAO_Conexao.con);
 
-                MySqlCommand updateHora = new MySqlCommand("UPDATE TurmaCS SET hora = '" + tur.Hora + "' WHERE idModalidade = '" + cbxID.SelectedItem + "' AND turmaAtiva = 0", DAO_Conexao.con);
+                MySqlCommand updateHora = new MySqlCommand("UPDATE TurmaCS SET hora = '" + tur.Hora + "' WHERE nomeTurma = '" + txtNome.Text + "' AND turmaAtiva = 0", DAO_Conexao.con);
 
-                MySqlCommand updateAlunos = new MySqlCommand("UPDATE TurmaCS SET numAlunMatriculados = '" + tur.NumAlunMatriculados + "' WHERE idModalidade = '" + cbxID.SelectedItem + "' AND turmaAtiva = 0", DAO_Conexao.con);
+                MySqlCommand updateAlunos = new MySqlCommand("UPDATE TurmaCS SET numAlunMatriculados = '" + tur.NumAlunMatriculados + "' WHERE nomeTurma = '" + txtNome.Text + "' AND turmaAtiva = 0", DAO_Conexao.con);
 
-                MySqlCommand updateNome = new MySqlCommand("UPDATE TurmaCS SET nomeTurma = '" + tur.NomeTurma + "' WHERE idModalidade = '" + cbxID.SelectedItem + "' AND turmaAtiva = 0", DAO_Conexao.con);
+                MySqlCommand updateNome = new MySqlCommand("UPDATE TurmaCS SET nomeTurma = '" + tur.NomeTurma + "' WHERE nomeTurma = '" + txtNome.Text + "' AND turmaAtiva = 0", DAO_Conexao.con);
 
                 updateProfessor.ExecuteNonQuery();
                 updateDias.ExecuteNonQuery();
                 updateHora.ExecuteNonQuery();
                 updateAlunos.ExecuteNonQuery();
                 updateNome.ExecuteNonQuery();
-
+                updateComboBox();
                 atu = true;
             }
             catch (Exception ex)
@@ -214,7 +214,8 @@ namespace Estudio201238
 
         private void consTurma_Load(object sender, EventArgs e)
         {
-            Turma tur = new Turma(); 
+            Turma tur = new Turma();
+            txtNome.Enabled = false;
             txtAlunos.Enabled = false;
             txtDias.Enabled = false;
             txtHora.Enabled = false;
