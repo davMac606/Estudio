@@ -126,5 +126,10 @@ namespace Estudio201238
         {
 
         }
+
+        private void txtDesc_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

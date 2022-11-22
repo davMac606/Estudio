@@ -189,11 +189,7 @@ namespace Estudio201238
 
         private void grpCadTurma_Enter(object sender, EventArgs e)
         {
-            while (grpCadTurma.Enabled = false)
-            {
-                MessageBox.Show("Esta seção está desabilitada até uma modalidade ser escolhida.", "Alerta do Sistema", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
-                cbxDesc.Focus();
-            }
+         
         }
 
         /*private void txtAlunos_TextChanged(object sender, EventArgs e)

@@ -100,6 +100,7 @@ namespace Estudio201238
             this.txtDesc.Name = "txtDesc";
             this.txtDesc.Size = new System.Drawing.Size(445, 29);
             this.txtDesc.TabIndex = 1;
+            this.txtDesc.TextChanged += new System.EventHandler(this.txtDesc_TextChanged);
             // 
             // BuscaModal
             // 
