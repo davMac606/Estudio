@@ -20,7 +20,6 @@ namespace Estudio201238
             {
                 DAO_Conexao.con.Close();
             }
-            bool aberta = false;
             
             try
             {
@@ -29,7 +28,6 @@ namespace Estudio201238
                     DAO_Conexao.con.Close();
                 }
                 DAO_Conexao.con.Open();
-                aberta = true;
                 string sql = "SELECT idModal, descModal, precoModal, qtdAlModal, qtdAuModal from ModalCS";
                 MySqlCommand adiciona = new MySqlCommand(sql, DAO_Conexao.con);
                 MySqlDataReader dr = adiciona.ExecuteReader();
@@ -50,7 +48,6 @@ namespace Estudio201238
         }
         public void atualizacaoPaia()
         {
-            bool atu = false;
             try
             {
                 DAO_Conexao.con.Open();

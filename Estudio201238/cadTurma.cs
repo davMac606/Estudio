@@ -152,11 +152,7 @@ namespace Estudio201238
 
         private void txtAlunos_Leave(object sender, EventArgs e)
         {
-            bool isInt = txtAlunos.Text.All(char.IsDigit);
-            if (isInt)
-            {
-                MessageBox.Show("ERRO: Não é permitido inserir letras no número de alunos. Por favor, tente novamente com dígitos.", "Alerta do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            
         }
 
         private void dtHoraFim_Leave(object sender, EventArgs e)
@@ -189,11 +185,7 @@ namespace Estudio201238
 
         private void grpCadTurma_Enter(object sender, EventArgs e)
         {
-            while (grpCadTurma.Enabled = false)
-            {
-                MessageBox.Show("Esta seção está desabilitada até uma modalidade ser escolhida.", "Alerta do Sistema", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
-                cbxDesc.Focus();
-            }
+         
         }
 
         /*private void txtAlunos_TextChanged(object sender, EventArgs e)
