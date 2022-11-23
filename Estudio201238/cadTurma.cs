@@ -164,8 +164,9 @@ namespace Estudio201238
 
         private void btnVoltar_Click(object sender, EventArgs e)
         {
-            
+            Estudio est = new Estudio();
             gerenTurma gerTur = new gerenTurma();
+            gerTur.MdiParent = est;
             gerTur.Show();
             this.Close();
         }

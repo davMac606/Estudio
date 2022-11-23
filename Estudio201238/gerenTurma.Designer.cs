@@ -87,7 +87,6 @@ namespace Estudio201238
             this.ClientSize = new System.Drawing.Size(1200, 726);
             this.Controls.Add(this.grpTurma);
             this.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.IsMdiContainer = true;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "gerenTurma";
             this.Text = "Turmas";

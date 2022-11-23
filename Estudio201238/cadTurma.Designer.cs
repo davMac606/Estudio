@@ -59,7 +59,6 @@ namespace Estudio201238
             // 
             // grpCadTurma
             // 
-            this.grpCadTurma.Controls.Add(this.btnVoltar);
             this.grpCadTurma.Controls.Add(this.txtNome);
             this.grpCadTurma.Controls.Add(this.label7);
             this.grpCadTurma.Controls.Add(this.txtHora);
@@ -86,9 +85,9 @@ namespace Estudio201238
             // 
             // btnVoltar
             // 
-            this.btnVoltar.Location = new System.Drawing.Point(847, 30);
+            this.btnVoltar.Location = new System.Drawing.Point(1030, 632);
             this.btnVoltar.Name = "btnVoltar";
-            this.btnVoltar.Size = new System.Drawing.Size(150, 50);
+            this.btnVoltar.Size = new System.Drawing.Size(563, 82);
             this.btnVoltar.TabIndex = 1;
             this.btnVoltar.Text = "Voltar";
             this.btnVoltar.UseVisualStyleBackColor = true;
@@ -296,6 +295,7 @@ namespace Estudio201238
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1602, 726);
+            this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.grpCadTurma);
             this.Controls.Add(this.grpListas);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
