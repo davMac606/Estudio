@@ -104,6 +104,11 @@ namespace Estudio201238
 
         }
 
+        public Turma(int _idTurma)
+        {
+            Id_Turma = _idTurma;
+        }
+
         public bool cadastrarTurma()
         {
             bool cad = false;
@@ -129,7 +134,32 @@ namespace Estudio201238
             return cad;
         }
 
-        
+        public bool excluirTurma()
+        {
+            bool exc = false;
+            if (DAO_Conexao.con.State == ConnectionState.Open)
+            {
+                DAO_Conexao.con.Close();
+            }
+            try
+            {
+                DAO_Conexao.con.Open();
+                MySqlCommand cmd = new MySqlCommand("DELETE FROM TurmaCS WHERE idTurma = '" + Id_Turma + "'", DAO_Conexao.con);
+                cmd.ExecuteReader();
+                exc = true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            finally
+            {
+                DAO_Conexao.con.Close();
+            }
+            return exc;
+        }
+
+
 
 
     }
