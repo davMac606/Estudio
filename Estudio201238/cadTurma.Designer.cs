@@ -100,7 +100,7 @@ namespace Estudio201238
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(213, 29);
             this.txtNome.TabIndex = 29;
-            this.txtNome.Leave += new System.EventHandler(this.txtNome_Leave);
+            this.txtNome.TextChanged += new System.EventHandler(this.txtNome_TextChanged);
             // 
             // label7
             // 
@@ -252,7 +252,7 @@ namespace Estudio201238
             this.grpListas.Controls.Add(this.txtIDModal);
             this.grpListas.Location = new System.Drawing.Point(1021, 12);
             this.grpListas.Name = "grpListas";
-            this.grpListas.Size = new System.Drawing.Size(572, 702);
+            this.grpListas.Size = new System.Drawing.Size(572, 614);
             this.grpListas.TabIndex = 25;
             this.grpListas.TabStop = false;
             this.grpListas.Text = "ID\'s e suas Modalidades:";

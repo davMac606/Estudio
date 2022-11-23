@@ -49,7 +49,7 @@ namespace Estudio201238
             try
             {
                 DAO_Conexao.con.Open();
-                string sql = "SELECT professor from TurmaCS where idTurma = '" + cbxID.SelectedItem + "' AND turmaAtiva = 0";
+                string sql = "SELECT professor FROM TurmaCS where idTurma = '" + cbxID.SelectedItem + "' AND turmaAtiva = 0";
                 MySqlCommand cmd = new MySqlCommand(sql, DAO_Conexao.con);
                 MySqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
@@ -72,7 +72,7 @@ namespace Estudio201238
             try
             {
                 DAO_Conexao.con.Open();
-                string sql = "SELECT diaSemana from TurmaCS where idTurma = '" + cbxID.SelectedItem + "' AND turmaAtiva = 0";
+                string sql = "SELECT diaSemana FROM TurmaCS where idTurma = '" + cbxID.SelectedItem + "' AND turmaAtiva = 0";
                 MySqlCommand cmd = new MySqlCommand(sql, DAO_Conexao.con);
                 MySqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
@@ -95,7 +95,7 @@ namespace Estudio201238
             try
             {
                 DAO_Conexao.con.Open();
-                string sql = "SELECT hora from TurmaCS where idTurma = '" + cbxID.SelectedItem + "' AND turmaAtiva = 0";
+                string sql = "SELECT hora FROM TurmaCS where idTurma = '" + cbxID.SelectedItem + "' AND turmaAtiva = 0";
                 MySqlCommand cmd = new MySqlCommand(sql, DAO_Conexao.con);
                 MySqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
@@ -291,6 +291,13 @@ namespace Estudio201238
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            gerenTurma gerTur = new gerenTurma();
+            gerTur.Show();
+            this.Close();
         }
     }
 }

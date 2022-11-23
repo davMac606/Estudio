@@ -177,15 +177,14 @@ namespace Estudio201238
                 MySqlCommand cmd = new MySqlCommand("UPDATE ModalCS SET ativa = 1 WHERE descModal = '" + Desc + "'", DAO_Conexao.con);
                 cmd.ExecuteReader();
                 excl = true;
+
             } catch (Exception ex)
             {
                 MessageBox.Show("Houve um erro. Por favor, tente novamente", "Alerta do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
             } finally
             {
-                string sql = "SELECT descModal FROM ModalCS WHERE ativa = 0";
-                MySqlCommand comando = new MySqlCommand(sql, DAO_Conexao.con);
-                comando.ExecuteReader();
-                DAO_Conexao.con.Close();
+                
+             
             }
             return excl;
         }

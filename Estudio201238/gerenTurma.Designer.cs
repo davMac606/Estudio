@@ -101,7 +101,7 @@ namespace Estudio201238
         private System.Windows.Forms.Button btnCadastroTurma;
         private System.Windows.Forms.Button btnConsultaTurma;
         private System.Windows.Forms.Button btnExcsTurma;
-        private System.Windows.Forms.GroupBox grpTurma;
+        public System.Windows.Forms.GroupBox grpTurma;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

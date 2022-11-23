@@ -34,13 +34,17 @@ namespace Estudio201238
             this.lblID = new System.Windows.Forms.Label();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtNome = new System.Windows.Forms.TextBox();
+            this.btnVoltar = new System.Windows.Forms.Button();
             this.grpExclusao.SuspendLayout();
             this.SuspendLayout();
             // 
             // grpExclusao
             // 
+            this.grpExclusao.Controls.Add(this.btnVoltar);
+            this.grpExclusao.Controls.Add(this.txtNome);
+            this.grpExclusao.Controls.Add(this.label2);
             this.grpExclusao.Controls.Add(this.cbxId);
             this.grpExclusao.Controls.Add(this.lblID);
             this.grpExclusao.Controls.Add(this.btnExcluir);
@@ -49,7 +53,7 @@ namespace Estudio201238
             this.grpExclusao.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.grpExclusao.Name = "grpExclusao";
             this.grpExclusao.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.grpExclusao.Size = new System.Drawing.Size(610, 86);
+            this.grpExclusao.Size = new System.Drawing.Size(610, 122);
             this.grpExclusao.TabIndex = 0;
             this.grpExclusao.TabStop = false;
             this.grpExclusao.Text = "Turmas";
@@ -60,7 +64,9 @@ namespace Estudio201238
             this.cbxId.Location = new System.Drawing.Point(147, 33);
             this.cbxId.Name = "cbxId";
             this.cbxId.Size = new System.Drawing.Size(305, 29);
+            this.cbxId.Sorted = true;
             this.cbxId.TabIndex = 7;
+            this.cbxId.SelectedIndexChanged += new System.EventHandler(this.cbxId_SelectedIndexChanged);
             // 
             // lblID
             // 
@@ -85,15 +91,41 @@ namespace Estudio201238
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(18, 36);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(123, 21);
+            this.label1.Size = new System.Drawing.Size(130, 21);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Nome da turma:";
+            this.label1.Text = "Código da turma:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(18, 77);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(123, 21);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Nome da turma:";
+            // 
+            // txtNome
+            // 
+            this.txtNome.Location = new System.Drawing.Point(147, 74);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(305, 29);
+            this.txtNome.TabIndex = 9;
+            // 
+            // btnVoltar
+            // 
+            this.btnVoltar.Location = new System.Drawing.Point(458, 71);
+            this.btnVoltar.Name = "btnVoltar";
+            this.btnVoltar.Size = new System.Drawing.Size(141, 32);
+            this.btnVoltar.TabIndex = 10;
+            this.btnVoltar.Text = "Voltar";
+            this.btnVoltar.UseVisualStyleBackColor = true;
+            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
             // excTurma
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(634, 109);
+            this.ClientSize = new System.Drawing.Size(634, 150);
             this.Controls.Add(this.grpExclusao);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -109,11 +141,12 @@ namespace Estudio201238
         #endregion
 
         private System.Windows.Forms.GroupBox grpExclusao;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.ComponentModel.BackgroundWorker backgroundWorker2;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.Label lblID;
         private System.Windows.Forms.ComboBox cbxId;
+        private System.Windows.Forms.TextBox txtNome;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnVoltar;
     }
 }

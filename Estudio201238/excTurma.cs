@@ -94,5 +94,29 @@ namespace Estudio201238
         {
 
         }
+
+        private void cbxId_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DAO_Conexao.con.State == ConnectionState.Open)
+            {
+                DAO_Conexao.con.Close();
+            }
+            DAO_Conexao.con.Open();
+            string sql = "SELECT nomeTurma FROM TurmaCS WHERE idTurma = '" + int.Parse(cbxId.Text.ToString()) + "'";
+            MySqlCommand buscar = new MySqlCommand(sql, DAO_Conexao.con);
+            MySqlDataReader dr = buscar.ExecuteReader();
+            while (dr.Read())
+            {
+                txtNome.Text = dr["nomeTurma"].ToString();
+            }
+            DAO_Conexao.con.Close();
+        }
+
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            gerenTurma gerTur = new gerenTurma();
+            gerTur.Show();
+            this.Close();
+        }
     }
 }

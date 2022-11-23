@@ -119,7 +119,7 @@ namespace Estudio201238
             atualizaID();
             int limite = mod.Qtd_Alunos;
             lblLimite.ForeColor = Color.Red;
-            lblLimite.Text = "O Limite de " + limite.ToString() + " alunos.";
+            lblLimite.Text = "O Limite é de " + limite.ToString() + " alunos.";
             grpCadTurma.Enabled = true;
         }
 
@@ -164,24 +164,15 @@ namespace Estudio201238
 
         private void btnVoltar_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            
             gerenTurma gerTur = new gerenTurma();
             gerTur.Show();
+            this.Close();
         }
 
        
 
-        private void txtNome_Leave(object sender, EventArgs e)
-        {
-            bool isInt = txtNome.Text.All(char.IsLetterOrDigit);
-            if (isInt)
-            {
-               
-            } else
-            {
-                MessageBox.Show("ERRO: Não é permitido cadastrar números no nome. Por favor, tente novamente.", "Alerta do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+       
 
         private void grpCadTurma_Enter(object sender, EventArgs e)
         {
@@ -208,6 +199,11 @@ namespace Estudio201238
                 txtHora.Text = hora;
                 txtHora.Enabled = false;
             }
+        }
+
+        private void txtNome_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
         /*private void txtAlunos_TextChanged(object sender, EventArgs e)
