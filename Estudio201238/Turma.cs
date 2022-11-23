@@ -154,6 +154,8 @@ namespace Estudio201238
             }
             finally
             {
+                string sql = "SELECT * FROM TurmaCS WHERE turmaAtiva = 0";
+                MySqlCommand comando = new MySqlCommand(sql, DAO_Conexao.con);
                 DAO_Conexao.con.Close();
             }
             return exc;

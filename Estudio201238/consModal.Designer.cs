@@ -139,6 +139,7 @@ namespace Estudio201238
             this.cbxDesc.Location = new System.Drawing.Point(170, 28);
             this.cbxDesc.Name = "cbxDesc";
             this.cbxDesc.Size = new System.Drawing.Size(431, 29);
+            this.cbxDesc.Sorted = true;
             this.cbxDesc.TabIndex = 1;
             this.cbxDesc.SelectedIndexChanged += new System.EventHandler(this.cbxDesc_SelectedIndexChanged);
             // 

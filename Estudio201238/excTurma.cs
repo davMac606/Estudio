@@ -25,7 +25,7 @@ namespace Estudio201238
             {
                 if (DAO_Conexao.con.State != ConnectionState.Open)
                     DAO_Conexao.con.Open();
-                string sql = "SELECT idTurma, idModalidade, nomeTurma, professor, diaSemana, hora, numAlunMatriculados, turmaAtiva from TurmaCS";
+                string sql = "SELECT idTurma, idModalidade, nomeTurma, professor, diaSemana, hora, numAlunMatriculados FROM TurmaCS WHERE turmaAtiva = 0";
                 MySqlCommand adiciona = new MySqlCommand(sql, DAO_Conexao.con);
                 MySqlDataReader dr = adiciona.ExecuteReader();
                 while (dr.Read())
@@ -50,26 +50,43 @@ namespace Estudio201238
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            Turma tur = new Turma(int.Parse(cbxId.SelectedItem.ToString()));
-            if (DAO_Conexao.con.State == ConnectionState.Open)
+            try
             {
+                Turma tur = new Turma(int.Parse(cbxId.SelectedItem.ToString()));
+                if (DAO_Conexao.con.State == ConnectionState.Open)
+                {
+                    DAO_Conexao.con.Close();
+                }
+                if (tur.excluirTurma())
+                {
+                    MessageBox.Show("Turma excluída com sucesso!", "Alerta do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+                    MessageBox.Show("Ocorreu um erro. Por favor, tente novamente.", "Alerta do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            finally
+            {
+                if (DAO_Conexao.con.State == ConnectionState.Open)
+                {
+                    DAO_Conexao.con.Close();
+                }
+                DAO_Conexao.con.Open();
+                string sql = "SELECT idTurma, idModalidade, nomeTurma, professor, diaSemana, hora, numAlunMatriculados FROM TurmaCS WHERE turmaAtiva = 0";
+                MySqlCommand busca = new MySqlCommand(sql, DAO_Conexao.con);
+                MySqlDataReader dr = busca.ExecuteReader();
+                while (dr.Read())
+                {
+                    cbxId.Items.Add(dr["idTurma"].ToString());
+                    cbxId.DisplayMember = (dr["idTurma"].ToString());
+                }
                 DAO_Conexao.con.Close();
-            }
-            if (tur.excluirTurma())
-            {
-                MessageBox.Show("Turma excluída com sucesso!", "Alerta do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            } else
-            {
-                MessageBox.Show("Ocorreu um erro. Por favor, tente novamente.", "Alerta do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            string sql = "SELECT idTurma, idModalidade, nomeTurma, professor, diaSemana, hora, numAlunMatriculados, turmaAtiva from TurmaCS";
-            MySqlCommand adiciona = new MySqlCommand(sql, DAO_Conexao.con);
-            DAO_Conexao.con.Open();
-            MySqlDataReader dr = adiciona.ExecuteReader();
-            while (dr.Read())
-            {
-                cbxId.Items.Add(dr["idTurma"].ToString());
-                cbxId.DisplayMember = (dr["idTurma"].ToString());
             }
         }
 

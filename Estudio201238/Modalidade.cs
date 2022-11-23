@@ -84,7 +84,37 @@ namespace Estudio201238
 
         }
 
-       
+
+        public bool consultarModalidade()
+        {
+            Modalidade mod = new Modalidade();
+            bool cad = false;
+            try
+            {
+                DAO_Conexao.con.Open();
+                MySqlCommand updatePrice = new MySqlCommand("UPDATE ModalCS SET precoModal = '" + Preco + "' WHERE ativa = 0 AND descModal = '" + Desc + "'", DAO_Conexao.con);
+                MySqlCommand updateQtdAl = new MySqlCommand("UPDATE ModalCS SET qtdAlModal = '" + Qtd_Alunos + "' WHERE ativa = 0 AND descModal = '" + Desc + "'", DAO_Conexao.con);
+                MySqlCommand updateQtdAu = new MySqlCommand("UPDATE ModalCS SET qtdAuModal = '" + Qtd_Aulas + "' WHERE ativa = 0 AND descModal = '" + Desc + "'", DAO_Conexao.con);
+
+                updatePrice.ExecuteNonQuery();
+                updateQtdAl.ExecuteNonQuery();
+                updateQtdAu.ExecuteNonQuery();
+
+                cad = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Alerta do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                
+                DAO_Conexao.con.Close();
+            }
+            return cad;
+        }
+
+
 
         public bool cadastrarModalidade()
         {
@@ -117,7 +147,7 @@ namespace Estudio201238
             try
             {
                 DAO_Conexao.con.Open();
-                MySqlCommand consulta = new MySqlCommand("SELECT * FROM MODALCS WHERE idModal ='" + Id_Modal + "'", DAO_Conexao.con);
+                MySqlCommand consulta = new MySqlCommand("SELECT * FROM MODALCS WHERE idModal ='" + Id_Modal + "' AND ativa = 0", DAO_Conexao.con);
                 MySqlDataReader result = consulta.ExecuteReader();
                 if (result.Read())
                 {
@@ -152,6 +182,9 @@ namespace Estudio201238
                 MessageBox.Show("Houve um erro. Por favor, tente novamente", "Alerta do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
             } finally
             {
+                string sql = "SELECT descModal FROM ModalCS WHERE ativa = 0";
+                MySqlCommand comando = new MySqlCommand(sql, DAO_Conexao.con);
+                comando.ExecuteReader();
                 DAO_Conexao.con.Close();
             }
             return excl;

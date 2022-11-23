@@ -28,7 +28,7 @@ namespace Estudio201238
                     DAO_Conexao.con.Close();
                 }
                 DAO_Conexao.con.Open();
-                string sql = "SELECT idModal, descModal, precoModal, qtdAlModal, qtdAuModal from ModalCS";
+                string sql = "SELECT idModal, descModal, precoModal, qtdAlModal, qtdAuModal from ModalCS WHERE ativa = 0";
                 MySqlCommand adiciona = new MySqlCommand(sql, DAO_Conexao.con);
                 MySqlDataReader dr = adiciona.ExecuteReader();
                 while (dr.Read())
@@ -51,7 +51,7 @@ namespace Estudio201238
             try
             {
                 DAO_Conexao.con.Open();
-                string sql = "SELECT * from ModalCS";
+                string sql = "SELECT * from ModalCS WHERE ativa = 0";
                 MySqlCommand cmd = new MySqlCommand(sql, DAO_Conexao.con);
                 cmd.ExecuteNonQuery();
             }
@@ -70,7 +70,7 @@ namespace Estudio201238
             try
             {
                 DAO_Conexao.con.Open();
-                string sql = "SELECT precoModal from ModalCS where descModal = '" + cbxDesc.SelectedItem + "'";
+                string sql = "SELECT precoModal from ModalCS where descModal = '" + cbxDesc.SelectedItem + "' AND ativa = 0";
                 MySqlCommand cmd = new MySqlCommand(sql, DAO_Conexao.con);
                 MySqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
@@ -91,7 +91,7 @@ namespace Estudio201238
         private void updateQtdAl()
         {
             DAO_Conexao.con.Open();
-            string sql = "SELECT qtdAlModal from ModalCS where descModal = '" + cbxDesc.SelectedItem + "'";
+            string sql = "SELECT qtdAlModal from ModalCS where descModal = '" + cbxDesc.SelectedItem + "' AND ativa = 0";
             MySqlCommand cmd = new MySqlCommand(sql, DAO_Conexao.con);
             MySqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
@@ -104,7 +104,7 @@ namespace Estudio201238
         private void updateQtdAu()
         {
             DAO_Conexao.con.Open();
-            string sql = "SELECT qtdAuModal from ModalCS where descModal = '" + cbxDesc.SelectedItem + "'";
+            string sql = "SELECT qtdAuModal from ModalCS where descModal = '" + cbxDesc.SelectedItem + "' AND ativa = 0";
             MySqlCommand cmd = new MySqlCommand(sql, DAO_Conexao.con);
             MySqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
@@ -117,7 +117,7 @@ namespace Estudio201238
         private void updateID()
         {
             DAO_Conexao.con.Open();
-            string sql = "SELECT idModal from ModalCS where descModal = '" + cbxDesc.SelectedItem + "'";
+            string sql = "SELECT idModal from ModalCS where descModal = '" + cbxDesc.SelectedItem + "' AND ativa = 0";
             MySqlCommand cmd = new MySqlCommand(sql, DAO_Conexao.con);
             MySqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
@@ -128,36 +128,7 @@ namespace Estudio201238
             DAO_Conexao.con.Close();
         }
 
-        public bool cadastrarModalidade()
-        {
-            Modalidade mod = new Modalidade();
-            bool cad = false;
-            try
-            {
-                DAO_Conexao.con.Open();
-                mod.Preco = float.Parse(txtPreco.Text);
-                mod.Qtd_Alunos = int.Parse(txtAlunos.Text);
-                mod.Qtd_Aulas = int.Parse(txtAulas.Text);
-                MySqlCommand updatePrice = new MySqlCommand("UPDATE ModalCS SET precoModal = '" + mod.Preco + "' WHERE ativa = 0 AND descModal = '" + cbxDesc.Text + "'", DAO_Conexao.con);
-                MySqlCommand updateQtdAl = new MySqlCommand("UPDATE ModalCS SET qtdAlModal = '" + mod.Qtd_Alunos + "' WHERE ativa = 0 AND descModal = '" + cbxDesc.Text + "'", DAO_Conexao.con);
-                MySqlCommand updateQtdAu = new MySqlCommand("UPDATE ModalCS SET qtdAuModal = '" + mod.Qtd_Aulas + "' WHERE ativa = 0 AND descModal = '" + cbxDesc.Text + "'", DAO_Conexao.con);
-
-                updatePrice.ExecuteNonQuery();
-                updateQtdAl.ExecuteNonQuery();
-                updateQtdAu.ExecuteNonQuery();
-                
-                cad = true;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString(), "Alerta do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                DAO_Conexao.con.Close();
-            }
-            return cad;
-        }
+        
         public consModal()
         {
             InitializeComponent();
@@ -217,7 +188,8 @@ namespace Estudio201238
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-      if (cadastrarModalidade())
+            Modalidade mod = new Modalidade(cbxDesc.Text.ToString() ,float.Parse(txtPreco.Text), int.Parse(txtAlunos.Text), int.Parse(txtAulas.Text));
+      if (mod.consultarModalidade())
             {
                 MessageBox.Show("Modalidade atualizada com sucesso!", "Alerta de Sistema", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             } else

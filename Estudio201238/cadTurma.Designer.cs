@@ -143,6 +143,7 @@ namespace Estudio201238
             this.dtHoraFim.Size = new System.Drawing.Size(220, 29);
             this.dtHoraFim.TabIndex = 19;
             this.dtHoraFim.Value = new System.DateTime(2022, 11, 12, 0, 0, 0, 0);
+            this.dtHoraFim.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dtHoraFim_KeyPress);
             this.dtHoraFim.Leave += new System.EventHandler(this.dtHoraFim_Leave);
             // 
             // label6
@@ -171,6 +172,7 @@ namespace Estudio201238
             this.dtHoraComeco.Size = new System.Drawing.Size(200, 29);
             this.dtHoraComeco.TabIndex = 14;
             this.dtHoraComeco.Value = new System.DateTime(2022, 11, 12, 0, 0, 0, 0);
+            this.dtHoraComeco.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dtHoraComeco_KeyPress);
             this.dtHoraComeco.Leave += new System.EventHandler(this.dtHoraComeco_Leave);
             // 
             // btnCadastro

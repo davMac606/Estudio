@@ -30,9 +30,9 @@ namespace Estudio201238
         private void InitializeComponent()
         {
             this.grpExcModal = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnExcModal = new System.Windows.Forms.Button();
             this.cbxDesc = new System.Windows.Forms.ComboBox();
+            this.btnExcModal = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnSair = new System.Windows.Forms.Button();
             this.grpExcModal.SuspendLayout();
             this.SuspendLayout();
@@ -52,14 +52,15 @@ namespace Estudio201238
             this.grpExcModal.Text = "Modalidades";
             this.grpExcModal.Enter += new System.EventHandler(this.grpExcModal_Enter);
             // 
-            // label1
+            // cbxDesc
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 66);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 21);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Descrição:";
+            this.cbxDesc.FormattingEnabled = true;
+            this.cbxDesc.Location = new System.Drawing.Point(93, 66);
+            this.cbxDesc.Name = "cbxDesc";
+            this.cbxDesc.Size = new System.Drawing.Size(373, 29);
+            this.cbxDesc.Sorted = true;
+            this.cbxDesc.TabIndex = 4;
+            this.cbxDesc.SelectedIndexChanged += new System.EventHandler(this.cbxDesc_SelectedIndexChanged);
             // 
             // btnExcModal
             // 
@@ -71,14 +72,14 @@ namespace Estudio201238
             this.btnExcModal.UseVisualStyleBackColor = true;
             this.btnExcModal.Click += new System.EventHandler(this.btnExcModal_Click);
             // 
-            // cbxDesc
+            // label1
             // 
-            this.cbxDesc.FormattingEnabled = true;
-            this.cbxDesc.Location = new System.Drawing.Point(93, 66);
-            this.cbxDesc.Name = "cbxDesc";
-            this.cbxDesc.Size = new System.Drawing.Size(373, 29);
-            this.cbxDesc.TabIndex = 4;
-            this.cbxDesc.SelectedIndexChanged += new System.EventHandler(this.cbxDesc_SelectedIndexChanged);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 66);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(80, 21);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Descrição:";
             // 
             // btnSair
             // 

@@ -25,7 +25,7 @@ namespace Estudio201238
             {
                 if (DAO_Conexao.con.State != ConnectionState.Open)
                     DAO_Conexao.con.Open();
-                string sql = "SELECT idTurma, idModalidade, nomeTurma, professor, diaSemana, hora, numAlunMatriculados, turmaAtiva from TurmaCS";
+                string sql = "SELECT idTurma, idModalidade, nomeTurma, professor, diaSemana, hora, numAlunMatriculados FROM TurmaCS";
                 MySqlCommand adiciona = new MySqlCommand(sql, DAO_Conexao.con);
                 MySqlDataReader dr = adiciona.ExecuteReader();
                 while (dr.Read())

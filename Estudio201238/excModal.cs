@@ -23,7 +23,7 @@ namespace Estudio201238
             try
             {
                 DAO_Conexao.con.Open();
-                string sql = "SELECT idModal, descModal, precoModal, qtdAlModal, qtdAuModal from ModalCS";
+                string sql = "SELECT idModal, descModal, precoModal, qtdAlModal, qtdAuModal from ModalCS WHERE ativa = 0";
                 MySqlCommand adiciona = new MySqlCommand(sql, DAO_Conexao.con);
                 MySqlDataReader dr = adiciona.ExecuteReader();
                 while (dr.Read())

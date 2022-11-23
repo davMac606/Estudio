@@ -88,7 +88,7 @@ namespace Estudio201238
             // 
             this.txtNome.Location = new System.Drawing.Point(614, 49);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(100, 29);
+            this.txtNome.Size = new System.Drawing.Size(310, 29);
             this.txtNome.TabIndex = 13;
             // 
             // label6

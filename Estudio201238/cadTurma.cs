@@ -24,7 +24,7 @@ namespace Estudio201238
         {
             DAO_Conexao.con.Open();
 
-            string sql = "SELECT idModal, descModal, qtdAuModal FROM ModalCS";
+            string sql = "SELECT idModal, descModal, qtdAuModal FROM ModalCS WHERE ativa = 0";
             MySqlCommand adiciona = new MySqlCommand(sql, DAO_Conexao.con);
             MySqlDataReader dr = adiciona.ExecuteReader();
             while (dr.Read())
@@ -45,7 +45,7 @@ namespace Estudio201238
                 DAO_Conexao.con.Close();
             }
             DAO_Conexao.con.Open();
-            string sql = "SELECT idModal, qtdAuModal FROM ModalCS WHERE descModal = '" + cbxDesc.Text + "'";
+            string sql = "SELECT idModal, qtdAuModal FROM ModalCS WHERE descModal = '" + cbxDesc.Text + "' AND ativa = 0";
             MySqlCommand cmd = new MySqlCommand(sql, DAO_Conexao.con);
             MySqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
@@ -157,10 +157,7 @@ namespace Estudio201238
 
         private void dtHoraFim_Leave(object sender, EventArgs e)
         {
-            txtHora.Visible = true;
-            string hora = dtHoraComeco.Text + "-" + dtHoraFim.Text;
-            txtHora.Text = hora;
-            txtHora.Enabled = false;
+            
         }
 
     
@@ -176,8 +173,11 @@ namespace Estudio201238
 
         private void txtNome_Leave(object sender, EventArgs e)
         {
-            bool isInt = txtNome.Text.All(char.IsDigit);
+            bool isInt = txtNome.Text.All(char.IsLetterOrDigit);
             if (isInt)
+            {
+               
+            } else
             {
                 MessageBox.Show("ERRO: Não é permitido cadastrar números no nome. Por favor, tente novamente.", "Alerta do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -186,6 +186,28 @@ namespace Estudio201238
         private void grpCadTurma_Enter(object sender, EventArgs e)
         {
          
+        }
+
+        private void dtHoraFim_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                txtHora.Visible = true;
+                string hora = dtHoraComeco.Text + "-" + dtHoraFim.Text;
+                txtHora.Text = hora;
+                txtHora.Enabled = false;
+            }
+        }
+
+        private void dtHoraComeco_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                txtHora.Visible = true;
+                string hora = dtHoraComeco.Text + "-" + dtHoraFim.Text;
+                txtHora.Text = hora;
+                txtHora.Enabled = false;
+            }
         }
 
         /*private void txtAlunos_TextChanged(object sender, EventArgs e)
