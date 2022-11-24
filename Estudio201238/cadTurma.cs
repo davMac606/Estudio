@@ -109,6 +109,7 @@ namespace Estudio201238
             txtIDModal.Visible = true;
             txtIDModal.Clear();
             grpCadTurma.Enabled = false;
+            cbxDesc.Sorted = true;
            
         }
 

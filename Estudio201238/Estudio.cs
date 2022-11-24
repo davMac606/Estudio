@@ -89,7 +89,6 @@ namespace Estudio201238
         private void modalidadesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             gerenModal gerMod = new gerenModal();
-            gerMod.MdiParent = this;
             this.WindowState = FormWindowState.Maximized;
             gerMod.Show();
         }

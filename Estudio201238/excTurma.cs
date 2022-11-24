@@ -73,7 +73,7 @@ namespace Estudio201238
             }
             finally
             {
-                if (DAO_Conexao.con.State == ConnectionState.Open)
+                /*if (DAO_Conexao.con.State == ConnectionState.Open)
                 {
                     DAO_Conexao.con.Close();
                 }
@@ -85,7 +85,7 @@ namespace Estudio201238
                 {
                     cbxId.Items.Add(dr["idTurma"].ToString());
                     cbxId.DisplayMember = (dr["idTurma"].ToString());
-                }
+                }*/
                 DAO_Conexao.con.Close();
             }
         }
