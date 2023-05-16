@@ -1,4 +1,4 @@
-PORT=3000
+a
 
-DATABASE_URL='mysql://nm862lugcg1vopj4cn0w:pscale_pw_kobaobp9vQN1vzLldYrAgC6efhwEJdIbql14jemwekC@aws.connect.psdb.cloud/commandee?sslaccept=strict'
-JWT_SECRET='b8c875a0710259e32373febfff369295b97adc34ee4c3f7dbd10b7f1d759563ace23b50f17eed4c6f926a0dce3161978df717b56e1d472077f00ef72744a5694'
+
+
